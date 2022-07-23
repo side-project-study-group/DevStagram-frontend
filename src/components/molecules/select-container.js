@@ -1,26 +1,21 @@
-import React from "react";
-import styled from "styled-components";
-import Select from "../atoms/select";
+import React from 'react';
+import styled from 'styled-components';
+import Label from '../atoms/label';
+import Select from '../atoms/select';
 
 const Container = styled.div`
   width: 100%;
   display: flex;
-  margin: 5px 0;
-  label {
-    background-color: pink;
-    padding: 5px 5px;
-    margin-right: 10px;
-  }
-  select {
-    flex-grow: 1;
-  }
+  flex-direction: ${(props) => (props.width ? 'row' : 'column')};
+  justify-content: space-between;
+  margin: 15px 0;
 `;
 
-function SelectContainer({ label, options }) {
+function SelectContainer({ label, options, width }) {
   return (
-    <Container>
-      <label>{label}</label>
-      <Select options={options} />
+    <Container width={width}>
+      <Label label={label} />
+      <Select options={options} width={width} />
     </Container>
   );
 }
