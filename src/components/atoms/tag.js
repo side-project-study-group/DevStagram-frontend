@@ -2,12 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 const Button = styled.button`
-  width: 70px;
-  height: 30px;
-  margin-top: 5px;
+  height: 23px;
+  color: white;
+  font-family: "NotoSansKR";
+  width: 90px;
+  margin-right: 5px;
   background-color: ${(props) => props.bgColor || "green"};
-  border: none;
+  border: 1.8px solid black;
   border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 function Tag({ text }) {
@@ -15,12 +20,12 @@ function Tag({ text }) {
     <Button
       bgColor={
         text === "전체"
-          ? "orange"
+          ? "#F05550"
           : text === "프로젝트"
-          ? "cornflowerblue"
+          ? "#FA9637"
           : text === "스터디"
-          ? "yellowgreen"
-          : "pink"
+          ? "#28AF73"
+          : "#A06EEB"
       }
     >
       {text}
