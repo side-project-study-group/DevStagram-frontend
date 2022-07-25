@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   height: 100%;
   background-color: rgba(220, 220, 220, 0.4);
   backdrop-filter: blur(2px);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
@@ -64,7 +64,7 @@ const ButtonContainer = styled.div`
   }
 `;
 
-function PopUp() {
+function PopUpTemp() {
   return (
     <Wrapper>
       <Container>
@@ -83,4 +83,4 @@ function PopUp() {
   );
 }
 
-export default PopUp;
+export default PopUpTemp;
