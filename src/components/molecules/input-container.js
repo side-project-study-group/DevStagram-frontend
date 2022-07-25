@@ -1,30 +1,21 @@
-import React from "react";
-import styled from "styled-components";
-import Input from "../atoms/input";
-import { IoPersonOutline } from "react-icons/io5";
+import React from 'react';
+import styled from 'styled-components';
+import Input from '../atoms/input';
+import Label from '../atoms/label';
 
 const Container = styled.div`
   width: 100%;
   display: flex;
-  margin: 5px 0;
-  label {
-    background-color: pink;
-    padding: 5px 5px;
-    margin-right: 10px;
-  }
-  input {
-    flex-grow: 1;
-  }
+  flex-direction: ${(props) => (props.width ? 'row' : 'column')};
+  justify-content: space-between;
+  margin: 15px 0;
 `;
 
-function InputContainer({ label }) {
+function InputContainer({ label, width }) {
   return (
-    <Container>
-      <label>
-        {label === "인원수" && <IoPersonOutline />}
-        {label}
-      </label>
-      <Input />
+    <Container width={width}>
+      <Label label={label} />
+      <Input width={width} type={label === '인원수' ? 'number' : 'text'} />
     </Container>
   );
 }

@@ -6,6 +6,8 @@ import Tag from './atoms/tag';
 import TextBox from './atoms/text-box';
 import ProfileTag from './molecules/profile-tag';
 import { ImLock } from 'react-icons/im';
+import ProfileImg from './atoms/profile-img';
+import TimeLine from './atoms/time-line';
 
 const Section = styled.div`
   margin-bottom: 10px;
@@ -14,7 +16,7 @@ const Section = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 1);
   border: 2px solid #24231f;
   border-radius: 10px;
   max-width: 480px;
@@ -25,7 +27,7 @@ const Header = styled.header`
   display: flex;
 `;
 
-const Container = styled.div`
+const Wrapper = styled.div`
   width: 100%;
 `;
 
@@ -41,25 +43,35 @@ const EditBtn = styled.div`
 const Footer = styled.footer`
   width: 100%;
   display: flex;
-  justify-content: space-between;
 `;
 
-function MeetUpPostBox({ children }) {
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+function MeetUpPostBox({ children, size }) {
   return (
     <Section>
-      <Container>
+      <Wrapper>
         <Header>
           <ImLock style={{ color: 'green' }} />
           <Tag text='프로젝트' />
         </Header>
+        <Container>
+          <ProfileTag size={size} />
+          <TimeLine />
+        </Container>
         <EditBtn>{children}</EditBtn>
         <MeetUpTitle />
         <TextBox />
         <Footer>
           <MemberTag />
-          <ProfileTag />
+          <ProfileImg size='small' />
+          <ProfileImg size='small' />
+          <ProfileImg size='small' />
         </Footer>
-      </Container>
+      </Wrapper>
     </Section>
   );
 }

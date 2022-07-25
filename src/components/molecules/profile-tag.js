@@ -1,36 +1,20 @@
-import React from "react";
-import styled from "styled-components";
-import testProfile from "../../assets/imgs/test.png";
+import React from 'react';
+import styled from 'styled-components';
+import ProfileImg from '../atoms/profile-img';
 
 const Profile = styled.div`
   display: flex;
+  margin-top: 5px;
   span {
-    font-family: "RobotoBold";
-    font-size: 15px;
+    font-family: 'RobotoBold';
+    font-size: ${(props) => (props.size === 'big' ? '20px' : '15px')};
   }
 `;
 
-const ImgContainer = styled.div`
-  width: 22px;
-  height: 22px;
-  margin-right: 5px;
-  background-color: lightcoral;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  img {
-    width: 80%;
-    height: 80%;
-  }
-`;
-
-function ProfileTag() {
+function ProfileTag({ size }) {
   return (
-    <Profile>
-      <ImgContainer>
-        <img src={testProfile} alt="profile_img" />
-      </ImgContainer>
+    <Profile size={size}>
+      <ProfileImg size={size} />
       <span>yday1223</span>
     </Profile>
   );

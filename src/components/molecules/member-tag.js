@@ -1,11 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import { IoIosPeople } from "react-icons/io";
+import React from 'react';
+import styled from 'styled-components';
+import { IoIosPeople } from 'react-icons/io';
 
 const MemberContainer = styled.div`
   display: flex;
-  font-family: "NotoSansKR";
+  font-family: 'NotoSansKR';
   color: #4b64e6;
+  margin-right: 10px;
   .people_icon {
     font-size: 25px;
   }
@@ -18,8 +19,8 @@ const MemberContainer = styled.div`
 function MemberTag() {
   return (
     <MemberContainer>
-      <IoIosPeople className="people_icon" />
-      <span>1 /5명 참여</span>
+      <IoIosPeople className='people_icon' />
+      <span>3 /5명 참여</span>
     </MemberContainer>
   );
 }
