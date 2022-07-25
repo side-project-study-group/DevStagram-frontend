@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -8,7 +8,7 @@ const Wrapper = styled.div`
 `;
 const Container = styled.div`
   width: 100%;
-  font-family: 'NotoSansKR';
+  font-family: "NotoSansKR";
   padding: 0 5px;
   box-sizing: border-box;
   font-size: 15px;
