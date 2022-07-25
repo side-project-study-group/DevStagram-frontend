@@ -1,31 +1,34 @@
-import React from "react";
-import styled from "styled-components";
-import ProfileTag from "./molecules/profile-tag";
-import MemberTag from "./molecules/member-tag";
-import MeetUpTitle from "./molecules/meet-up-title";
-import MeetType from "./atoms/meet-type";
-import Tag from "./atoms/tag";
+import React from 'react';
+import styled from 'styled-components';
+import MemberTag from './molecules/member-tag';
+import MeetUpTitle from './molecules/meet-up-title';
+import Tag from './atoms/tag';
+import TextBox from './atoms/text-box';
+import ProfileTag from './molecules/profile-tag';
+import { ImLock } from 'react-icons/im';
+import ProfileImg from './atoms/profile-img';
+import TimeLine from './atoms/time-line';
 
-const Container = styled.div`
-  margin: 0 auto;
+const Section = styled.div`
+  margin-bottom: 10px;
   box-sizing: border-box;
-  width: 100%;
-  position: relative;
-  background-color: whitesmoke;
-  max-width: 480px;
-  padding: 10px;
-  border-bottom: 1px solid white;
-`;
-
-const TagContainer = styled.div`
-  display: flex;
-  gap: 5px;
-`;
-
-const Bottom = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  background-color: rgba(255, 255, 255, 1);
+  border: 2px solid #24231f;
+  border-radius: 10px;
+  max-width: 480px;
+  padding: 10px;
+`;
+
+const Header = styled.header`
+  display: flex;
+`;
+
+const Wrapper = styled.div`
+  width: 100%;
 `;
 
 const EditBtn = styled.div`
@@ -37,23 +40,39 @@ const EditBtn = styled.div`
   }
 `;
 
-function MeetUpPostBox({ children }) {
+const Footer = styled.footer`
+  width: 100%;
+  display: flex;
+`;
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+function MeetUpPostBox({ children, size }) {
   return (
-    <Container>
-      <EditBtn>
-        {/* {edit && <TbDotsCircleHorizontal className="edit_icon" />} */}
-        {children}
-      </EditBtn>
-      <TagContainer>
-        <Tag text="스터디" />
-      </TagContainer>
-      <MeetUpTitle />
-      <MeetType />
-      <Bottom>
-        <MemberTag />
-        <ProfileTag />
-      </Bottom>
-    </Container>
+    <Section>
+      <Wrapper>
+        <Header>
+          <ImLock style={{ color: 'green' }} />
+          <Tag text='프로젝트' />
+        </Header>
+        <Container>
+          <ProfileTag size={size} />
+          <TimeLine />
+        </Container>
+        <EditBtn>{children}</EditBtn>
+        <MeetUpTitle />
+        <TextBox />
+        <Footer>
+          <MemberTag />
+          <ProfileImg size='small' />
+          <ProfileImg size='small' />
+          <ProfileImg size='small' />
+        </Footer>
+      </Wrapper>
+    </Section>
   );
 }
 
