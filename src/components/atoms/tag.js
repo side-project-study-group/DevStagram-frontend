@@ -1,26 +1,31 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const Button = styled.button`
-  width: 70px;
-  height: 30px;
-  margin-top: 5px;
-  background-color: ${(props) => props.bgColor || "green"};
-  border: none;
+  height: 23px;
+  color: white;
+  font-family: 'NotoSansKR';
+  width: 90px;
+  margin-right: 5px;
+  background-color: ${(props) => props.bgColor || 'green'};
+  border: 1.5px solid black;
   border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 function Tag({ text }) {
   return (
     <Button
       bgColor={
-        text === "전체"
-          ? "orange"
-          : text === "프로젝트"
-          ? "cornflowerblue"
-          : text === "스터디"
-          ? "yellowgreen"
-          : "pink"
+        text === '전체'
+          ? '#F05550'
+          : text === '프로젝트'
+          ? '#FA9637'
+          : text === '스터디'
+          ? '#28AF73'
+          : '#A06EEB'
       }
     >
       {text}
