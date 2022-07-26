@@ -7,6 +7,7 @@ function TimeLineDetail() {
         text: "Albert Flores",
         date: "2022-07-17 21:30:00",
         contents: "consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commode nulla facillsi",
+        isFilledInit: false,
         replyCount: 4,
         likeCount: 12
     }
@@ -16,6 +17,7 @@ function TimeLineDetail() {
         text={mock.text} 
         date={mock.date} 
         contents={mock.contents} 
+        isFilledInit={mock.isFilledInit}
         replyCount={mock.replyCount} 
         likeCount={mock.likeCount} />
 

@@ -1,11 +1,11 @@
 import React from "react";
 import VerticalProfile from "../../components/molecules/vertical-profile"
 import Text from "../../components/atoms/text"
-import {IoHeartOutline, IoChatbubbleOutline } from "react-icons/io5";
 import styled from "styled-components";
-import IconCount from "../../components/molecules/Icon-count";
+import ChatIconCount from "../../components/molecules/chat-icon-count";
+import LikeIconCount from "../../components/molecules/like-icon-count";
 
-function TimelineDetailTemp({src, text, date, contents, replyCount, likeCount}) {
+function TimelineDetailTemp({src, text, date, contents, replyCount, isFilledInit, likeCount}) {
 
     const StyledContainer = styled.div`
         margin-right: 20px;
@@ -27,8 +27,8 @@ function TimelineDetailTemp({src, text, date, contents, replyCount, likeCount}) 
             <VerticalProfile src={src} text={text} date={date} />
             <Text value={contents} />
             <StyledDiv>
-                <IconCount icon={<IoChatbubbleOutline />} count={replyCount} />
-                <IconCount icon={<IoHeartOutline />} count={likeCount} />
+                <ChatIconCount count={replyCount} />
+                <LikeIconCount isFilledInit={isFilledInit}  count={likeCount} />
             </StyledDiv>
         </StyledContainer>
     )
