@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
-import CreateButton from "../../components/atoms/create-button";
-import { BiSmile } from "react-icons/bi";
-import { BsPencilSquare } from "react-icons/bs";
+import React from 'react';
+import styled from 'styled-components';
+import CreateButton from '../../components/atoms/create-button';
+import { BiSmile } from 'react-icons/bi';
+import { BsPencilSquare } from 'react-icons/bs';
 
 const Section = styled.section`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -15,7 +15,7 @@ const Section = styled.section`
 `;
 
 const Wrapper = styled.div`
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   max-width: 480px;
@@ -34,8 +34,8 @@ function CreatePopUpTemp() {
   return (
     <Section>
       <Wrapper>
-        <CreateButton icon={<BiSmile />} text={"New Meet Up"} />
-        <CreateButton icon={<BsPencilSquare />} text={"New Post"} />
+        <CreateButton icon={<BiSmile />} text={'New Meet Up'} />
+        <CreateButton icon={<BsPencilSquare />} text={'New Post'} />
       </Wrapper>
     </Section>
   );
