@@ -11,7 +11,7 @@ const Section = styled.section`
   max-width: 480px;
   margin: 0 auto;
   height: 100%;
-  background-color: #fafaf8;
+  background-color: rgba(250, 250, 248, 1);
   padding: 0 15px;
   box-sizing: border-box;
 `;
@@ -22,9 +22,9 @@ function MeetUpListTemp() {
       <Section>
         <SearchHeader />
         <NavigationBar />
-        <MeetUpPostBox />
-        <MeetUpPostBox />
-        <MeetUpPostBox />
+        <MeetUpPostBox size={'small'} />
+        <MeetUpPostBox size={'small'} />
+        <MeetUpPostBox size={'small'} />
         <PlusButton />
       </Section>
       {/* <CreatePopUp /> */}
