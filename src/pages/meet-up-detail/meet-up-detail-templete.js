@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import MeetUpPostBox from '../../components/meet-up-post-box';
 import FooterBtn from '../../components/molecules/footer-button';
+import PopUp from '../../components/organisms/pop-up';
 
 const Section = styled.section`
   width: 100%;
@@ -18,6 +19,7 @@ function MeetUpPostTemp() {
     <Section>
       <MeetUpPostBox size={'big'} />
       <FooterBtn text='참여하기' />
+      <PopUp />
     </Section>
   );
 }
