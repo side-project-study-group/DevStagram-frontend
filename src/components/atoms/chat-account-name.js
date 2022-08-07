@@ -2,8 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const P = styled.p`
-  margin-bottom: 5px;
-  font-size: 12px;
+  font-size: 18px;
+  font-family: "RobotoBold";
+  font-weight: 900;
+  margin: 0;
 `;
 
 function ChatAccountName({ name }) {
