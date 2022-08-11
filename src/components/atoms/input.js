@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react';
 
-function Input() {
-  return <input />;
+function Input({ placeholder, handleChange }) {
+  return (
+    <input type='text' placeholder={placeholder} onChange={handleChange} />
+  );
 }
 
 export default Input;
