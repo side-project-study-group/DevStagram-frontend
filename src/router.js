@@ -6,6 +6,7 @@ import MeetUpChatList from './pages/meet-up-chat-list/meet-up-chat-list';
 import MeetUpList from './pages/meet-up-list/meet-up-list';
 import MeetUpWrite from './pages/meet-up-write/meet-up-write';
 import MeetUpDetail from './pages/meet-up-detail/meet-up-detail';
+import TimeLineDetail from './pages/timeline-detail/timeline-detail';
 
 function Router() {
   const [pathName, setPathName] = useState('/');
@@ -23,6 +24,7 @@ function Router() {
           <Route path='/meet-up-detail' element={<MeetUpDetail />} />
           <Route path='/meet-up-chat-list' element={<MeetUpChatList />} />
           <Route path='/meet-up-write' element={<MeetUpWrite />} />
+          <Route path='/timeline-detail' element={<TimeLineDetail />} />
         </Routes>
       </BrowserRouter>
     </>
