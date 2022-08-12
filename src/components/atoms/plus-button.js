@@ -9,6 +9,7 @@ const Wrapper = styled.div`
 `
 
 const BtnContainer = styled.div`
+    cursor: pointer;
     z-index: 99;
     position: fixed;
     margin-left: 380px;
@@ -24,6 +25,7 @@ const BtnContainer = styled.div`
         props.isOpenPopUp ? '#ffffff' : ' #fab923'};
     box-shadow: 2px 3px 0px rgba(0, 0, 0, 0.1);
     button {
+        cursor: pointer;
         font-size: 25px;
         background-color: transparent;
         border: none;
