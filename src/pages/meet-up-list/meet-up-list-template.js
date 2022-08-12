@@ -16,6 +16,11 @@ const Section = styled.section`
     box-sizing: border-box;
 `
 
+const Container = styled.div`
+    width: 100%;
+    padding-bottom: 10px;
+`
+
 function MeetUpListTemp() {
     const [isOpenPopUp, setIsOpenPopUp] = useState(false)
     return (
@@ -23,9 +28,11 @@ function MeetUpListTemp() {
             <Section>
                 <SearchHeader />
                 <NavigationBar />
-                <MeetUpPostBox size={'small'} />
-                <MeetUpPostBox size={'small'} />
-                <MeetUpPostBox size={'small'} />
+                <Container>
+                    <MeetUpPostBox size={'small'} />
+                    <MeetUpPostBox size={'small'} />
+                    <MeetUpPostBox size={'small'} />
+                </Container>
                 <PlusButton
                     isOpenPopUp={isOpenPopUp}
                     handleClick={() => setIsOpenPopUp(!isOpenPopUp)}
