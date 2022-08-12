@@ -1,36 +1,29 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
 const Button = styled.button`
-  height: 23px;
-  color: white;
-  font-family: 'NotoSansKR';
-  width: 90px;
-  margin-right: 5px;
-  background-color: ${(props) => props.bgColor || 'green'};
-  border: 1.5px solid black;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+    height: 23px;
+    color: white;
+    font-family: 'NotoSansKR';
+    width: 90px;
+    margin-right: 5px;
+    background-color: ${(props) =>
+        props.text === '전체'
+            ? '#F05550'
+            : props.text === '프로젝트'
+            ? '#FA9637'
+            : props.text === '스터디'
+            ? '#28AF73'
+            : '#A06EEB'};
+    border: 1px solid #414042;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
 
 function Tag({ text }) {
-  return (
-    <Button
-      bgColor={
-        text === '전체'
-          ? '#F05550'
-          : text === '프로젝트'
-          ? '#FA9637'
-          : text === '스터디'
-          ? '#28AF73'
-          : '#A06EEB'
-      }
-    >
-      {text}
-    </Button>
-  );
+    return <Button text={text}>{text}</Button>
 }
 
-export default Tag;
+export default Tag
