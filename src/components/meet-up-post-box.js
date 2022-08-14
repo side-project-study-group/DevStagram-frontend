@@ -2,13 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import MemberTag from './molecules/member-tag'
 import MeetUpTitle from './molecules/meet-up-title'
-import Tag from './atoms/tag'
 import TextBox from './atoms/text-box'
 import ProfileTag from './molecules/profile-tag'
 import Lock from '../assets/icons/Lock.svg'
 import ProfileImg from './atoms/profile-img'
 import TimeLine from './atoms/time-line'
 import { useLocation } from 'react-router-dom'
+import MeetUpCategoryTag from './atoms/meet-up-category-tag'
 
 const Section = styled.div`
     margin-bottom: 10px;
@@ -68,7 +68,7 @@ function MeetUpPostBox({ children, size }) {
             <Wrapper>
                 <Header>
                     <Img src={Lock} />
-                    <Tag text="프로젝트" />
+                    <MeetUpCategoryTag text="프로젝트" />
                 </Header>
                 {location.pathname !== '/' && (
                     <Container>
