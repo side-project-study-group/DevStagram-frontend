@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import FooterBtn from '../../components/atoms/footer-button'
 import MeetUpPostBox from '../../components/meet-up-post-box'
-import FooterBtn from '../../components/molecules/footer-button'
 import PopUp from '../../components/organisms/pop-up'
 
 const Section = styled.section`

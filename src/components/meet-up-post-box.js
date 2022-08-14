@@ -5,10 +5,10 @@ import MeetUpTitle from './molecules/meet-up-title'
 import TextBox from './atoms/text-box'
 import ProfileTag from './molecules/profile-tag'
 import Lock from '../assets/icons/Lock.svg'
-import ProfileImg from './atoms/profile-img'
 import TimeLine from './atoms/time-line'
 import { useLocation } from 'react-router-dom'
 import MeetUpCategoryTag from './atoms/meet-up-category-tag'
+import ProfileImg from './atoms/meet-up-profile-img'
 
 const Section = styled.div`
     margin-bottom: 10px;
