@@ -1,8 +1,13 @@
-import React from 'react';
-import Router from './router';
+import React from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import Router from './router'
 
 function App() {
-  return <Router />;
+    return (
+        <BrowserRouter>
+            <Router />
+        </BrowserRouter>
+    )
 }
 
-export default App;
+export default App
