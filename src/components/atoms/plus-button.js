@@ -41,8 +41,8 @@ const BtnContainer = styled.div`
 function PlusButton({ isOpenPopUp, handleClick }) {
     return (
         <Wrapper>
-            <BtnContainer isOpenPopUp={isOpenPopUp}>
-                <button onClick={handleClick}>
+            <BtnContainer isOpenPopUp={isOpenPopUp} onClick={handleClick}>
+                <button>
                     <BsPlusLg />
                 </button>
             </BtnContainer>
