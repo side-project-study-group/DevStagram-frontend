@@ -15,7 +15,7 @@ const Button = styled.button`
             : props.text === '스터디'
             ? '#28AF73'
             : '#A06EEB'};
-    border: 1px solid #414042;
+    border: 2px solid #414042;
     border-radius: 15px;
     display: flex;
     justify-content: center;
