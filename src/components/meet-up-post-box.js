@@ -4,10 +4,11 @@ import MemberTag from './molecules/member-tag'
 import MeetUpTitle from './molecules/meet-up-title'
 import TextBox from './atoms/text-box'
 import ProfileTag from './molecules/profile-tag'
-import { ImLock } from 'react-icons/im'
+import Lock from '../assets/icons/Lock.svg'
 import ProfileImg from './atoms/profile-img'
 import TimeLine from './atoms/time-line'
-import MeetUpCategroyTag from './atoms/meet-up-category-tag'
+import { useLocation } from 'react-router-dom'
+import MeetUpCategoryTag from './atoms/meet-up-category-tag'
 
 const Section = styled.div`
     margin-bottom: 10px;
@@ -25,6 +26,12 @@ const Section = styled.div`
 
 const Header = styled.header`
     display: flex;
+    align-items: center;
+`
+
+const Img = styled.img`
+    width: 18px;
+    margin-right: 10px;
 `
 
 const Wrapper = styled.div`
@@ -43,6 +50,9 @@ const EditBtn = styled.div`
 const Footer = styled.footer`
     width: 100%;
     display: flex;
+    justify-content: ${(props) =>
+        props.path === '/' ? 'space-between' : 'flex-start'};
+    margin-top: 10px;
 `
 
 const Container = styled.div`
@@ -51,25 +61,35 @@ const Container = styled.div`
 `
 
 function MeetUpPostBox({ children, size }) {
+    const location = useLocation()
+
     return (
         <Section>
             <Wrapper>
                 <Header>
-                    <ImLock style={{ color: 'green' }} />
-                    <MeetUpCategroyTag text="프로젝트" />
+                    <Img src={Lock} />
+                    <MeetUpCategoryTag text="프로젝트" />
                 </Header>
-                <Container>
-                    <ProfileTag size={size} />
-                    <TimeLine />
-                </Container>
+                {location.pathname !== '/' && (
+                    <Container>
+                        <ProfileTag size={size} />
+                        <TimeLine />
+                    </Container>
+                )}
                 <EditBtn>{children}</EditBtn>
                 <MeetUpTitle />
                 <TextBox />
-                <Footer>
+                <Footer path={location.pathname}>
                     <MemberTag />
-                    <ProfileImg size="small" />
-                    <ProfileImg size="small" />
-                    <ProfileImg size="small" />
+                    {location.pathname === '/' ? (
+                        <ProfileTag size={'small'} />
+                    ) : (
+                        <>
+                            <ProfileImg size="small" />
+                            <ProfileImg size="small" />
+                            <ProfileImg size="small" />
+                        </>
+                    )}
                 </Footer>
             </Wrapper>
         </Section>
