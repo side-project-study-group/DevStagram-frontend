@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
-import FooterBtn from '../../components/atoms/footer-button'
+import FooterBtn from '../../components/molecules/footer-button'
 import MeetUpChatBox from '../../components/organisms/meet-up-chat-box'
 import PopUp from '../../components/organisms/pop-up'
 
@@ -18,16 +18,38 @@ const Ul = styled.ul`
 `
 
 function MeetUpChatListTemp() {
+    const [state, setState] = useState('')
+
+    function handleModify() {
+        setState('delete')
+    }
+
+    function handleDelete() {
+        setState('popup')
+    }
+
     return (
         <Section>
             <Ul>
-                <MeetUpChatBox />
-                <MeetUpChatBox />
-                <MeetUpChatBox />
-                <MeetUpChatBox />
-                <MeetUpChatBox />
-                {/* <PopUp /> */}
-                <FooterBtn text={'수정하기'} />
+                <MeetUpChatBox state={state} />
+                <MeetUpChatBox state={state} />
+                <MeetUpChatBox state={state} />
+                <MeetUpChatBox state={state} />
+                <MeetUpChatBox state={state} />
+                {state === 'popup' && (
+                    <PopUp handleCancel={() => setState('')}>
+                        <p>
+                            삭제하기를 누르면 복구할 수 없습니다. <br /> 정말로
+                            삭제하시겠습니까?
+                        </p>
+                    </PopUp>
+                )}
+                <FooterBtn
+                    handleClick={
+                        state !== 'delete' ? handleModify : handleDelete
+                    }
+                    text={state === '' ? '수정하기' : '삭제하기'}
+                />
             </Ul>
         </Section>
     )

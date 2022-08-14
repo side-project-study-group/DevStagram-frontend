@@ -1,24 +1,24 @@
-import React from "react";
-import styled from "styled-components";
-import Tag from "./atoms/tag";
+import React from 'react'
+import styled from 'styled-components'
+import MeetUpCategroyTag from './atoms/meet-up-category-tag'
 
 const Container = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  padding-bottom: 5px;
-`;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+`
 
 function NavigationBar() {
-  return (
-    <Container>
-      <Tag text={"전체"} />
-      <Tag text={"스터디"} />
-      <Tag text={"프로젝트"} />
-      <Tag text={"네트워킹"} />
-    </Container>
-  );
+    return (
+        <Container>
+            <MeetUpCategroyTag text={'전체'} />
+            <MeetUpCategroyTag text={'스터디'} />
+            <MeetUpCategroyTag text={'프로젝트'} />
+            <MeetUpCategroyTag text={'네트워킹'} />
+        </Container>
+    )
 }
 
-export default NavigationBar;
+export default NavigationBar

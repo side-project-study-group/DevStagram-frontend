@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import MeetUpPostBox from '../../components/meet-up-post-box'
-import FooterBtn from '../../components/atoms/footer-button'
+import FooterBtn from '../../components/molecules/footer-button'
 import PopUp from '../../components/organisms/pop-up'
 
 const Section = styled.section`
@@ -15,11 +15,22 @@ const Section = styled.section`
 `
 
 function MeetUpPostTemp() {
+    const [isOpenPopUP, setIsOpenPopUp] = useState(false)
     return (
         <Section>
             <MeetUpPostBox size={'big'} />
-            <FooterBtn text="참여하기" />
-            <PopUp />
+            <FooterBtn
+                handleClick={() => setIsOpenPopUp(!isOpenPopUP)}
+                text="참여하기"
+            />
+            {isOpenPopUP && (
+                <PopUp handleCancel={() => setIsOpenPopUp(false)}>
+                    <p>
+                        참여하기를 누르면 단톡방으로 이동합니다.
+                        <br /> 밋업에 참여하시겠습니까?
+                    </p>
+                </PopUp>
+            )}
         </Section>
     )
 }
