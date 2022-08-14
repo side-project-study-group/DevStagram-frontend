@@ -4,19 +4,19 @@ import Text from '../atoms/text.js'
 import DateText from '../atoms/date-text.js'
 import styled from 'styled-components'
 
-function VerticalProfile({ src, text, date }) {
+const StyledDiv = styled.div`
+display: flex;
+align-items: center;
+gap: 10px;
+`;
 
-    const StyledDiv = styled.div`
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    `;
+function VerticalProfile({ src, text, date }) {
 
     return (
         <StyledDiv>
             <CircleImage src={src} />
-            <Text value={text} size={"large"} />
-            <DateText date={date} size={"small"} />
+            <Text value={text} />
+            <DateText date={date} />
         </StyledDiv>
     )
 }

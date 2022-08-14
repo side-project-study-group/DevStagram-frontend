@@ -1,19 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-function Text({value, size}){
+const StyledP = styled.p`
+    font-size: 20px;
+`;
 
-    const sizes = {
-        large: '20px',
-        medium: '16px',
-        small: '12px'
-    }
-
-    const StyledP = styled.p`
-        font-size: ${sizes[size]};
-    `;
-
-
+function Text({value}){
     return <StyledP>{value}</StyledP> ;
 }
 

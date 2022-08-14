@@ -19,6 +19,7 @@ import SignUp1 from './pages/sign-up-1/sign-up-1'
 import SignUp2 from './pages/sign-up-2/sign-up-2'
 import SignUp3 from './pages/sign-up-3/sign-up-3'
 import SignUpFinish from './pages/sign-up-finish/sign-up-finish'
+import NewPost from './pages/new-post/new-post'
 
 function Router() {
     const location = useLocation()
@@ -31,6 +32,7 @@ function Router() {
                 <Route path="/meet-up-chat-list" element={<MeetUpChatList />} />
                 <Route path="/meet-up-write" element={<MeetUpWrite />} />
                 <Route path="/timeline-detail" element={<TimeLineDetail />} />
+                <Route path="/new-post" element={<NewPost />} /> 
                 <Route path="/edit-my-profile" element={<EditMyProfile />} />
                 <Route
                     path="/my-profile-meet-up"
