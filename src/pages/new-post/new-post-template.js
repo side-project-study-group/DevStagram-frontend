@@ -1,7 +1,7 @@
 import React from "react";
 import TextareaWithoutBox from '../../components/atoms/textarea-without-box'
 import VerticalProfile from "../../components/molecules/vertical-profile";
-import FooterBtn from "../../components/molecules/footer-button";
+import FooterBtn from "../../components/atoms/footer-button";
 // apache 2.0 
 import { GrGallery } from "react-icons/gr"; 
 import styled from 'styled-components';
