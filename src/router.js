@@ -13,7 +13,6 @@ import MyProfilePost from './pages/my-profile-post/my-profile-post'
 import YourProfileMeetUp from './pages/your-profile-meet-up/your-profile-meet-up'
 import YourProfilePost from './pages/your-profile-post/your-profile-post'
 import LogIn1 from './pages/log-in-1/log-in-1'
-import LogIn2 from './pages/log-in-2/log-in-2'
 import LogInFailure from './pages/log-in-failure/log-in-failure'
 import SignUp1 from './pages/sign-up-1/sign-up-1'
 import SignUp2 from './pages/sign-up-2/sign-up-2'
@@ -46,7 +45,6 @@ function Router() {
                     element={<YourProfilePost />}
                 />
                 <Route path="/log-in-1" element={<LogIn1 />} />
-                <Route path="/log-in-2" element={<LogIn2 />} />
                 <Route path="/log-in-failure" element={<LogInFailure />} />
                 <Route path="/sign-up-1" element={<SignUp1 />} />
                 <Route path="/sign-up-2" element={<SignUp2 />} />

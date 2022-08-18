@@ -2,11 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const P = styled.p`
-  font-size: 16px;
+  width:${(props)=>(props.size === 'medium'? '250px':'90px')};
+  height:${(props)=>(props.size === 'medium'? '21px':'22px')};
+  color:${(props)=>(props.color==='#414141')?'#414141':'#414042'}
+  font-size: 18px;
+  margin:0;
+  font-weight:700;
 `;
 
-function Title({ title }) {
-  return <P>{title}</P>;
+function Title({ title,size,color}) {
+  return <P size={size} color={color}>{title}</P>;
 }
 
 export default Title;

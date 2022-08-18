@@ -5,15 +5,16 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   width: 100%;
-  input {
-    width: 380px;
-  }
+  max-width:480px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
 `;
 
 function ProfileInputContainer({ title, placeholder, handleChange }) {
   return (
     <Container>
-      <Title title={title} />
+      <Title title={title} size={'medium'}/>
       <Input placeholder={placeholder} handleChange={handleChange} />
     </Container>
   );
