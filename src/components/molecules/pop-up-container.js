@@ -16,7 +16,10 @@ function PopUpContainer() {
       <Description
         define={'메일 주소 또는 비밀번호의 오류입니다. 다시 시도하시겠습니다?'}
       />
-      <Buttons name={'Cancle'} />
+      <Buttons 
+        name={'Cancle'} 
+        backgroundColor={'white'} 
+        color={'black'}/>
       <Buttons name={'Ok'} />
     </Container>
   );

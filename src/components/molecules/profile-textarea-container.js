@@ -4,10 +4,11 @@ import TextArea from '../atoms/text-area';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  width: 100%;
-  textarea {
-    width: 380px;
-  }
+width: 100%;
+max-width:480px;
+display:flex;
+flex-direction:column;
+gap:8px;
 `;
 
 function ProfileTextAreaContainer({ title, placeholder }) {
