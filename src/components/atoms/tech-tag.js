@@ -10,8 +10,8 @@ const Span = styled.span`
   border-radius: 3px;
 `;
 
-function TechTag({ tech }) {
-  return <Span>#{tech}</Span>;
+function TechTag({name, tech, handleClick}) {
+  return <Span name={name} onClick={handleClick}>#{tech}</Span>;
 }
 
 export default TechTag;

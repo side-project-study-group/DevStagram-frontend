@@ -12,7 +12,7 @@ const Button = styled.button`
   border-radius: 15px;
 `;
 
-function Buttons({ name }) {
-  return <Button>{name}</Button>;
+function Buttons({ name, onClick }) {
+  return <Button onClick={onClick}>{name}</Button>;
 }
 export default Buttons;

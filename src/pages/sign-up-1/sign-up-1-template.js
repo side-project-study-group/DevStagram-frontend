@@ -14,13 +14,13 @@ const Container = styled.div`
   gap: 15px;
 `;
 
-function SignUp1() {
+function SignUp1({handleChange, value, handleSubmit }) {
   return (
     <Container>
-      <Input placeholder={'E-mail'} />
-      <Input placeholder={'Password'} />
-      <Input placeholder={'Confrim Password'} />
-      <Buttons name={'Next'} />
+      <Input name={"email"} value={value['email']} type={"email"}placeholder={'E-mail'} handleChange={handleChange} />
+      <Input name={"password"} value={value['password']} type={"password"} placeholder={'Password'} handleChange={handleChange} />
+      <Input name={"confirmPassword"} value={value['confirmPassword']} type={"password"} placeholder={'Confrim Password'} handleChange={handleChange} />
+      <Buttons name={'Next'} onClick={handleSubmit}/>
     </Container>
   );
 }

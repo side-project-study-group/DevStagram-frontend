@@ -14,13 +14,14 @@ const Container = styled.div`
   gap: 15px;
 `;
 
-function SignUp2() {
+function SignUp2({value, handleChange, handleSubmit}) {
   return (
     <Container>
-      <Input placeholder={'Nickname'} />
-      <Input placeholder={'Github Url'} />
-      <Input placeholder={'Blog Url'} />
-      <Buttons name={'Next'} />
+      <Input name={'nickname'} value={value['nickname']} type={"text"} placeholder={'Nickname'} handleChange={handleChange} />
+      <Input name={'github'} value={value['github']} type={"url"} placeholder={'Github Url'} handleChange={handleChange} />
+      <Input name={'blog'} value={value['blog']} type={"url"} placeholder={'Blog Url'} handleChange={handleChange} />
+      <Buttons name={'Next'} onClick={handleSubmit}/>
+      
     </Container>
   );
 }

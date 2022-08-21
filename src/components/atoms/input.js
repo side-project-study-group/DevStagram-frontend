@@ -12,8 +12,9 @@ const InputTag = styled.input`
     text-align: center;
 `
 
-function Input({ type, width }) {
-    return <InputTag type={type} width={width} />
+function Input({ name, value, type, width, handleChange, placeholder }) {
+    return <InputTag name={name} value={value} type={type}
+                    width={width} onChange={handleChange} placeholder={placeholder} />
 }
 
 export default Input
