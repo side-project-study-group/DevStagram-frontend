@@ -42,7 +42,7 @@ const InpuContainer=styled.div`
   margin:0 auto;
   `;
 
-function SignUp1({handleChange, value, handleSubmit }) {
+function SignUp1Temp({handleChange, value, handleSubmit }) {
   return (
     <Wrapper>
       <Container>
@@ -53,11 +53,11 @@ function SignUp1({handleChange, value, handleSubmit }) {
           <Input name={"confirmPassword"} value={value['confirmPassword']} type={"password"} placeholder={'Confrim Password'} handleChange={handleChange} />
         </InpuContainer>
         <ButtonContainer>
-          <FooterBtn text={'Next'} onClick={handleSubmit}/>
+          <FooterBtn text={'Next'} handleClick={handleSubmit}/>
         </ButtonContainer>
       </Container>     
     </Wrapper>
 
   );
 }
-export default SignUp1;
+export default SignUp1Temp;

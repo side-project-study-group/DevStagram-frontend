@@ -41,8 +41,9 @@ const InpuContainer=styled.div`
   bottom: 45px;
   margin:0 auto;
   `;
-  
-function SignUp2({value, handleChange, handleSubmit}) {
+
+
+function SignUp2Temp({value, handleChange, handleSubmit}) {
   return (
     <Wrapper>
       <Container>
@@ -54,10 +55,10 @@ function SignUp2({value, handleChange, handleSubmit}) {
           <Input name={'blog'} value={value['blog']} type={"url"} placeholder={'Blog Url'} handleChange={handleChange} />
         </InpuContainer>
         <ButtonContainer>
-          <FooterBtn text={'Next'} onClick={handleSubmit} />
+          <FooterBtn text={'Next'} handleClick={handleSubmit} />
         </ButtonContainer>
       </Container>     
     </Wrapper>
   );
 }
-export default SignUp2;
+export default SignUp2Temp;
