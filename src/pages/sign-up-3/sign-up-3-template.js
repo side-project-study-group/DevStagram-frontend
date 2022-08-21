@@ -45,7 +45,7 @@ const InpuContainer=styled.div`
   const ButtonContainer=styled.div`
   `;
 
-function SignUp3({value, text, tags, handleChange, handleTagChange, handleTagClick, handleSubmit}) {
+function SignUp3Temp({value, text, tags, handleChange, handleTagChange, handleTagClick, handleSubmit}) {
  
 
   return (
@@ -68,11 +68,11 @@ function SignUp3({value, text, tags, handleChange, handleTagChange, handleTagCli
         })}
         </TagContainer>
         <ButtonContainer>
-          <FooterBtn text={'Next'} onClick={handleSubmit}/>
+          <FooterBtn text={'Next'} handleClick={handleSubmit}/>
         </ButtonContainer>
       </Container>
     </Wrapper>
     
   );
 }
-export default SignUp3;
+export default SignUp3Temp;
