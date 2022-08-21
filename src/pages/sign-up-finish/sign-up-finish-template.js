@@ -29,8 +29,11 @@ const Container=styled.div`
 `;
 
 const ButtonContainer=styled.div`
-  width:100%;
-  box-sizing:border-box;
+  position: absolute;
+  left:0;
+  right:0;
+  bottom: 45px;
+  margin:0 auto;
   `;
 
 function SignUpTemp() {

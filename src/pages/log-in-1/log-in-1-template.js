@@ -1,9 +1,9 @@
-import React from 'react';
+import React ,{useState}from 'react';
 import Input from '../../components/atoms//input.js';
 import H1Tag from '../../components/atoms/h1-sign.js';
 import LogInContainer from '../../components/molecules/log-in-container';
 import image from'../../assets/imgs/background.png';
-import PopUpContainer from '../../components/molecules/pop-up-container';
+import PopUp from '../../components/organisms/pop-up';
 import styled from 'styled-components';
 
 
@@ -40,6 +40,7 @@ const InpuContainer=styled.div`
 
 
 function LogInTemp1() {
+  const [isOpenPopUp,setIsOpenPopUp] =useState(false);
   return (
     <>
       <Wrapper>
@@ -52,7 +53,14 @@ function LogInTemp1() {
           <LogInContainer />
         </Container>
       </Wrapper>
-      {/* <PopUpContainer /> */}
+      {isOpenPopUp&&(
+      <PopUp handleCancel={()=>setIsOpenPopUp(false)}>
+                    <p>
+                      메일 주소나 비밀번호의 오류입니다.
+                        <br /> 다시 시도하시겠습니까?
+                    </p>
+                    </PopUp> 
+      )}
     </>
   );
 }

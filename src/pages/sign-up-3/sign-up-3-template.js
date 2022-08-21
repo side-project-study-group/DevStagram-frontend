@@ -29,8 +29,6 @@ const Container=styled.div`
 `;
 
 const InpuContainer=styled.div`
-  width: 360px
-  margin:0 auto;
   padding:10px;
   display:flex;
   flex-direction:column;
@@ -39,10 +37,19 @@ const InpuContainer=styled.div`
   `;
 
   const TagContainer=styled.div`
+  width:100%;
   display: flex;
+  flex-wrap:wrap;
+  box-sizing:border-box;
+  padding: 10px;
   `;
 
   const ButtonContainer=styled.div`
+  position: absolute;
+  left:0;
+  right:0;
+  bottom: 45px;
+  margin:0 auto;
   `;
 
 function SignUp3({value, text, tags, handleChange, handleTagChange, handleTagClick, handleSubmit}) {
