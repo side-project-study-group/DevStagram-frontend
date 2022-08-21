@@ -18,12 +18,12 @@ const Button = styled.button`
   box-sizing:border-box;
 `;
 
-function Buttons({ name,backgroundColor,color }) {
+function Buttons({ name, onClick, backgroundColor, color }) {
   return (
     <ButtonContainer 
     backgroundColor={backgroundColor} 
     color={color}>
-      <Button>{name}</Button>
+      <Button onClick={onClick} >{name}</Button>
     </ButtonContainer>
   )
 

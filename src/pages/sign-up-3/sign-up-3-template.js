@@ -45,36 +45,30 @@ const InpuContainer=styled.div`
   const ButtonContainer=styled.div`
   `;
 
-function SignUp3() {
-  const [techTags, setTechTags] = useState(['JAVA', 'JavaScript', 'React']);
+function SignUp3({value, text, tags, handleChange, handleTagChange, handleTagClick, handleSubmit}) {
+ 
 
-  function inputHandler(e) {
-    if (e.target.value.includes(' ')) {
-      console.log('공백임!');
-      setTechTags([...techTags, e.target.value]);
-    } else {
-      console.log('공백아님!');
-    }
-    // e.stopPropagation();
-  }
   return (
     <Wrapper>
       <Container>
         <SignUpImg/>
         <InpuContainer>
-        <TextArea placeholder={'자기소개를 입력 해주세요.'} />
+        <TextArea name={"intro"} value={value['intro']} handleChange={handleChange} placeholder={'자기소개를 입력 해주세요.'} />
         <Input
+          name={'tag'}
+          value={text}
+          type={"text"}
           placeholder={'기술 스택을 입력하세요'}
-          handleChange={inputHandler}
+          handleChange={handleTagChange}
         />
         </InpuContainer>
         <TagContainer>
-        {techTags.map(function (tech, i) {
-          return <TechTag className='list' key={i} tech={tech} />;
+        {tags.map(function (tech, i) {
+          return <TechTag key={i} name={tech} tech={tech} handleClick={handleTagClick} />;
         })}
         </TagContainer>
         <ButtonContainer>
-          <FooterBtn text={'Next'}/>
+          <FooterBtn text={'Next'} onClick={handleSubmit}/>
         </ButtonContainer>
       </Container>
     </Wrapper>

@@ -26,7 +26,6 @@ const Container=styled.div`
   border-radius: 50px 50px 0px 0px;
   box-sizing:border-box;
 `;
-
 const InpuContainer=styled.div`
   width: 360px
   margin:0 auto;
@@ -41,19 +40,19 @@ const InpuContainer=styled.div`
 
   `;
 
-function SignUp2() {
+function SignUp2({value, handleChange, handleSubmit}) {
   return (
     <Wrapper>
       <Container>
         <InpuContainer>
           <H1Tag sign={'Sign Up'}/>
           <SignUpImg/>
-          <Input placeholder={'Nickname'} />
-          <Input placeholder={'Github Url'} />
-          <Input placeholder={'Blog Url'} />
+          <Input name={'nickname'} value={value['nickname']} type={"text"} placeholder={'Nickname'} handleChange={handleChange} />
+          <Input name={'github'} value={value['github']} type={"url"} placeholder={'Github Url'} handleChange={handleChange} />
+          <Input name={'blog'} value={value['blog']} type={"url"} placeholder={'Blog Url'} handleChange={handleChange} />
         </InpuContainer>
         <ButtonContainer>
-          <FooterBtn text={'Next'}/>
+          <FooterBtn text={'Next'} onClick={handleSubmit} />
         </ButtonContainer>
       </Container>     
     </Wrapper>

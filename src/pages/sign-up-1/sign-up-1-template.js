@@ -39,21 +39,22 @@ const InpuContainer=styled.div`
   const ButtonContainer=styled.div` 
   `;
 
-function SignUp1() {
+function SignUp1({handleChange, value, handleSubmit }) {
   return (
     <Wrapper>
       <Container>
         <InpuContainer>
           <H1Tag sign={'Sign Up'}/>
-          <Input placeholder={'E-mail'} />
-          <Input placeholder={'Password'} />
-          <Input placeholder={'Confrim Password'} />
+          <Input name={"email"} value={value['email']} type={"email"} placeholder={'E-mail'} handleChange={handleChange} />
+          <Input name={"password"} value={value['password']} type={"password"} placeholder={'Password'} handleChange={handleChange} />
+          <Input name={"confirmPassword"} value={value['confirmPassword']} type={"password"} placeholder={'Confrim Password'} handleChange={handleChange} />
         </InpuContainer>
         <ButtonContainer>
-          <FooterBtn text={'Next'}/>
+          <FooterBtn text={'Next'} onClick={handleSubmit}/>
         </ButtonContainer>
       </Container>     
     </Wrapper>
+
   );
 }
 export default SignUp1;
