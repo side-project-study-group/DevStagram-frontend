@@ -27,8 +27,6 @@ const Container=styled.div`
   box-sizing:border-box;
 `;
 const InpuContainer=styled.div`
-  width: 360px
-  margin:0 auto;
   padding:10px;
   display:flex;
   flex-direction:column;
@@ -37,8 +35,13 @@ const InpuContainer=styled.div`
   `;
 
   const ButtonContainer=styled.div`
-
+  position: absolute;
+  left:0;
+  right:0;
+  bottom: 45px;
+  margin:0 auto;
   `;
+
 
 function SignUp2Temp({value, handleChange, handleSubmit}) {
   return (
