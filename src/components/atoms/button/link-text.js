@@ -11,8 +11,8 @@ const P = styled.p`
   margin:0;
 `;
 
-function LogInTextBtns({text}) {
+function LinkText({text}) {
   return <P>{text}</P>;
 }
 
-export default LogInTextBtns;
+export default LinkText;

@@ -18,7 +18,7 @@ const Button = styled.button`
   border: 1.5px solid  #414042;
 `;
 
-function ProfileMiniBtns({ name }) {
+function ProfileMiniButton({ name }) {
   return <Button>{name}</Button>;
 }
-export default ProfileMiniBtns;
+export default ProfileMiniButton;

@@ -20,7 +20,7 @@ const Button = styled.button`
   box-sizing: border-box;
 `;
 
-function ProfileBtns({ name }) {
+function ProfileCategoryButton({ name }) {
   return <Button>{name}</Button>;
 }
-export default ProfileBtns;
+export default ProfileCategoryButton;
