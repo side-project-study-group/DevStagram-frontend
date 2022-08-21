@@ -1,7 +1,11 @@
 import React from 'react';
+import PopUpContainer from '../../components/molecules/pop-up-container';
 
 function LogInFailureTemp() {
-  return <></>;
+  return (
+    <>
+      <PopUpContainer/>
+    </>);
 }
 
 export default LogInFailureTemp;
