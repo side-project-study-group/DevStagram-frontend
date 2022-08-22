@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SignUpImg from '../../components/atoms/image-container/sign-up-img'
+import SignUpImg from '../../components/atoms/image-containers/sign-up-img'
 import Input from '../../components/atoms/inputs/input';
 import TextArea from '../../components/atoms/inputs/text-area';
 import TechTag from '../../components/atoms/tags/tech/tech';

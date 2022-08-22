@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import ProfileImg from '../atoms/profile-img/meet-up/meet-up-profile-img'
+import ProfileImg from '../atoms/profile-images/meet-up/meet-up-profile-img'
 
 const Profile = styled.div`
     display: flex;

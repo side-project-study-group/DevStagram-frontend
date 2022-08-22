@@ -8,7 +8,7 @@ import Lock from '../assets/icons/Lock.svg'
 import TimeLine from './atoms/texts/time-line'
 import { useLocation } from 'react-router-dom'
 import MeetUpCategoryTag from './atoms/tags/meet-up-category/meet-up-category'
-import ProfileImg from './atoms/profile-img/meet-up/meet-up-profile-img'
+import ProfileImg from './atoms/profile-images/meet-up/meet-up-profile-img'
 
 const Section = styled.div`
     margin-bottom: 10px;

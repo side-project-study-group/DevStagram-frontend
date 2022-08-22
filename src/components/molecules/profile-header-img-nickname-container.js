@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileImg from '../atoms/profile-img/profile/profile-img';
+import ProfileImg from '../atoms/profile-images/profile/profile-img';
 import Title from '../atoms/texts/title';
 import Description from '../atoms/texts/description.js';
 import ProfileMiniBtns from '../../components/atoms/buttons/profile-mini-button';

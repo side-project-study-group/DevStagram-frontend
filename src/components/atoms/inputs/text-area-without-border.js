@@ -10,7 +10,7 @@ const InputText = styled.textarea`
         min-height: 30px;
 `;
 
-function TextareaWithoutBorder({ value, handleChange }) {
+function TextAreaWithoutBorder({ value, handleChange }) {
     const textRef = useRef();
 
     function onChangeHandler(e) {
@@ -23,4 +23,4 @@ function TextareaWithoutBorder({ value, handleChange }) {
     return <InputText ref={textRef} placeholder={"오늘은 무슨 일이 있었나요?"} value={value} onChange={onChangeHandler} />
 }
 
-export default TextareaWithoutBorder;
+export default TextAreaWithoutBorder;

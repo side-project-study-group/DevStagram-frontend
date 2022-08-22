@@ -1,6 +1,6 @@
 import React from "react";
 import {IoHeartOutline, IoHeart} from "react-icons/io5";
-import useFilled from "../../../hooks/useFilled";
+import useFilled from "../../../../hooks/useFilled";
 
 function LikeIcon({isFilledInit}){
     const [isFilled, onClick] = useFilled(isFilledInit);

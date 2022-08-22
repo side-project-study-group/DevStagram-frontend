@@ -1,5 +1,5 @@
 import React from "react";
-import LikeIcon from '../../atoms/like-icon'
+import LikeIcon from '../../atoms/buttons/like-icon'
 
 function LikeIconCount({count}){
 

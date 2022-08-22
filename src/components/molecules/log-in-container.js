@@ -2,7 +2,7 @@ import React from 'react';
 import LinkText from '../atoms/buttons/link-text';
 import FooterBtn from '../../components/atoms/buttons/footer-button';
 import Description from '../atoms/texts/description';
-import GoogleLogInImg from '../../components/atoms/image-container/google-log-in-img'
+import GoogleLogInImg from '../atoms/image-containers/google-log-in-img'
 import styled from 'styled-components';
 
 const Container = styled.div`

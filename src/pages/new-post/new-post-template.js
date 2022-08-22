@@ -1,5 +1,5 @@
 import React from "react";
-import TextareaWithoutBox from '../../components/atoms/inputs/textarea-without-border'
+import TextAreaWithoutBorder from '../../components/atoms/inputs/text-area-without-border'
 import VerticalProfile from "../../components/molecules/vertical-profile";
 import FooterBtn from "../../components/atoms/buttons/footer-button";
 // apache 2.0 
@@ -26,7 +26,7 @@ function NewPostTemplate({src, text, value, handleChange, submit}){
         <Container>
             <Section>
                 <VerticalProfile src={src} text={text} />
-                <TextareaWithoutBox value={value} handleChange={handleChange} />
+                <TextAreaWithoutBorder value={value} handleChange={handleChange} />
                 <GrGallery size={"36px"} />
             </Section>
             <FooterBtn text={"게시하기"} handleClick={submit}/>

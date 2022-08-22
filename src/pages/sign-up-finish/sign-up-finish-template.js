@@ -2,7 +2,7 @@ import React from 'react';
 import H1Tag from '../../components/atoms/texts/h1-sign.js';
 import H2Tag from '../../components/atoms/texts/h2-sign.js';
 import H3Tag from '../../components/atoms/texts/h3-sign.js';
-import SignUpCongrats from '../../components/atoms/image-container/sign-up-congrats'
+import SignUpCongrats from '../../components/atoms/image-containers/sign-up-congrats'
 import image from'../../assets/imgs/background.png';
 import FooterBtn from '../../components/atoms/buttons/footer-button';
 import styled from 'styled-components';

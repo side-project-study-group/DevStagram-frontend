@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from '../../components/atoms/inputs/input.js';
-import SignUpImg from '../../components/atoms/image-container/sign-up-img'
+import SignUpImg from '../../components/atoms/image-containers/sign-up-img'
 import FooterBtn from '../../components/atoms/buttons/footer-button';
 import H1Tag from '../../components/atoms/texts/h1-sign.js';
 import image from'../../assets/imgs/background.png';
