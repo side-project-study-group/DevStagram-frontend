@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Input from '../atoms/input';
-import Label from '../atoms/label';
+import Input from '../atoms/inputs/input';
+import Label from '../atoms/texts/label';
 
 const Container = styled.div`
   width: 100%;

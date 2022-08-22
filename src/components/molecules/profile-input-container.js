@@ -1,6 +1,6 @@
 import React from 'react';
-import Title from '../atoms/title';
-import Input from '../atoms/input';
+import Title from '../atoms/texts/title';
+import Input from '../atoms/inputs/input';
 import styled from 'styled-components';
 
 const Container = styled.div`

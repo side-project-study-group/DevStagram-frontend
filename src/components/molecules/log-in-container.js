@@ -1,8 +1,8 @@
 import React from 'react';
-import LogInTextBtns from '../atoms/button/log-in-text-btns';
-import FooterBtn from '../../components/atoms/footer-button';
-import Description from '../atoms/description';
-import GoogleLogInImg from '../../components/atoms/google-log-in-img'
+import LinkText from '../atoms/buttons/link-text';
+import FooterBtn from '../../components/atoms/buttons/footer-button';
+import Description from '../atoms/texts/description';
+import GoogleLogInImg from '../../components/atoms/image-container/google-log-in-img'
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -33,13 +33,13 @@ const ButtonContainer=styled.div`
 function LogInContainer() {
   return (
     <Container>
-      <LogInTextBtns text={'Forgot Password?'}/>
+      <LinkText text={'Forgot Password?'}/>
       <ConfirmSign>
         <Description 
           define={"Don't have an account?"} 
           color={'rgba(180, 180, 180, 1)'} 
           fontSize={'medium'}/>
-        <LogInTextBtns text={'Sign up?'}/>
+        <LinkText text={'Sign up?'}/>
       </ConfirmSign>
       <Description 
         define={'Or'} 

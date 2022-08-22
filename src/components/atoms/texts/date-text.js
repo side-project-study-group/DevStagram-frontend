@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components";
-import dateCalculater from "../../utils/dateCalculater";
+import dateCalculater from "../../../utils/dateCalculater";
 
 const StyledP = styled.p`
     font-size: 12px;

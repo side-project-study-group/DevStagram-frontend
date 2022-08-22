@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import ProfileInputContainer from '../../components/molecules/profile-input-container';
 import ProfileTextAreaContainer from '../../components/molecules/profile-textarea-container';
-import FooterBtn from '../../components/atoms/footer-button';
-import ProfileImg from '../../components/atoms/profile-img';
-import TechTag from '../../components/atoms/tech-tag';
+import FooterBtn from '../../components/atoms/buttons/footer-button';
+import ProfileImg from '../../components/atoms/profile-img/profile/profile-img';
+import TechTag from '../../components/atoms/tags/tech/tech';
 import checkImg from '../../assets/imgs/check.png' 
 import styled from 'styled-components';
 

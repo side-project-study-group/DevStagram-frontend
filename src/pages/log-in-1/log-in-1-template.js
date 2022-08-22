@@ -1,6 +1,6 @@
 import React ,{useState}from 'react';
-import Input from '../../components/atoms//input.js';
-import H1Tag from '../../components/atoms/h1-sign.js';
+import Input from '../../components/atoms/inputs/input.js';
+import H1Tag from '../../components/atoms/texts/h1-sign.js';
 import LogInContainer from '../../components/molecules/log-in-container';
 import image from'../../assets/imgs/background.png';
 import PopUp from '../../components/organisms/pop-up';

@@ -1,5 +1,5 @@
 import React from 'react';
-import MainProfile from '../../assets/imgs/main-profile.png' 
+import MainProfile from '../../../assets/imgs/main-profile.png'
 import styled from 'styled-components';
 
 const ImgContainer = styled.div`

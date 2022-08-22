@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import SignUpImg from '../../components/atoms/sign-up-img'
-import Input from '../../components/atoms//input.js';
-import TextArea from '../../components/atoms//text-area.js';
-import TechTag from '../../components/atoms/tech-tag';
-import FooterBtn from '../../components/atoms/footer-button';
+import SignUpImg from '../../components/atoms/image-container/sign-up-img'
+import Input from '../../components/atoms/inputs/input';
+import TextArea from '../../components/atoms/inputs/text-area';
+import TechTag from '../../components/atoms/tags/tech/tech';
+import FooterBtn from '../../components/atoms/buttons/footer-button';
 import image from'../../assets/imgs/background.png';
 import styled from 'styled-components';
 

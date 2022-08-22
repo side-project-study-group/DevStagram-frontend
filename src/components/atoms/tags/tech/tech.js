@@ -10,8 +10,8 @@ const Span = styled.span`
   box-sizing:border-box;
 `;
 
-function TechTag({name, tech, handleClick}) {
+function Tech({name, tech, handleClick}) {
   return <Span name={name} onClick={handleClick}>#{tech}</Span>;
 }
 
-export default TechTag;
+export default Tech;

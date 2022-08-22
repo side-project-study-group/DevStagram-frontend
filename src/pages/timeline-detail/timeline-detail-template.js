@@ -1,6 +1,6 @@
 import React from "react";
 import VerticalProfile from "../../components/molecules/vertical-profile"
-import Text from "../../components/atoms/text"
+import Text from "../../components/atoms/texts/text"
 import styled from "styled-components";
 import ChatIconCount from "../../components/molecules/chat-icon-count";
 import LikeIconCount from "../../components/molecules/like-icon-count";

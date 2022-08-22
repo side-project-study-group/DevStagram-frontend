@@ -1,6 +1,6 @@
 import React from 'react';
-import Title from '../atoms/title';
-import TextArea from '../atoms/text-area';
+import Title from '../atoms/texts/title';
+import TextArea from '../atoms/inputs/text-area';
 import styled from 'styled-components';
 
 const Container = styled.div`

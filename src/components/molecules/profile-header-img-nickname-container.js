@@ -1,8 +1,8 @@
 import React from 'react';
-import ProfileImg from '../atoms/profile-img';
-import Title from '../atoms/title';
-import Description from '../atoms/description.js';
-import ProfileMiniBtns from '../../components/atoms/button/profile-mini-btns';
+import ProfileImg from '../atoms/profile-img/profile/profile-img';
+import Title from '../atoms/texts/title';
+import Description from '../atoms/texts/description.js';
+import ProfileMiniBtns from '../../components/atoms/buttons/profile-mini-button';
 import styled from 'styled-components';
 
 

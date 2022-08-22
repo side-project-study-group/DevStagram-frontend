@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import FooterBtn from '../../components/atoms/footer-button'
+import FooterBtn from '../../components/atoms/buttons/footer-button'
 import MeetUpPostBox from '../../components/meet-up-post-box'
 import PopUp from '../../components/organisms/pop-up'
 

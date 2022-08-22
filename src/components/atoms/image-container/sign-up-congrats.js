@@ -1,5 +1,5 @@
 import React from 'react';
-import Firecracker from '../../assets/imgs/firecracker.png' 
+import Firecracker from '../../../assets/imgs/firecracker.png' 
 import styled from 'styled-components';
 
 const ImgContainer = styled.div`

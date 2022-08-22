@@ -1,5 +1,5 @@
 import React from 'react';
-import GoogleLogIn from '../../assets/imgs/google-log-in.png' 
+import GoogleLogIn from '../../../assets/imgs/google-log-in.png'
 import styled from 'styled-components';
 
 const ImgContainer = styled.div`

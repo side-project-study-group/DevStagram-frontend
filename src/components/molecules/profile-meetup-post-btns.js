@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileBtns from '../atoms/button/profile-btns'
+import ProfileCategoryButton from '../atoms/buttons/profile-category-button'
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -13,8 +13,8 @@ const Container = styled.div`
 function ProfileMeetUpPostBtns (){
     return(
         <Container>
-            <ProfileBtns name={'Meetup'} />
-            <ProfileBtns name={'Post'} />
+            <ProfileCategoryButton name={'Meetup'} />
+            <ProfileCategoryButton name={'Post'} />
         </Container>
     )
 }

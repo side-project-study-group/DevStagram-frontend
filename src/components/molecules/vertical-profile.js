@@ -1,7 +1,7 @@
 import React from 'react'
-import CircleImage from '../atoms/circle-image.js'
-import Text from '../atoms/text.js'
-import DateText from '../atoms/date-text.js'
+import CircleImage from '../atoms/image-container/circle-image.js'
+import Text from '../atoms/texts/text.js'
+import DateText from '../atoms/texts/date-text.js'
 import styled from 'styled-components'
 
 const StyledDiv = styled.div`

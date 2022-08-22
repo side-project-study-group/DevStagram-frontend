@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Label from '../atoms/label';
-import Select from '../atoms/select';
+import Label from '../atoms/texts/label';
+import Select from '../atoms/inputs/select';
 
 const Container = styled.div`
   width: 100%;

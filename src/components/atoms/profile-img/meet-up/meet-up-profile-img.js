@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import testProfile from '../../assets/imgs/test.png';
+import testProfile from '../../../../assets/imgs/test.png'
 
 const ImgContainer = styled.div`
   width: ${(props) => (props.size === 'big' ? '35px' : '22px')};
