@@ -23,15 +23,20 @@ function Router() {
     const location = useLocation()
     return (
         <>
-            {location.pathname==='/sign-up-finish'||location.pathname==='/log-in-1'? null:
-            location.pathname === '/' ? <HeaderHome /> : <HeaderBack />}
+            {location.pathname === '/sign-up-finish' ||
+            location.pathname === '/log-in-1' ? null : location.pathname ===
+              '/' ? (
+                <HeaderHome />
+            ) : (
+                <HeaderBack />
+            )}
             <Routes>
                 <Route path="/" element={<MeetUpList />} />
                 <Route path="/meet-up-detail" element={<MeetUpDetail />} />
                 <Route path="/meet-up-chat-list" element={<MeetUpChatList />} />
                 <Route path="/meet-up-write" element={<MeetUpWrite />} />
                 <Route path="/timeline-detail" element={<TimeLineDetail />} />
-                <Route path="/new-post" element={<NewPost />} /> 
+                <Route path="/new-post" element={<NewPost />} />
                 <Route path="/edit-my-profile" element={<EditMyProfile />} />
                 <Route
                     path="/my-profile-meet-up"

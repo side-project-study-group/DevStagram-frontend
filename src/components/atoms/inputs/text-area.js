@@ -10,8 +10,14 @@ const TextAreaTag = styled.textarea`
     border-radius: 5px;
 `
 
-function TextArea({name, handleChange}) {
-    return <TextAreaTag name={name} onChange={handleChange} placeholder="내용을 입력해주세요." />
+function TextArea({ name, handleChange }) {
+    return (
+        <TextAreaTag
+            name={name}
+            onChange={handleChange}
+            placeholder="내용을 입력해주세요."
+        />
+    )
 }
 
 export default TextArea

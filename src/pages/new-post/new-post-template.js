@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react'
 import TextAreaWithoutBorder from '../../components/atoms/inputs/text-area-without-border'
-import VerticalProfile from "../../components/molecules/vertical-profile";
-import FooterBtn from "../../components/atoms/buttons/footer-button";
-// apache 2.0 
-import { GrGallery } from "react-icons/gr"; 
-import styled from 'styled-components';
+import VerticalProfile from '../../components/molecules/vertical-profile'
+import FooterBtn from '../../components/atoms/buttons/footer-button'
+// apache 2.0
+import { GrGallery } from 'react-icons/gr'
+import styled from 'styled-components'
 
 const Container = styled.div`
-    padding: 10px 10px
+    padding: 10px 10px;
 `
 const Section = styled.div`
     box-sizing: border-box;
@@ -20,18 +20,20 @@ const Section = styled.div`
     padding: 10px;
 `
 
-function NewPostTemplate({src, text, value, handleChange, submit}){
-    
+function NewPostTemplate({ src, text, value, handleChange, submit }) {
     return (
         <Container>
             <Section>
                 <VerticalProfile src={src} text={text} />
-                <TextAreaWithoutBorder value={value} handleChange={handleChange} />
-                <GrGallery size={"36px"} />
+                <TextAreaWithoutBorder
+                    value={value}
+                    handleChange={handleChange}
+                />
+                <GrGallery size={'36px'} />
             </Section>
-            <FooterBtn text={"게시하기"} handleClick={submit}/>
+            <FooterBtn text={'게시하기'} handleClick={submit} />
         </Container>
-    );  
+    )
 }
 
-export default NewPostTemplate;
+export default NewPostTemplate

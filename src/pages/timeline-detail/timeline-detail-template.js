@@ -1,9 +1,9 @@
-import React from "react";
-import VerticalProfile from "../../components/molecules/vertical-profile"
-import Text from "../../components/atoms/texts/text"
-import styled from "styled-components";
-import ChatIconCount from "../../components/molecules/chat-icon-count";
-import LikeIconCount from "../../components/molecules/like-icon-count";
+import React from 'react'
+import VerticalProfile from '../../components/molecules/vertical-profile'
+import Text from '../../components/atoms/texts/text'
+import styled from 'styled-components'
+import ChatIconCount from '../../components/molecules/chat-icon-count'
+import LikeIconCount from '../../components/molecules/like-icon-count'
 
 const StyledContainer = styled.div`
     margin-right: 20px;
@@ -18,17 +18,24 @@ const StyledDiv = styled.div`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-`;
+`
 
-function TimelineDetailTemp({src, text, date, contents, replyCount, isFilledInit, likeCount}) {
-
+function TimelineDetailTemp({
+    src,
+    text,
+    date,
+    contents,
+    replyCount,
+    isFilledInit,
+    likeCount,
+}) {
     return (
         <StyledContainer>
             <VerticalProfile src={src} text={text} date={date} />
             <Text value={contents} />
             <StyledDiv>
                 <ChatIconCount count={replyCount} />
-                <LikeIconCount isFilledInit={isFilledInit}  count={likeCount} />
+                <LikeIconCount isFilledInit={isFilledInit} count={likeCount} />
             </StyledDiv>
         </StyledContainer>
     )

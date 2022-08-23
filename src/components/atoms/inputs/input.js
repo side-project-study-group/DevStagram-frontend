@@ -13,8 +13,16 @@ const InputTag = styled.input`
 `
 
 function Input({ name, value, type, width, handleChange, placeholder }) {
-    return <InputTag name={name} value={value} type={type}
-                    width={width} onChange={handleChange} placeholder={placeholder} />
+    return (
+        <InputTag
+            name={name}
+            value={value}
+            type={type}
+            width={width}
+            onChange={handleChange}
+            placeholder={placeholder}
+        />
+    )
 }
 
 export default Input

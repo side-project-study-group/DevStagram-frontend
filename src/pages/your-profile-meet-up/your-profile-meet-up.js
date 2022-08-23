@@ -1,8 +1,8 @@
-import React from 'react';
-import YourProfileMeetUpTemp from './your-profile-meet-up-template';
+import React from 'react'
+import YourProfileMeetUpTemp from './your-profile-meet-up-template'
 
 function YourProfileMeetUp() {
-  return <YourProfileMeetUpTemp />;
+    return <YourProfileMeetUpTemp />
 }
 
-export default YourProfileMeetUp;
+export default YourProfileMeetUp

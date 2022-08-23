@@ -1,28 +1,28 @@
 @font-face {
-  font-family: "Lean";
-  src: local("Lean"), url("./assets/fonts/Lean.otf") format("truetype");
+    font-family: 'Lean';
+    src: local('Lean'), url('./assets/fonts/Lean.otf') format('truetype');
 }
 
 @font-face {
-  font-family: "NotoSansKRBold";
-  src: local("NotoSansKRBold"),
-    url("./assets/fonts/NotoSansKR-Bold.otf") format("truetype");
+    font-family: 'NotoSansKRBold';
+    src: local('NotoSansKRBold'),
+        url('./assets/fonts/NotoSansKR-Bold.otf') format('truetype');
 }
 
 @font-face {
-  font-family: "NotoSansKR";
-  src: local("NotoSansKR"),
-    url("./assets/fonts/NotoSansKR-Regular.otf") format("truetype");
+    font-family: 'NotoSansKR';
+    src: local('NotoSansKR'),
+        url('./assets/fonts/NotoSansKR-Regular.otf') format('truetype');
 }
 
 @font-face {
-  font-family: "Roboto";
-  src: local("Roboto"),
-    url("./assets/fonts/Roboto-Regular.ttf") format("truetype");
+    font-family: 'Roboto';
+    src: local('Roboto'),
+        url('./assets/fonts/Roboto-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: "RobotoBold";
-  src: local("RobotoBold"),
-    url("./assets/fonts/Roboto-Medium.ttf") format("truetype");
+    font-family: 'RobotoBold';
+    src: local('RobotoBold'),
+        url('./assets/fonts/Roboto-Medium.ttf') format('truetype');
 }

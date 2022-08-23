@@ -1,5 +1,5 @@
-import React from 'react';
-import MyProfileMeetUpTemp from './my-profile-meet-up-template';
+import React from 'react'
+import MyProfileMeetUpTemp from './my-profile-meet-up-template'
 
 // let mock = {
 //   name: '김다다',
@@ -16,7 +16,7 @@ import MyProfileMeetUpTemp from './my-profile-meet-up-template';
 // };
 
 function MyProfileMeetUp() {
-  return <MyProfileMeetUpTemp />;
+    return <MyProfileMeetUpTemp />
 }
 
-export default MyProfileMeetUp;
+export default MyProfileMeetUp
