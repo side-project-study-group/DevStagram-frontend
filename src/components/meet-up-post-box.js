@@ -2,13 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import MemberTag from './molecules/member-tag'
 import MeetUpTitle from './molecules/meet-up-title'
-import TextBox from './atoms/text-box'
+import TextBox from './atoms/texts/text-box'
 import ProfileTag from './molecules/profile-tag'
 import Lock from '../assets/icons/Lock.svg'
-import TimeLine from './atoms/time-line'
+import TimeLine from './atoms/texts/time-line'
 import { useLocation } from 'react-router-dom'
-import MeetUpCategoryTag from './atoms/meet-up-category-tag'
-import ProfileImg from './atoms/meet-up-profile-img'
+import MeetUpCategoryTag from './atoms/tags/meet-up-category/meet-up-category'
+import ProfileImg from './atoms/profile-images/meet-up/meet-up-profile-img'
 
 const Section = styled.div`
     margin-bottom: 10px;

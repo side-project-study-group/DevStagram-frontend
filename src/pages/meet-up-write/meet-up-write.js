@@ -1,8 +1,8 @@
-import React from "react";
-import MeetUpWriteTemp from "./meet-up-write-template";
+import React from 'react'
+import MeetUpWriteTemp from './meet-up-write-template'
 
 function MeetUpWrite() {
-  return <MeetUpWriteTemp />;
+    return <MeetUpWriteTemp />
 }
 
-export default MeetUpWrite;
+export default MeetUpWrite

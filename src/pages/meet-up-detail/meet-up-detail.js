@@ -1,8 +1,8 @@
-import React from "react";
-import MeetUpDetailTemp from "./meet-up-detail-templete";
+import React from 'react'
+import MeetUpDetailTemp from './meet-up-detail-templete'
 
 function MeetUpDetail() {
-  return <MeetUpDetailTemp />;
+    return <MeetUpDetailTemp />
 }
 
-export default MeetUpDetail;
+export default MeetUpDetail
