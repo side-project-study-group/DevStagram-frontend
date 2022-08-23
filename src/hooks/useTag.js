@@ -25,7 +25,7 @@ function useTag() {
         }
         //태그에 추가
         setTags([...tags, tag])
-        setText('')
+        setValue('')
     }
 
     const handleClick = (e) => {
