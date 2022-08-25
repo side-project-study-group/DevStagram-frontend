@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import MemberTag from './molecules/member-tag'
-import TextBox from './atoms/text-box'
 import MeetUpTitle from './molecules/meet-up-title'
 import TextBox from './atoms/texts/text-box'
 import ProfileTag from './molecules/profile-tag'
