@@ -1,8 +1,8 @@
-import React from 'react';
-import YourProfilePostTemp from './your-profile-post-template';
+import React from 'react'
+import YourProfilePostTemp from './your-profile-post-template'
 
 function YourProfilePost() {
-  return <YourProfilePostTemp />;
+    return <YourProfilePostTemp />
 }
 
-export default YourProfilePost;
+export default YourProfilePost

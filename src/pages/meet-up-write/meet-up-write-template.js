@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import SelectContainer from '../../components/molecules/select-container'
 import InputContainer from '../../components/molecules/input-container'
-import FooterBtn from '../../components/atoms/footer-button'
-import Label from '../../components/atoms/label'
-import TextArea from '../../components/atoms/text-area'
+import FooterBtn from '../../components/atoms/buttons/footer-button'
+import Label from '../../components/atoms/texts/label'
+import TextArea from '../../components/atoms/inputs/text-area'
 
 const Section = styled.section`
     width: 100%;
