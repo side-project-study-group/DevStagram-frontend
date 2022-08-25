@@ -13,7 +13,6 @@ import MyProfilePost from './pages/my-profile-post/my-profile-post'
 import YourProfileMeetUp from './pages/your-profile-meet-up/your-profile-meet-up'
 import YourProfilePost from './pages/your-profile-post/your-profile-post'
 import LogIn1 from './pages/log-in-1/log-in-1'
-import LogInFailure from './pages/log-in-failure/log-in-failure'
 import SignUp1 from './pages/sign-up-1/sign-up-1'
 import SignUp2 from './pages/sign-up-2/sign-up-2'
 import SignUp3 from './pages/sign-up-3/sign-up-3'
@@ -24,14 +23,20 @@ function Router() {
     const location = useLocation()
     return (
         <>
-            {location.pathname === '/' ? <HeaderHome /> : <HeaderBack />}
+            {location.pathname === '/sign-up-finish' ||
+            location.pathname === '/log-in-1' ? null : location.pathname ===
+              '/' ? (
+                <HeaderHome />
+            ) : (
+                <HeaderBack />
+            )}
             <Routes>
                 <Route path="/" element={<MeetUpList />} />
                 <Route path="/meet-up-detail" element={<MeetUpDetail />} />
                 <Route path="/meet-up-chat-list" element={<MeetUpChatList />} />
                 <Route path="/meet-up-write" element={<MeetUpWrite />} />
                 <Route path="/timeline-detail" element={<TimeLineDetail />} />
-                <Route path="/new-post" element={<NewPost />} /> 
+                <Route path="/new-post" element={<NewPost />} />
                 <Route path="/edit-my-profile" element={<EditMyProfile />} />
                 <Route
                     path="/my-profile-meet-up"
@@ -47,7 +52,6 @@ function Router() {
                     element={<YourProfilePost />}
                 />
                 <Route path="/log-in-1" element={<LogIn1 />} />
-                <Route path="/log-in-failure" element={<LogInFailure />} />
                 <Route path="/sign-up-1" element={<SignUp1 />} />
                 <Route path="/sign-up-2" element={<SignUp2 />} />
                 <Route path="/sign-up-3" element={<SignUp3 />} />
