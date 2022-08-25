@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import MemberTag from './molecules/member-tag'
+import TextBox from './atoms/text-box'
 import MeetUpTitle from './molecules/meet-up-title'
 import TextBox from './atoms/texts/text-box'
 import ProfileTag from './molecules/profile-tag'
@@ -77,7 +78,9 @@ function MeetUpPostBox({ children, size }) {
                     </Container>
                 )}
                 <EditBtn>{children}</EditBtn>
-                <MeetUpTitle />
+                <MeetUpTitle
+                    text={'[서울] 반응형 웹 토이프로젝트 백엔드 2명 구합니다.'}
+                />
                 <TextBox />
                 <Footer path={location.pathname}>
                     <MemberTag />
