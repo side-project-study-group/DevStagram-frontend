@@ -1,8 +1,8 @@
-import React from 'react';
-import SignUpFinishTemp from './sign-up-finish-template';
+import React from 'react'
+import SignUpFinishTemp from './sign-up-finish-template'
 
 function SignUpFinish() {
-  return <SignUpFinishTemp />;
+    return <SignUpFinishTemp />
 }
 
-export default SignUpFinish;
+export default SignUpFinish

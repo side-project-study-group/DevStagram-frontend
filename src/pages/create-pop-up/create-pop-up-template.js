@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import CreateButton from '../../components/atoms/create-button'
+import CreateButton from '../../components/atoms/buttons/create-button'
 import { BiSmile } from 'react-icons/bi'
 import { BsPencilSquare } from 'react-icons/bs'
 

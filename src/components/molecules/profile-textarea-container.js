@@ -1,22 +1,22 @@
-import React from 'react';
-import Title from '../atoms/title';
-import TextArea from '../atoms/text-area';
-import styled from 'styled-components';
+import React from 'react'
+import Title from '../atoms/texts/title'
+import TextArea from '../atoms/inputs/text-area'
+import styled from 'styled-components'
 
 const Container = styled.div`
-width: 100%;
-max-width:480px;
-display:flex;
-flex-direction:column;
-gap:8px;
-`;
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+`
 
 function ProfileTextAreaContainer({ title, placeholder }) {
-  return (
-    <Container>
-      <Title title={title} />
-      <TextArea placeHolder={placeholder} />
-    </Container>
-  );
+    return (
+        <Container>
+            <Title title={title} />
+            <TextArea placeHolder={placeholder} />
+        </Container>
+    )
 }
-export default ProfileTextAreaContainer;
+export default ProfileTextAreaContainer

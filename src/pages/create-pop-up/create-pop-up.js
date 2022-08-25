@@ -1,8 +1,8 @@
-import React from "react";
-import CreatePopUpTemp from "./create-pop-up-template";
+import React from 'react'
+import CreatePopUpTemp from './create-pop-up-template'
 
 function CreatePopUp() {
-  return <CreatePopUpTemp />;
+    return <CreatePopUpTemp />
 }
 
-export default CreatePopUp;
+export default CreatePopUp
