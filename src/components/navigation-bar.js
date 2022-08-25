@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import MeetUpCategroyTag from './atoms/meet-up-category-tag'
+import MeetUpCategroyTag from './atoms/tag/meet-up-category'
 
 const Container = styled.div`
     width: 100%;

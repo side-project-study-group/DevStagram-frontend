@@ -1,14 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import MemberTag from './molecules/member-tag'
-import MeetUpTitle from './molecules/meet-up-title'
 import TextBox from './atoms/text-box'
 import ProfileTag from './molecules/profile-tag'
 import Lock from '../assets/icons/Lock.svg'
 import TimeLine from './atoms/time-line'
 import { useLocation } from 'react-router-dom'
-import MeetUpCategoryTag from './atoms/meet-up-category-tag'
-import ProfileImg from './atoms/meet-up-profile-img'
+import MeetUpCategoryTag from './atoms/tag/meet-up-category'
+import ProfileImg from './atoms/profile-img/meet-up'
+import Title from './atoms/title'
+import MeetUpTitle from './molecules/meet-up-title'
 
 const Section = styled.div`
     margin-bottom: 10px;
@@ -77,7 +78,9 @@ function MeetUpPostBox({ children, size }) {
                     </Container>
                 )}
                 <EditBtn>{children}</EditBtn>
-                <MeetUpTitle />
+                <MeetUpTitle
+                    text={'[서울] 반응형 웹 토이프로젝트 백엔드 2명 구합니다.'}
+                />
                 <TextBox />
                 <Footer path={location.pathname}>
                     <MemberTag />

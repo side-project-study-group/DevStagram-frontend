@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import ChatAccountName from '../atoms/chat-account-name'
 import ChatContents from '../molecules/chat-contents'
-import ProfileImg from '../atoms/meet-up-profile-img'
+import ProfileImg from '../atoms/profile-img/meet-up'
 import ChatTime from '../atoms/chat-time'
 
 const Container = styled.div`
