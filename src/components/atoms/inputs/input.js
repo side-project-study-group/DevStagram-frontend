@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const InputTag = styled.input`
+const StyledInput = styled.input`
     width: ${(props) => (props.width ? props.width : '100%')};
     height: 30px;
     border: 2px solid rgba(65, 64, 66, 1);
@@ -10,11 +10,14 @@ const InputTag = styled.input`
     padding: 0 5px;
     box-sizing: border-box;
     text-align: center;
+    ::-webkit-inner-spin-button {
+        opacity: 1;
+    }
 `
 
 function Input({ name, value, type, width, handleChange, placeholder }) {
     return (
-        <InputTag
+        <StyledInput
             name={name}
             value={value}
             type={type}
