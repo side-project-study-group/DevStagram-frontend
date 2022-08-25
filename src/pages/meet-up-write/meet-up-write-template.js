@@ -5,6 +5,7 @@ import InputContainer from '../../components/molecules/input-container'
 import FooterBtn from '../../components/atoms/buttons/footer-button'
 import Label from '../../components/atoms/texts/label'
 import TextArea from '../../components/atoms/inputs/text-area'
+import useForm from '../../hooks/useForm'
 
 const Section = styled.section`
     width: 100%;
@@ -29,28 +30,43 @@ const MeetUpContentContainer = styled.div`
 `
 
 function MeetUpWriteTemp() {
+    const { form, handleChange, handleSubmit } = useForm()
+
     return (
         <Section>
-            <form>
-                <SelectContainer label={'카테고리'} options={dummyCategories} />
-                <InputContainer label={'제목'} />
+            <form onSubmit={handleSubmit}>
+                <SelectContainer
+                    label={'카테고리'}
+                    options={dummyCategories}
+                    handleChange={handleChange}
+                />
+                <InputContainer label={'제목'} handleChange={handleChange} />
                 <MeetUpContentContainer>
                     <Label label={'내용'} />
-                    <TextArea />
+                    <TextArea name={'내용'} handleChange={handleChange} />
                 </MeetUpContentContainer>
-                <InputContainer width={'20%'} label="인원수" />
+                <InputContainer
+                    width={'20%'}
+                    label="인원수"
+                    handleChange={handleChange}
+                />
                 <SelectContainer
                     width={'20%'}
                     label={'참여방식'}
                     options={dummyJoinTypes}
+                    handleChange={handleChange}
                 />
                 <SelectContainer
                     width={'20%'}
                     label={'밋업상태'}
                     options={dummyMeetUpStates}
+                    handleChange={handleChange}
                 />
             </form>
-            <FooterBtn text={'게시하기'} />
+            <FooterBtn
+                handleClick={() => console.log(form)}
+                text={'게시하기'}
+            />
         </Section>
     )
 }

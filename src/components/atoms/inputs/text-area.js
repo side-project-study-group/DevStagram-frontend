@@ -10,12 +10,13 @@ const TextAreaTag = styled.textarea`
     border-radius: 5px;
 `
 
-function TextArea({ name, handleChange }) {
+function TextArea({ name, handleChange, value }) {
     return (
         <TextAreaTag
             name={name}
             onChange={handleChange}
             placeholder="내용을 입력해주세요."
+            value={value}
         />
     )
 }
