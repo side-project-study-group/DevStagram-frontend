@@ -14,7 +14,7 @@ function VerticalProfile({ src, text, date }) {
     return (
         <StyledDiv>
             <CircleImage src={src} />
-            <Text value={text} />
+            <Text value={text} size={'medium'} />
             <DateText date={date} />
         </StyledDiv>
     )

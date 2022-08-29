@@ -30,7 +30,7 @@ const ButtonContainer = styled.div`
     gap: 17px;
 `
 
-function LogInContainer() {
+function LogInContainer({ handleGoogleLogin, handleAppSignup }) {
     return (
         <Container>
             <LinkText text={'Forgot Password?'} />
@@ -40,7 +40,7 @@ function LogInContainer() {
                     color={'rgba(180, 180, 180, 1)'}
                     fontSize={'medium'}
                 />
-                <LinkText text={'Sign up?'} />
+                <LinkText text={'Sign up?'} handleClick={handleAppSignup} />
             </ConfirmSign>
             <Description
                 define={'Or'}
@@ -49,7 +49,7 @@ function LogInContainer() {
                 textAlign={'center'}
             />
             <ButtonContainer>
-                <GoogleLogInImg />
+                <GoogleLogInImg handleClick={handleGoogleLogin} />
                 <FooterBtn text={'Login'} />
             </ButtonContainer>
         </Container>

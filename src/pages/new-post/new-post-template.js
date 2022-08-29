@@ -1,36 +1,25 @@
 import React from 'react'
-import TextAreaWithoutBorder from '../../components/atoms/inputs/text-area-without-border'
-import VerticalProfile from '../../components/molecules/vertical-profile'
 import FooterBtn from '../../components/atoms/buttons/footer-button'
-// apache 2.0
-import { GrGallery } from 'react-icons/gr'
 import styled from 'styled-components'
+import PostForm from '../../components/organisms/post-form'
 
 const Container = styled.div`
+    height: 100%;
     padding: 10px 10px;
-`
-const Section = styled.div`
-    box-sizing: border-box;
-    width: 100%;
-    position: relative;
-    background-color: rgba(255, 255, 255, 1);
-    border: 2px solid #24231f;
-    border-radius: 10px;
     max-width: 480px;
-    padding: 10px;
+    align-items: center;
+    margin: 0 auto;
 `
 
 function NewPostTemplate({ src, text, value, handleChange, submit }) {
     return (
         <Container>
-            <Section>
-                <VerticalProfile src={src} text={text} />
-                <TextAreaWithoutBorder
-                    value={value}
-                    handleChange={handleChange}
-                />
-                <GrGallery size={'36px'} />
-            </Section>
+            <PostForm
+                src={src}
+                text={text}
+                value={value}
+                handleChange={handleChange}
+            />
             <FooterBtn text={'게시하기'} handleClick={submit} />
         </Container>
     )

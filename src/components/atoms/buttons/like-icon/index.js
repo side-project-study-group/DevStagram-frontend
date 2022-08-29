@@ -1,14 +1,11 @@
 import React from 'react'
 import { IoHeartOutline, IoHeart } from 'react-icons/io5'
-import useFilled from '../../../../hooks/useFilled'
 
-function LikeIcon({ isFilledInit }) {
-    const [isFilled, onClick] = useFilled(isFilledInit)
-
+function LikeIcon({ isFilled, handleFill }) {
     return isFilled ? (
-        <IoHeart color="Red" onClick={onClick} />
+        <IoHeart color="Red" size={'24px'} onClick={handleFill} />
     ) : (
-        <IoHeartOutline onClick={onClick} />
+        <IoHeartOutline size={'24px'} onClick={handleFill} />
     )
 }
 

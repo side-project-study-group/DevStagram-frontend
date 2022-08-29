@@ -1,15 +1,17 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import SignUp1Temp from './sign-up-1-template'
 
 function SignUp1() {
+    const navigate = useNavigate()
+    const location = useLocation()
+    console.log(location)
     const [value, setValue] = useState({
+        ...location.state,
         email: '',
         password: '',
         confirmPassword: '',
     })
-
-    const navigate = useNavigate()
 
     const handleChange = (e) => {
         setValue({

@@ -12,12 +12,13 @@ const Img = styled.img`
     width: 100%;
     height: 100%;
     vertical-align: top;
+    cursor: pointer;
 `
 
-function GoogleLogInImg({ size }) {
+function GoogleLogInImg({ size, handleClick }) {
     return (
         <ImgContainer size={size}>
-            <Img src={GoogleLogIn} alt="프로필 이미지" />
+            <Img src={GoogleLogIn} alt="프로필 이미지" onClick={handleClick} />
         </ImgContainer>
     )
 }

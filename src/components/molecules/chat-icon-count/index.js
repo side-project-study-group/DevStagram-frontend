@@ -3,10 +3,10 @@ import { IoChatbubbleOutline } from 'react-icons/io5'
 
 function ChatIconCount({ count }) {
     return (
-        <>
-            <IoChatbubbleOutline />
-            <p>{count}</p>
-        </>
+        <div>
+            <IoChatbubbleOutline size={'24px'} />
+            <span>{count}</span>
+        </div>
     )
 }
 

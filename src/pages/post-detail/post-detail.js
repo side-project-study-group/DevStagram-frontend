@@ -1,7 +1,7 @@
 import React from 'react'
-import TimelineDetailTemp from './timeline-detail-template'
+import PostDetailTemp from './post-detail-template'
 
-function TimeLineDetail() {
+function PostDetail() {
     const mock = {
         src: 'https://fakeimg.pl/50x50/',
         text: 'Albert Flores',
@@ -14,7 +14,7 @@ function TimeLineDetail() {
     }
 
     return (
-        <TimelineDetailTemp
+        <PostDetailTemp
             src={mock.src}
             text={mock.text}
             date={mock.date}
@@ -26,4 +26,4 @@ function TimeLineDetail() {
     )
 }
 
-export default TimeLineDetail
+export default PostDetail
