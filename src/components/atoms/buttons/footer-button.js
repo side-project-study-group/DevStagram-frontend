@@ -31,7 +31,9 @@ function FooterBtn({ text, handleClick }) {
     return (
         <Footer>
             <Container>
-                <Button onClick={handleClick}>{text}</Button>
+                <Button type="button" onClick={handleClick}>
+                    {text}
+                </Button>
             </Container>
         </Footer>
     )

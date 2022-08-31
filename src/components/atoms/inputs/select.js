@@ -10,18 +10,17 @@ const SelectTag = styled.select`
     text-align: center;
 `
 
-function Select({ options, width }) {
-    const OPTION_DEFAULT = '밋업의 종류를 골라주세요.'
+function Select({ options, width, name, value, handleChange }) {
     return (
-        <SelectTag width={width}>
+        <SelectTag
+            onChange={handleChange}
+            width={width}
+            name={name}
+            value={value}
+        >
             {options.map((option, i) => {
                 return (
-                    <option
-                        key={i}
-                        className={'option_center'}
-                        // disabled={option === OPTION_DEFAULT}
-                        // hidden={option === OPTION_DEFAULT}
-                    >
+                    <option key={i} value={option}>
                         {option}
                     </option>
                 )
