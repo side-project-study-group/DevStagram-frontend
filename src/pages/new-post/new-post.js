@@ -1,13 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
+import useInput from '../../hooks/useInput'
 import NewPostTemplate from './new-post-template'
 
 function NewPost() {
-    const [value, setValue] = useState('')
+    const [value, handleChange] = useInput()
 
-    function handleChange(event) {
-        setValue(event.target.value)
-        console.log(event.target.value)
-    }
     function submit() {
         return
     }

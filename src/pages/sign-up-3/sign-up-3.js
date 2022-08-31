@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import SignUp3Temp from './sign-up-3-template'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import useTag from '../../hooks/useTag'
+import axios from 'axios'
 
 function SignUp3() {
     const location = useLocation()
+    const navigate = useNavigate()
+
     const [value, setValue] = useState({
         ...location.state,
         intro: '',
@@ -18,8 +21,29 @@ function SignUp3() {
         })
     }
 
-    const handleSubmit = (e) => {
-        return
+    const handleSubmit = () => {
+        const url =
+            'http://default-gateway-service--87742-11669872-9594cfbe56b3.kr.lb.naverncp.com:9999/api/auth/signUp'
+
+        axios
+            .post(url, {
+                name: value.name,
+                nickname: value.nickname,
+                password: value.password,
+                pictureUrl: null,
+                description: value.intro,
+                email: value.email,
+                github: value.github,
+                blog: value.blog,
+                tags: value.tags,
+                provider: 'app',
+            })
+            .then((res) => {
+                navigate('/sign-up-finish')
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     return (

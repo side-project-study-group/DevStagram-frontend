@@ -8,6 +8,7 @@ function SignUp2() {
 
     const [value, setValue] = useState({
         ...location.state,
+        name: '',
         nickname: '',
         github: '',
         blog: '',

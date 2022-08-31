@@ -37,7 +37,7 @@ const InpuContainer = styled.div`
     box-sizing: border-box;
 `
 
-function LogInTemp1() {
+function LogInTemp1({ handleGoogleLogin, handleAppSignup }) {
     const [isOpenPopUp, setIsOpenPopUp] = useState(false)
     return (
         <>
@@ -48,7 +48,10 @@ function LogInTemp1() {
                         <Input placeholder={'E-mail'} />
                         <Input placeholder={'Password'} />
                     </InpuContainer>
-                    <LogInContainer />
+                    <LogInContainer
+                        handleGoogleLogin={handleGoogleLogin}
+                        handleAppSignup={handleAppSignup}
+                    />
                 </Container>
             </Wrapper>
             {isOpenPopUp && (

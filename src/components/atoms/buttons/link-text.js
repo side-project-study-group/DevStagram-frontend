@@ -9,10 +9,11 @@ const P = styled.p`
     text-align: right;
     line-height: 13px;
     margin: 0;
+    cursor: pointer;
 `
 
-function LinkText({ text }) {
-    return <P>{text}</P>
+function LinkText({ text, handleClick }) {
+    return <P onClick={handleClick}>{text}</P>
 }
 
 export default LinkText

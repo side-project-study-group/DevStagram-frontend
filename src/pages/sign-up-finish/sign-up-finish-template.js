@@ -36,7 +36,7 @@ const ButtonContainer = styled.div`
     margin: 0 auto;
 `
 
-function SignUpTemp() {
+function SignUpFinishTemp({ handleClick }) {
     return (
         <Wrapper>
             <Container>
@@ -47,11 +47,11 @@ function SignUpTemp() {
                     sign={'Devstagram에서 함께 할 개발자들을 찾으러 가볼까요?'}
                 />
                 <ButtonContainer>
-                    <FooterBtn text={'Login'} />
+                    <FooterBtn text={'Login'} handleClick={handleClick} />
                 </ButtonContainer>
             </Container>
         </Wrapper>
     )
 }
 
-export default SignUpTemp
+export default SignUpFinishTemp

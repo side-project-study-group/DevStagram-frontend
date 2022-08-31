@@ -50,6 +50,13 @@ function SignUp2Temp({ value, handleChange, handleSubmit }) {
                     <H1Tag sign={'Sign Up'} />
                     <SignUpImg />
                     <Input
+                        name={'name'}
+                        value={value['name']}
+                        type={'text'}
+                        placeholder={'Name'}
+                        handleChange={handleChange}
+                    />
+                    <Input
                         name={'nickname'}
                         value={value['nickname']}
                         type={'text'}
