@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import FooterBtn from '../../components/atoms/buttons/footer-button'
-import MeetUpPostBox from '../../components/meet-up-post-box'
+import MeetUpPostBox from '../../components/organisms/meet-up-post-box'
 import PopUp from '../../components/organisms/pop-up'
 
 const Section = styled.section`
@@ -14,11 +14,11 @@ const Section = styled.section`
     box-sizing: border-box;
 `
 
-function MeetUpPostTemp() {
+function MeetUpPostTemp({ detail }) {
     const [isOpenPopUP, setIsOpenPopUp] = useState(false)
     return (
         <Section>
-            <MeetUpPostBox size={'big'} />
+            <MeetUpPostBox data={detail} />
             <FooterBtn
                 handleClick={() => setIsOpenPopUp(!isOpenPopUP)}
                 text="참여하기"

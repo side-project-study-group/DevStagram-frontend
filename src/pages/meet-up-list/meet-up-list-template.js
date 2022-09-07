@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import MeetUpPostBox from '../../components/meet-up-post-box'
 import styled from 'styled-components'
 import SearchHeader from '../../components/search-header'
 import NavigationBar from '../../components/navigation-bar'
 import PlusButton from '../../components/atoms/buttons/plus-button'
 import CreatePopUp from '../create-pop-up/create-pop-up'
+import MeetUpSummaryPostBox from '../../components/organisms/meet-up-summary-post-box'
 
 const Section = styled.section`
     width: 100%;
@@ -21,7 +21,7 @@ const Container = styled.div`
     padding-bottom: 10px;
 `
 
-function MeetUpListTemp() {
+function MeetUpListTemp({ summaries }) {
     const [isOpenPopUp, setIsOpenPopUp] = useState(false)
     return (
         <>
@@ -29,9 +29,12 @@ function MeetUpListTemp() {
                 <SearchHeader />
                 <NavigationBar />
                 <Container>
-                    <MeetUpPostBox size={'small'} />
-                    <MeetUpPostBox size={'small'} />
-                    <MeetUpPostBox size={'small'} />
+                    {summaries.map((summary) => (
+                        <MeetUpSummaryPostBox
+                            key={summary.id}
+                            summary={summary}
+                        />
+                    ))}
                 </Container>
                 <PlusButton
                     isOpenPopUp={isOpenPopUp}
