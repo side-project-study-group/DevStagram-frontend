@@ -14,7 +14,7 @@ const Section = styled.section`
     box-sizing: border-box;
 `
 
-function MeetUpPostTemp() {
+function MeetUpDetailTemp() {
     const [isOpenPopUP, setIsOpenPopUp] = useState(false)
     return (
         <Section>
@@ -35,4 +35,4 @@ function MeetUpPostTemp() {
     )
 }
 
-export default MeetUpPostTemp
+export default MeetUpDetailTemp
