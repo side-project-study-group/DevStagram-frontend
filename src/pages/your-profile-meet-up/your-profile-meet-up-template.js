@@ -1,7 +1,6 @@
 import React from 'react'
 import ProfileHeader from '../../components/organisms/profile-header'
 import ProfileMeetUpPostBtns from '../../components/molecules/profile-meetup-post-btns'
-import MeetUpPostBox from '../../components/meet-up-post-box'
 import checkImg from '../../assets/imgs/check.png'
 import styled from 'styled-components'
 
@@ -36,9 +35,6 @@ function YourProfileMeetUpTemp() {
             <Container>
                 <ProfileHeader />
                 <ProfileMeetUpPostBtns />
-                <MeetUpPostBox />
-                <MeetUpPostBox />
-                <MeetUpPostBox />
             </Container>
         </>
     )

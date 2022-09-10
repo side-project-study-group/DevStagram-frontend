@@ -1,9 +1,9 @@
 import React from 'react'
 import ProfileHeader from '../../components/organisms/profile-header'
 import ProfileMeetUpPostBtns from '../../components/molecules/profile-meetup-post-btns'
-import MeetUpPostBox from '../../components/meet-up-post-box'
 import checkImg from '../../assets/imgs/check.png'
 import styled from 'styled-components'
+import MeetUpSummaryPostBox from '../../components/organisms/meet-up-summary-post-box'
 
 const Container = styled.div`
     width: 100%;
@@ -27,7 +27,7 @@ const BlueHeader = styled.div`
     }
 `
 
-function MyProfileMeetUpTemp() {
+function MyProfileMeetUpTemp({ meetUps }) {
     return (
         <>
             <BlueHeader>
@@ -36,9 +36,9 @@ function MyProfileMeetUpTemp() {
             <Container>
                 <ProfileHeader />
                 <ProfileMeetUpPostBtns />
-                <MeetUpPostBox />
-                <MeetUpPostBox />
-                <MeetUpPostBox />
+                {meetUps.map((meetUp) => (
+                    <MeetUpSummaryPostBox summary={meetUp} />
+                ))}
             </Container>
         </>
     )

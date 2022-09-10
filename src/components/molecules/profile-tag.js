@@ -11,11 +11,11 @@ const Profile = styled.div`
     }
 `
 
-function ProfileTag({ size }) {
+function ProfileTag({ size, id }) {
     return (
         <Profile size={size}>
             <ProfileImg size={size} />
-            <span>yday1223</span>
+            <span>{id}</span>
         </Profile>
     )
 }
