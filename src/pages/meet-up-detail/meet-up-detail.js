@@ -1,10 +1,15 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import MeetUpDetailTemp from './meet-up-detail-templete'
 
 function MeetUpDetail() {
-    return <MeetUpDetailTemp detail={mock} />
-}
+    const [details, setDetails] = useState([])
 
+    useEffect(() => {
+        // axios(`api/meetup/read/getOneMeetUp?meetUpId=${meetUpId}`).then(res=>console(res.data))
+    }, [])
+    
+    return <MeetUpDetailTemp detail={mock} />
 export default MeetUpDetail
 
 const mock = {

@@ -44,14 +44,6 @@ const TagContainer = styled.div`
     padding: 10px;
 `
 
-const ButtonContainer = styled.div`
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 45px;
-    margin: 0 auto;
-`
-
 function SignUp3Temp({
     value,
     text,
@@ -92,9 +84,7 @@ function SignUp3Temp({
                         )
                     })}
                 </TagContainer>
-                <ButtonContainer>
-                    <FooterBtn text={'Next'} handleClick={handleSubmit} />
-                </ButtonContainer>
+                <FooterBtn text={'Next'} handleClick={handleSubmit} />
             </Container>
         </Wrapper>
     )

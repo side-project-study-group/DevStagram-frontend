@@ -34,14 +34,6 @@ const InpuContainer = styled.div`
     box-sizing: border-box;
 `
 
-const ButtonContainer = styled.div`
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 45px;
-    margin: 0 auto;
-`
-
 function SignUp1Temp({ handleChange, value, handleSubmit }) {
     return (
         <Wrapper>
@@ -70,9 +62,7 @@ function SignUp1Temp({ handleChange, value, handleSubmit }) {
                         handleChange={handleChange}
                     />
                 </InpuContainer>
-                <ButtonContainer>
-                    <FooterBtn text={'Next'} handleClick={handleSubmit} />
-                </ButtonContainer>
+                <FooterBtn text={'Next'} handleClick={handleSubmit} />
             </Container>
         </Wrapper>
     )

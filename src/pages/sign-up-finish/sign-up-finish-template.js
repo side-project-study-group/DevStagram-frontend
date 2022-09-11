@@ -28,14 +28,6 @@ const Container = styled.div`
     box-sizing: border-box;
 `
 
-const ButtonContainer = styled.div`
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 45px;
-    margin: 0 auto;
-`
-
 function SignUpFinishTemp({ handleClick }) {
     return (
         <Wrapper>
@@ -46,9 +38,7 @@ function SignUpFinishTemp({ handleClick }) {
                 <H3Tag
                     sign={'Devstagram에서 함께 할 개발자들을 찾으러 가볼까요?'}
                 />
-                <ButtonContainer>
-                    <FooterBtn text={'Login'} handleClick={handleClick} />
-                </ButtonContainer>
+                <FooterBtn text={'Login'} handleClick={handleClick} />
             </Container>
         </Wrapper>
     )
