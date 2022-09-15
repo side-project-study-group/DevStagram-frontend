@@ -16,11 +16,13 @@ function NavigationBar() {
     useEffect(() => {
         setCategories(mock)
     }, [])
+
     return (
         <Container>
             {categories?.map((category) => (
                 <MeetUpCategroyTag
-                    key={category.id}
+                    key={category.code}
+                    code={category.code}
                     text={category.displayName}
                 />
             ))}
@@ -31,8 +33,8 @@ function NavigationBar() {
 export default NavigationBar
 
 const mock = [
-    { id: 0, displayName: '전체' },
-    { id: 1, displayName: '프로젝트' },
-    { id: 2, displayName: '스터디' },
-    { id: 3, displayName: '네트워킹' },
+    { code: 0, displayName: '전체' },
+    { code: 1, displayName: '프로젝트' },
+    { code: 2, displayName: '스터디' },
+    { code: 3, displayName: '네트워킹' },
 ]

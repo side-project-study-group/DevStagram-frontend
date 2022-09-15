@@ -8,8 +8,9 @@ function MeetUpDetail() {
     useEffect(() => {
         // axios(`api/meetup/read/getOneMeetUp?meetUpId=${meetUpId}`).then(res=>console(res.data))
     }, [])
-    
+
     return <MeetUpDetailTemp detail={mock} />
+}
 export default MeetUpDetail
 
 const mock = {

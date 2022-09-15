@@ -23,7 +23,7 @@ const BtnContainer = styled.div`
     align-items: center;
     background-color: ${(props) =>
         props.isOpenPopUp ? '#ffffff' : ' #fab923'};
-    box-shadow: 2px 3px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 3px 0px rgba(0, 0, 0, 0.4);
     button {
         cursor: pointer;
         font-size: 25px;

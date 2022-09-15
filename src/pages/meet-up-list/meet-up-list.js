@@ -1,7 +1,19 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import MeetUpListTemp from './meet-up-list-template'
 
 function MeetUpList() {
+    const [category, setCategory] = useState([])
+    const uri = `"http://default-gateway-service--87742-11669872-9594cfbe56b3.kr.lb.naverncp.com:9999`
+
+    const selectCategory = (e) => {
+        const { name } = e.target
+        setCategory(category)
+    }
+
+    useEffect(() => {
+        // axios(`${uri}/api/meetup/read/getMeetUpSummaries/${category}`)
+    }, [category])
     return <MeetUpListTemp summaries={mock} />
 }
 

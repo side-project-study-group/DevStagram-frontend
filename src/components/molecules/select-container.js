@@ -11,14 +11,14 @@ const Container = styled.div`
     margin: 15px 0;
 `
 
-function SelectContainer({ label, options, width, handleChange }) {
+function SelectContainer({ label, options, name, width, handleChange }) {
     return (
         <Container width={width}>
             <Label label={label} />
             <Select
                 options={options}
                 width={width}
-                name={label}
+                name={name}
                 handleChange={handleChange}
             />
         </Container>

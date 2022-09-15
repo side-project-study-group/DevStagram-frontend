@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import SelectContainer from '../../components/molecules/select-container'
 import InputContainer from '../../components/molecules/input-container'
@@ -6,6 +6,8 @@ import FooterBtn from '../../components/atoms/buttons/footer-button'
 import Label from '../../components/atoms/texts/label'
 import TextArea from '../../components/atoms/inputs/text-area'
 import useForm from '../../hooks/useForm'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Section = styled.section`
     width: 100%;
@@ -31,35 +33,66 @@ const MeetUpContentContainer = styled.div`
 
 function MeetUpWriteTemp() {
     const { form, handleChange, handleSubmit } = useForm()
+    const [categories, setCategories] = useState([])
+    const navigate = useNavigate()
+
+    const uri = `"http://default-gateway-service--87742-11669872-9594cfbe56b3.kr.lb.naverncp.com:9999`
+
+    function handleClick() {
+        axios
+            .post(`${uri}/api/meetup/service/create`, form, {
+                headers: { Authorization: 'token' },
+            })
+            .then((res) => {
+                console.log(res)
+                navigate('/')
+            })
+            .catch(function (error) {
+                alert(error)
+            })
+    }
+
+    useEffect(() => {
+        axios(`${uri}/api/meetup/read/getCategories`)
+            .then((res) => {
+                if (res.status === 200) {
+                    setCategories()
+                }
+            })
+            .catch(function (error) {
+                alert(error)
+            })
+    }, [])
 
     return (
         <Section>
             <form onSubmit={handleSubmit}>
                 <SelectContainer
+                    name={'category'}
                     label={'카테고리'}
                     options={dummyCategories}
                     handleChange={handleChange}
                 />
-                <InputContainer label={'제목'} handleChange={handleChange} />
+                <InputContainer
+                    name={'title'}
+                    label={'제목'}
+                    handleChange={handleChange}
+                />
                 <MeetUpContentContainer>
                     <Label label={'내용'} />
-                    <TextArea name={'내용'} handleChange={handleChange} />
+                    <TextArea name={'contents'} handleChange={handleChange} />
                 </MeetUpContentContainer>
                 <InputContainer
                     width={'20%'}
                     label="인원수"
+                    name={'maxPeople'}
                     handleChange={handleChange}
                 />
                 <SelectContainer
                     width={'20%'}
                     label={'참여방식'}
+                    name={'isOpenYn'}
                     options={dummyJoinTypes}
-                    handleChange={handleChange}
-                />
-                <SelectContainer
-                    width={'20%'}
-                    label={'밋업상태'}
-                    options={dummyMeetUpStates}
                     handleChange={handleChange}
                 />
             </form>
@@ -79,5 +112,4 @@ const dummyCategories = [
     '스터디',
     '네트워킹',
 ]
-const dummyJoinTypes = ['private', 'public']
-const dummyMeetUpStates = ['모집예정', '모집중', '모집완료']
+const dummyJoinTypes = ['프라이빗밋업', '오픈밋업']

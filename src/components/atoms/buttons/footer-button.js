@@ -11,7 +11,7 @@ const Container = styled.div`
     position: absolute;
     box-sizing: border-box;
     max-width: 480px;
-    bottom: 25px;
+    bottom: 40px;
 `
 
 const Button = styled.div`
