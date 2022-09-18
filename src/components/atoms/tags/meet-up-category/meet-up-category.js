@@ -8,11 +8,11 @@ const Button = styled.button`
     width: 90px;
     margin-right: 5px;
     background-color: ${(props) =>
-        props.text === '전체'
+        props.code === 'ALL'
             ? '#F05550'
-            : props.text === '프로젝트'
+            : props.code === 'PROJECT'
             ? '#FA9637'
-            : props.text === '스터디'
+            : props.code === 'STUDY'
             ? '#28AF73'
             : '#A06EEB'};
     border: 2px solid #414042;
@@ -23,7 +23,7 @@ const Button = styled.button`
 `
 
 function MeetUpCategroyTag({ code, text }) {
-    return <Button name={code}>{text}</Button>
+    return <Button code={code}>{text}</Button>
 }
 
 export default MeetUpCategroyTag

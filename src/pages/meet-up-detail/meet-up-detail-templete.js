@@ -17,6 +17,7 @@ const Section = styled.section`
 
 function MeetUpDetailTemp({ detail }) {
     const [isOpenPopUP, setIsOpenPopUp] = useState(false)
+
     return (
         <Section>
             <MeetUpPostBox data={detail} />

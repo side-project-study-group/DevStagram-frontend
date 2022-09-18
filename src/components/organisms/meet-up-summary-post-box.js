@@ -66,7 +66,7 @@ function MeetUpSummaryPostBox({ summary }) {
                     isRecruiting={summary?.isRecruiting}
                     title={summary?.title}
                 />
-                <TextBox text={summary?.contetns} />
+                <TextBox text={summary?.contents} />
                 <Footer>
                     <MemberTag
                         maxCount={summary?.maxPeople}
