@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import FooterBtn from '../../components/atoms/buttons/footer-button'
 import MeetUpPostBox from '../../components/organisms/meet-up-post-box'
+import BottomPopUp from '../../components/organisms/modal-pop-up-bottom'
 import PopUp from '../../components/organisms/pop-up'
 
 const Section = styled.section`
@@ -14,7 +15,7 @@ const Section = styled.section`
     box-sizing: border-box;
 `
 
-function MeetUpDetailTemp() {
+function MeetUpDetailTemp({ detail }) {
     const [isOpenPopUP, setIsOpenPopUp] = useState(false)
     return (
         <Section>
@@ -31,6 +32,7 @@ function MeetUpDetailTemp() {
                     </p>
                 </PopUp>
             )}
+            <BottomPopUp />
         </Section>
     )
 }

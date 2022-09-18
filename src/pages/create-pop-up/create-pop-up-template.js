@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import CreateButton from '../../components/atoms/buttons/create-button'
 import { BiSmile } from 'react-icons/bi'
 import { BsPencilSquare } from 'react-icons/bs'
+import MeetUp from '../../assets/icons/Meetup.svg'
+import AddPost from '../../assets/icons/AddPost.svg'
 
 const Section = styled.section`
     position: fixed;
@@ -24,7 +26,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: flex-end;
     justify-content: end;
-    gap: 15px;
+    gap: 20px;
     box-sizing: border-box;
     padding-right: 30px;
     padding-bottom: 120px;
@@ -35,11 +37,11 @@ function CreatePopUpTemp() {
         <Section>
             <Wrapper>
                 <CreateButton
-                    icon={<BiSmile />}
+                    icon={MeetUp}
                     text={'New Meet Up'}
                     path={'/meet-up-write'}
                 />
-                <CreateButton icon={<BsPencilSquare />} text={'New Post'} />
+                <CreateButton icon={AddPost} text={'New Post'} />
             </Wrapper>
         </Section>
     )

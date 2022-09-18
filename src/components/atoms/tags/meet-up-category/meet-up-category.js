@@ -22,8 +22,8 @@ const Button = styled.button`
     align-items: center;
 `
 
-function MeetUpCategroyTag({ text }) {
-    return <Button text={text}>{text}</Button>
+function MeetUpCategroyTag({ code, text }) {
+    return <Button name={code}>{text}</Button>
 }
 
 export default MeetUpCategroyTag

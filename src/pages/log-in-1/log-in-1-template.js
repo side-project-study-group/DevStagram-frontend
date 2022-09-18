@@ -22,7 +22,7 @@ const Container = styled.div`
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    padding: 150px 0 10px 0;
+    padding: 130px 0 10px 0;
     border-radius: 50px 50px 0px 0px;
     box-sizing: border-box;
 `

@@ -5,7 +5,11 @@ function useForm() {
 
     const handleChange = (e) => {
         const { name, value } = e.target
-        setForm({ ...form, [name]: value })
+        if (name === 'isOpenYn') {
+            setForm({ ...form, [name]: value === '오픈밋업' })
+        } else {
+            setForm({ ...form, [name]: value })
+        }
     }
 
     const handleSubmit = (e) => e.preventDefault()

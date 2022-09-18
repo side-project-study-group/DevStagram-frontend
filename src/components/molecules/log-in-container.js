@@ -24,12 +24,6 @@ const ConfirmSign = styled.div`
     margin-top: 40px;
 `
 
-const ButtonContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 17px;
-`
-
 function LogInContainer({ handleGoogleLogin, handleAppSignup }) {
     return (
         <Container>
@@ -40,7 +34,7 @@ function LogInContainer({ handleGoogleLogin, handleAppSignup }) {
                     color={'rgba(180, 180, 180, 1)'}
                     fontSize={'medium'}
                 />
-                <LinkText text={'Sign up?'} handleClick={handleAppSignup} />
+                <LinkText text={'Sign up'} handleClick={handleAppSignup} />
             </ConfirmSign>
             <Description
                 define={'Or'}
@@ -48,10 +42,8 @@ function LogInContainer({ handleGoogleLogin, handleAppSignup }) {
                 fontSize={'medium'}
                 textAlign={'center'}
             />
-            <ButtonContainer>
-                <GoogleLogInImg handleClick={handleGoogleLogin} />
-                <FooterBtn text={'Login'} />
-            </ButtonContainer>
+            <GoogleLogInImg handleClick={handleGoogleLogin} />
+            <FooterBtn text={'Login'} />
         </Container>
     )
 }
