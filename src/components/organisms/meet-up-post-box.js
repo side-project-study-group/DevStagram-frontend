@@ -9,7 +9,7 @@ import Unlock from '../../assets/icons/Unlock.svg'
 import TimeLine from '../atoms/texts/time-line'
 import MeetUpCategoryTag from '../atoms/tags/meet-up-category/meet-up-category'
 import ProfileImg from '../atoms/profile-images/meet-up/meet-up-profile-img'
-
+import SettingIcon from '../../assets/icons/SettingIcon.svg'
 const Section = styled.div`
     margin-bottom: 10px;
     box-sizing: border-box;
@@ -38,12 +38,15 @@ const Wrapper = styled.div`
     width: 100%;
 `
 
-const EditBtn = styled.div`
+const EditBtn = styled.button`
+    background-color: transparent;
+    border: none;
     position: absolute;
-    right: 10px;
-    .edit_icon {
+    right: 0px;
+    img {
         width: 25px;
-        height: 25px;
+        height: 20px;
+        margin: 0;
     }
 `
 
@@ -59,7 +62,7 @@ const Container = styled.div`
     align-items: center;
 `
 
-function MeetUpPostBox({ data }) {
+function MeetUpPostBox({ data, handleSetting }) {
     const [category, setCategory] = useState('')
 
     useEffect(() => {
@@ -83,6 +86,9 @@ function MeetUpPostBox({ data }) {
                 <Header>
                     <Img src={data.isOpenYn ? Unlock : Lock} />
                     <MeetUpCategoryTag code={data?.category} text={category} />
+                    <EditBtn onClick={handleSetting}>
+                        <Img src={SettingIcon} />
+                    </EditBtn>
                 </Header>
                 <Container>
                     <ProfileTag id={data.leaderId} size={'big'} />
