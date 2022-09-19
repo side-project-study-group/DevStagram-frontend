@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import MeetUpCategroyTag from './atoms/tags/meet-up-category/meet-up-category'
@@ -11,10 +12,21 @@ const Container = styled.div`
 `
 
 function NavigationBar() {
-    const [categories, setCategories] = useState([])
+    const [categories, setCategories] = useState([
+        { code: 'ALL', displayName: '전체' },
+    ])
 
     useEffect(() => {
-        setCategories(mock)
+        const uri = `http://default-gateway-service--87742-11669872-9594cfbe56b3.kr.lb.naverncp.com:9999`
+        axios(`${uri}/api/meetup/read/getCategories`)
+            .then((res) => {
+                if (res.status === 200) {
+                    setCategories([...categories, ...res.data.attribute.result])
+                }
+            })
+            .catch(function (error) {
+                console.log('Navigation bar error===>', error)
+            })
     }, [])
 
     return (
@@ -31,10 +43,3 @@ function NavigationBar() {
 }
 
 export default NavigationBar
-
-const mock = [
-    { code: 0, displayName: '전체' },
-    { code: 1, displayName: '프로젝트' },
-    { code: 2, displayName: '스터디' },
-    { code: 3, displayName: '네트워킹' },
-]

@@ -36,7 +36,7 @@ function MeetUpWriteTemp() {
     const [categories, setCategories] = useState([])
     const navigate = useNavigate()
 
-    const uri = `"http://default-gateway-service--87742-11669872-9594cfbe56b3.kr.lb.naverncp.com:9999`
+    const uri = `http://default-gateway-service--87742-11669872-9594cfbe56b3.kr.lb.naverncp.com:9999`
 
     function handleClick() {
         axios
@@ -48,7 +48,7 @@ function MeetUpWriteTemp() {
                 navigate('/')
             })
             .catch(function (error) {
-                alert(error)
+                console.log('meet-up-write_create', error)
             })
     }
 
@@ -60,7 +60,7 @@ function MeetUpWriteTemp() {
                 }
             })
             .catch(function (error) {
-                alert(error)
+                console.log('meet-up-write_categories', error)
             })
     }, [])
 

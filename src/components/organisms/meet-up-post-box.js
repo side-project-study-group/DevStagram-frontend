@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import MemberTag from '../molecules/member-tag'
 import MeetUpTitle from '../molecules/meet-up-title'
@@ -60,12 +60,29 @@ const Container = styled.div`
 `
 
 function MeetUpPostBox({ data }) {
+    const [category, setCategory] = useState('')
+
+    useEffect(() => {
+        if (data) {
+            switch (data.category) {
+                case 'ALL':
+                    setCategory('전체')
+                case 'NETWORK':
+                    setCategory('네트워킹')
+                case 'PROJECT':
+                    setCategory('프로젝트')
+                case 'STUDY':
+                    setCategory('스터디')
+            }
+        }
+    }, [data])
+
     return (
         <Section>
             <Wrapper>
                 <Header>
                     <Img src={data.isOpenYn ? Unlock : Lock} />
-                    <MeetUpCategoryTag text={data.category} />
+                    <MeetUpCategoryTag code={data?.category} text={category} />
                 </Header>
                 <Container>
                     <ProfileTag id={data.leaderId} size={'big'} />
@@ -75,13 +92,13 @@ function MeetUpPostBox({ data }) {
                     isRecruiting={data.isRecruiting}
                     title={data.title}
                 />
-                <TextBox text={data.contetns} />
+                <TextBox text={data.contents} />
                 <Footer>
                     <MemberTag
                         maxCount={data.maxPeople}
-                        joinCount={data.memberId.length}
+                        joinCount={data?.memberId?.length}
                     />
-                    {data.memberId.map((id) => (
+                    {data?.memberId?.map((id) => (
                         <ProfileImg key={id} size="small" />
                     ))}
                 </Footer>
