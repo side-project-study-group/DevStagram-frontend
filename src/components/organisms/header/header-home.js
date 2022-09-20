@@ -13,9 +13,8 @@ const Container = styled.div`
     max-width: 480px;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     border-bottom: 2px solid #24231f;
-    padding: 0 30px;
     box-sizing: border-box;
 `
 
@@ -26,12 +25,23 @@ const Img = styled.img`
 
 function HeaderHome() {
     const navigate = useNavigate()
+    const token = '11'
     return (
         <Container>
             <Img src={Home} onClick={() => navigate('/')} />
             <Img src={TimeLine} />
-            <Img src={Chat} onClick={() => navigate('/meet-up-chat-list')} />
-            <Img src={Profile} onClick={() => navigate('/my-profile-post')} />
+            {token && (
+                <>
+                    <Img
+                        src={Chat}
+                        onClick={() => navigate('/meet-up-chat-list')}
+                    />
+                    <Img
+                        src={Profile}
+                        onClick={() => navigate('/my-profile-post')}
+                    />
+                </>
+            )}
         </Container>
     )
 }
