@@ -74,7 +74,7 @@ const ButtonContainer = styled.div`
     }
 `
 
-function PopUp({ children, handleCancel }) {
+function PopUp({ children, handleCancel, handleOk }) {
     return (
         <Section>
             <Wrapper>
@@ -83,7 +83,7 @@ function PopUp({ children, handleCancel }) {
                         {children}
                         <ButtonContainer>
                             <button onClick={handleCancel}>Cancel</button>
-                            <button>OK</button>
+                            <button onClick={handleOk}>OK</button>
                         </ButtonContainer>
                     </Contents>
                 </Container>

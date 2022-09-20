@@ -18,7 +18,7 @@ const Container = styled.div`
 `
 const BoxHead = styled.div`
     width: 100%;
-    height: 40px;
+    height: 35px;
     background-color: #fad778;
     box-sizing: border-box;
     border: 1.5px solid #414042;
@@ -34,14 +34,16 @@ const Box = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    padding: 20px 10px;
+    padding: 15px 10px;
 `
-const StyledLink = styled(Link)`
+const Button = styled.button`
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
     font-family: 'NotoSansKR';
-    color: black;
+    background-color: transparent;
+    align-items: center;
+    border: none;
     display: flex;
     justify-content: center;
     :first-child {
@@ -51,20 +53,20 @@ const StyledLink = styled(Link)`
     }
 `
 
-function BottomPopUp() {
+function BottomPopUp({ handleModify, handleDelete }) {
     return (
         <Footer>
             <Container>
                 <BoxHead />
                 <Box>
-                    <StyledLink to="/">
+                    <Button onClick={handleDelete}>
                         <img src={Delete} />
                         &nbsp;&nbsp; 게시글 삭제하기
-                    </StyledLink>
-                    <StyledLink to="/">
+                    </Button>
+                    <Button onClick={handleModify}>
                         <img src={Edit} />
                         &nbsp;&nbsp; 게시글 수정하기
-                    </StyledLink>
+                    </Button>
                 </Box>
             </Container>
         </Footer>

@@ -1,13 +1,11 @@
-import axios from 'axios'
-import React, { useEffect, useMemo, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useMemo, useState } from 'react'
 import styled from 'styled-components'
 import FooterBtn from '../../components/atoms/buttons/footer-button'
 import MeetUpPostBox from '../../components/organisms/meet-up-post-box'
 import BottomPopUp from '../../components/organisms/modal-pop-up-bottom'
 import PopUp from '../../components/organisms/pop-up'
 
-const Section = styled.section`
+const Main = styled.main`
     width: 100%;
     height: 100%;
     background-color: rgba(250, 250, 248, 1);
@@ -17,7 +15,14 @@ const Section = styled.section`
     box-sizing: border-box;
 `
 
-function MeetUpDetailTemp({ detail, status }) {
+function MeetUpDetailTemp({
+    detail,
+    status,
+    handleModify,
+    handleDelete,
+    handleJoin,
+    handleWithdraw,
+}) {
     const [isOpenPopUP, setIsOpenPopUp] = useState(false)
     const [isBottomPopUP, setIsBottomPopUp] = useState(false)
     const textType = useMemo(
@@ -25,43 +30,35 @@ function MeetUpDetailTemp({ detail, status }) {
             status === 'UNRELATED' ? `${status}_${detail.isOpenYn}` : status,
         [detail.isOpenYn, status]
     )
-    const navigate = useNavigate()
-
-    function handleClick() {
-        status !== 'OWNED' && setIsOpenPopUp(!isOpenPopUP)
-    }
-
-    function handleSetting() {
-        setIsBottomPopUp(!isBottomPopUP)
-    }
-    function handleModify() {
-        navigate('/meet-up-write')
-    }
-    function handleDelete() {
-        let token =
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MzBmNTMwNGM2ODU3MTE5M2MxZDhiNzIiLCJleHAiOjE2NjM3NTYyMDEsImlhdCI6MTY2MzU4MzQwMSwiZW1haWwiOiJndWVzdDIyMkBnbWFpbC5jb20ifQ.2beQHnvB5iE7Cw4-fSruKX_8OLafB6a3VHAPTKXeNHwETohZHQzQFtMV-8HHRhrYTVpsM-dI5DDMVhBiKm576Q'
-        let meetUpId = '62dacb29f81a287e7b5bdcd7'
-        axios.delete(`${uri}/api/meetup/service/delete?id=${meetUpId}`, {
-            headers: { Authorization: token },
-        })
-    }
 
     return (
-        <Section>
-            <MeetUpPostBox data={detail} />
+        <Main>
+            <MeetUpPostBox
+                data={detail}
+                isOwned={status === 'OWNED'}
+                handleBottomPopUp={() => setIsBottomPopUp(!isBottomPopUP)}
+            />
             {status !== 'OWNED' && (
                 <FooterBtn
-                    handleClick={handleClick}
+                    handleClick={() => setIsOpenPopUp(!isOpenPopUP)}
                     text={textData[textType]?.footer}
                 />
             )}
             {isOpenPopUP && (
-                <PopUp handleCancel={() => setIsOpenPopUp(false)}>
+                <PopUp
+                    handleOk={status === 'JOINED' ? handleWithdraw : handleJoin}
+                    handleCancel={() => setIsOpenPopUp(false)}
+                >
                     <p>{textData[textType]?.popUp}</p>
                 </PopUp>
             )}
-            {/* <BottomPopUp /> */}
-        </Section>
+            {isBottomPopUP && (
+                <BottomPopUp
+                    handleModify={handleModify}
+                    handleDelete={handleDelete}
+                />
+            )}
+        </Main>
     )
 }
 
@@ -75,6 +72,9 @@ const textData = {
     UNRELATED_false: {
         footer: '참여하기',
         popUp: '프라이빗 밋업은 리더의 승인 이후에 참여가능합니다. 참여하시겠습니까?',
+    },
+    JOINED: {
+        footer: '탈퇴하기',
     },
     OWNED: {
         popUp: '삭제하기를 누르면 복구할 수 없습니다.\n정말로 삭제하시겠습니까?',

@@ -10,7 +10,8 @@ import TimeLine from '../atoms/texts/time-line'
 import MeetUpCategoryTag from '../atoms/tags/meet-up-category/meet-up-category'
 import ProfileImg from '../atoms/profile-images/meet-up/meet-up-profile-img'
 import SettingIcon from '../../assets/icons/SettingIcon.svg'
-const Section = styled.div`
+
+const Article = styled.article`
     margin-bottom: 10px;
     box-sizing: border-box;
     width: 100%;
@@ -62,7 +63,7 @@ const Container = styled.div`
     align-items: center;
 `
 
-function MeetUpPostBox({ data, handleSetting }) {
+function MeetUpPostBox({ data, isOwned, handleBottomPopUp }) {
     const [category, setCategory] = useState('')
 
     useEffect(() => {
@@ -81,14 +82,16 @@ function MeetUpPostBox({ data, handleSetting }) {
     }, [data])
 
     return (
-        <Section>
+        <Article>
             <Wrapper>
                 <Header>
                     <Img src={data.isOpenYn ? Unlock : Lock} />
                     <MeetUpCategoryTag code={data?.category} text={category} />
-                    <EditBtn onClick={handleSetting}>
-                        <Img src={SettingIcon} />
-                    </EditBtn>
+                    {isOwned && (
+                        <EditBtn onClick={handleBottomPopUp}>
+                            <Img src={SettingIcon} />
+                        </EditBtn>
+                    )}
                 </Header>
                 <Container>
                     <ProfileTag id={data.leaderId} size={'big'} />
@@ -109,7 +112,7 @@ function MeetUpPostBox({ data, handleSetting }) {
                     ))}
                 </Footer>
             </Wrapper>
-        </Section>
+        </Article>
     )
 }
 
