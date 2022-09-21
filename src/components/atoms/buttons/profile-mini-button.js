@@ -16,9 +16,10 @@ const Button = styled.button`
     padding: 5px;
     border-radius: 15px;
     border: 1.5px solid #414042;
+    cursor: pointer;
 `
 
-function ProfileMiniButton({ name }) {
-    return <Button>{name}</Button>
+function ProfileMiniButton({ name, onClick }) {
+    return <Button onClick={onClick}>{name}</Button>
 }
 export default ProfileMiniButton
