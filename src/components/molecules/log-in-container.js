@@ -43,7 +43,7 @@ function LogInContainer({ handleGoogleLogin, handleAppSignup }) {
                 textAlign={'center'}
             />
             <GoogleLogInImg handleClick={handleGoogleLogin} />
-            <FooterBtn type={'login'} />
+            <FooterBtn>Login</FooterBtn>
         </Container>
     )
 }

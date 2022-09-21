@@ -46,8 +46,9 @@ function MeetUpChatListTemp() {
                     handleClick={
                         state !== 'delete' ? handleModify : handleDelete
                     }
-                    type={state === '' ? 'modify' : 'delete'}
-                />
+                >
+                    test
+                </FooterBtn>
             </Ul>
         </Section>
     )

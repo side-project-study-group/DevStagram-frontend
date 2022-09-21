@@ -62,7 +62,7 @@ function SignUp1Temp({ handleChange, value, handleSubmit }) {
                         handleChange={handleChange}
                     />
                 </InpuContainer>
-                <FooterBtn text={'Next'} handleClick={handleSubmit} />
+                <FooterBtn handleClick={handleSubmit}>Next</FooterBtn>
             </Container>
         </Wrapper>
     )

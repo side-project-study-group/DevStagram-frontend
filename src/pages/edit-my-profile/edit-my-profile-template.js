@@ -104,7 +104,7 @@ function EditMyProfileTemp() {
                     />
                 </InputContainer>
             </Container>
-            <FooterBtn text={'저장하기'} />
+            <FooterBtn>저장하기</FooterBtn>
         </Wrapper>
     )
 }

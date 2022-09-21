@@ -18,12 +18,17 @@ const Main = styled.main`
 function MeetUpDetailTemp({ detail, status }) {
     const [isOpenPopUP, setIsOpenPopUp] = useState(false)
     const [isBottomPopUP, setIsBottomPopUp] = useState(false)
-    const type = useMemo(() =>
-        status === 'UNRELATED'
-            ? detail.isOpenYn
-                ? 'join_open'
-                : 'join_private'
-            : ''
+    const footer = useMemo(() => {
+        status === 'UNRELATED' ? 'join' : 'withdrawal'
+    }, [status])
+    const type = useMemo(
+        () =>
+            status === 'UNRELATED'
+                ? detail.isOpenYn
+                    ? 'join_open'
+                    : 'join_private'
+                : '',
+        [status, detail]
     )
 
     return (
@@ -34,10 +39,9 @@ function MeetUpDetailTemp({ detail, status }) {
                 handleBottomPopUp={() => setIsBottomPopUp(!isBottomPopUP)}
             />
             {status !== 'OWNED' && (
-                <FooterBtn
-                    handleClick={() => setIsOpenPopUp(!isOpenPopUP)}
-                    type={textData[textType]?.footer}
-                />
+                <FooterBtn handleClick={() => setIsOpenPopUp(!isOpenPopUP)}>
+                    {status === 'UNRELATED' ? '참여하기' : '밋업 탈퇴하기'}
+                </FooterBtn>
             )}
             {isOpenPopUP && (
                 <PopUp handleCancel={() => setIsOpenPopUp(false)} type={type} />

@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { textData } from './button-text'
 
 const Footer = styled.div`
     width: 100%;
@@ -27,12 +28,12 @@ const Button = styled.div`
     font-family: 'NotoSansKRBold';
 `
 
-function FooterBtn({ text, handleClick }) {
+function FooterBtn({ children, handleClick }) {
     return (
         <Footer>
             <Container>
                 <Button type="button" onClick={handleClick}>
-                    {text}
+                    {children}
                 </Button>
             </Container>
         </Footer>

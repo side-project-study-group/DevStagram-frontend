@@ -84,7 +84,7 @@ function SignUp3Temp({
                         )
                     })}
                 </TagContainer>
-                <FooterBtn text={'Next'} handleClick={handleSubmit} />
+                <FooterBtn handleClick={handleSubmit}>Next</FooterBtn>
             </Container>
         </Wrapper>
     )

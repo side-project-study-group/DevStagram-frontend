@@ -38,7 +38,7 @@ function SignUpFinishTemp({ handleClick }) {
                 <H3Tag
                     sign={'Devstagram에서 함께 할 개발자들을 찾으러 가볼까요?'}
                 />
-                <FooterBtn text={'Login'} handleClick={handleClick} />
+                <FooterBtn handleClick={handleClick}>Login</FooterBtn>
             </Container>
         </Wrapper>
     )

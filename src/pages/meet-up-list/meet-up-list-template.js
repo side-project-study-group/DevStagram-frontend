@@ -16,30 +16,24 @@ const Section = styled.section`
     box-sizing: border-box;
 `
 
-const Container = styled.div`
-    width: 100%;
-    padding-bottom: 10px;
-`
-
 function MeetUpListTemp({ summaries }) {
     const [isOpenPopUp, setIsOpenPopUp] = useState(false)
+    const isLogged = sessionStorage.getItem('token')
+
     return (
         <>
             <Section>
                 <SearchHeader />
                 <NavigationBar />
-                <Container>
-                    {summaries.map((summary) => (
-                        <MeetUpSummaryPostBox
-                            key={summary.id}
-                            summary={summary}
-                        />
-                    ))}
-                </Container>
-                <PlusButton
-                    isOpenPopUp={isOpenPopUp}
-                    handleClick={() => setIsOpenPopUp(!isOpenPopUp)}
-                />
+                {summaries.map((summary) => (
+                    <MeetUpSummaryPostBox key={summary.id} summary={summary} />
+                ))}
+                {isLogged && (
+                    <PlusButton
+                        isOpenPopUp={isOpenPopUp}
+                        handleClick={() => setIsOpenPopUp(!isOpenPopUp)}
+                    />
+                )}
             </Section>
             {isOpenPopUp && <CreatePopUp />}
         </>
