@@ -1,6 +1,6 @@
 import React from 'react'
 import LinkText from '../atoms/buttons/link-text'
-import FooterBtn from '../../components/atoms/buttons/footer-button'
+import FooterBtn from '../atoms/buttons/footer-button'
 import Description from '../atoms/texts/description'
 import GoogleLogInImg from '../atoms/image-containers/google-log-in-img'
 import styled from 'styled-components'
@@ -43,7 +43,7 @@ function LogInContainer({ handleGoogleLogin, handleAppSignup }) {
                 textAlign={'center'}
             />
             <GoogleLogInImg handleClick={handleGoogleLogin} />
-            <FooterBtn text={'Login'} />
+            <FooterBtn type={'login'} />
         </Container>
     )
 }
