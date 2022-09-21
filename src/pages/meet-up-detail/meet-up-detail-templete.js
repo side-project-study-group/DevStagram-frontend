@@ -15,13 +15,15 @@ const Main = styled.main`
     box-sizing: border-box;
 `
 
-function MeetUpDetailTemp({ detail, status, handleJoin, handleWithdraw }) {
+function MeetUpDetailTemp({ detail, status }) {
     const [isOpenPopUP, setIsOpenPopUp] = useState(false)
     const [isBottomPopUP, setIsBottomPopUp] = useState(false)
-    const textType = useMemo(
-        () =>
-            status === 'UNRELATED' ? `${status}_${detail.isOpenYn}` : status,
-        [detail.isOpenYn, status]
+    const type = useMemo(() =>
+        status === 'UNRELATED'
+            ? detail.isOpenYn
+                ? 'join_open'
+                : 'join_private'
+            : ''
     )
 
     return (
@@ -34,15 +36,11 @@ function MeetUpDetailTemp({ detail, status, handleJoin, handleWithdraw }) {
             {status !== 'OWNED' && (
                 <FooterBtn
                     handleClick={() => setIsOpenPopUp(!isOpenPopUP)}
-                    text={textData[textType]?.footer}
+                    type={textData[textType]?.footer}
                 />
             )}
             {isOpenPopUP && (
-                <PopUp
-                    handleOk={status === 'JOINED' ? handleWithdraw : handleJoin}
-                    handleCancel={() => setIsOpenPopUp(false)}
-                    type={textType}
-                />
+                <PopUp handleCancel={() => setIsOpenPopUp(false)} type={type} />
             )}
             {isBottomPopUP && <BottomPopUp id={detail.id} type={'meetUp'} />}
         </Main>
