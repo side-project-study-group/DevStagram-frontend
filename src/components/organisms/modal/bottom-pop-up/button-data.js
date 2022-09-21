@@ -6,4 +6,5 @@ export const button_data = {
         { icon: Delete, value: '게시글 삭제하기', type: 'delete' },
         { icon: Edit, value: '게시글 수정하기', type: 'edit' },
     ],
+    report: [{ value: '신고하기', type: 'report' }],
 }

@@ -96,10 +96,9 @@ function MeetUpWriteTemp() {
                     handleChange={handleChange}
                 />
             </form>
-            <FooterBtn
-                handleClick={() => console.log(form)}
-                text={'게시하기'}
-            />
+            <FooterBtn handleClick={() => console.log(form)}>
+                게시하기
+            </FooterBtn>
         </Section>
     )
 }

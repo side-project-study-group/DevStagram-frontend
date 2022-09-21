@@ -1,8 +1,8 @@
 import React from 'react'
-import LogInTemp1 from './log-in-1-template'
+import LogInTemp1 from './log-in-template'
 import { useNavigate } from 'react-router-dom'
 
-function LogIn1() {
+function LogIn() {
     const navigate = useNavigate()
 
     const handleGoogleLogin = () => {
@@ -21,4 +21,4 @@ function LogIn1() {
     )
 }
 
-export default LogIn1
+export default LogIn

@@ -15,13 +15,20 @@ const Main = styled.main`
     box-sizing: border-box;
 `
 
-function MeetUpDetailTemp({ detail, status, handleJoin, handleWithdraw }) {
+function MeetUpDetailTemp({ detail, status }) {
     const [isOpenPopUP, setIsOpenPopUp] = useState(false)
     const [isBottomPopUP, setIsBottomPopUp] = useState(false)
-    const textType = useMemo(
+    const footer = useMemo(() => {
+        status === 'UNRELATED' ? 'join' : 'withdrawal'
+    }, [status])
+    const type = useMemo(
         () =>
-            status === 'UNRELATED' ? `${status}_${detail.isOpenYn}` : status,
-        [detail.isOpenYn, status]
+            status === 'UNRELATED'
+                ? detail.isOpenYn
+                    ? 'join_open'
+                    : 'join_private'
+                : '',
+        [status, detail]
     )
 
     return (
@@ -32,17 +39,12 @@ function MeetUpDetailTemp({ detail, status, handleJoin, handleWithdraw }) {
                 handleBottomPopUp={() => setIsBottomPopUp(!isBottomPopUP)}
             />
             {status !== 'OWNED' && (
-                <FooterBtn
-                    handleClick={() => setIsOpenPopUp(!isOpenPopUP)}
-                    text={textData[textType]?.footer}
-                />
+                <FooterBtn handleClick={() => setIsOpenPopUp(!isOpenPopUP)}>
+                    {status === 'UNRELATED' ? '참여하기' : '밋업 탈퇴하기'}
+                </FooterBtn>
             )}
             {isOpenPopUP && (
-                <PopUp
-                    handleOk={status === 'JOINED' ? handleWithdraw : handleJoin}
-                    handleCancel={() => setIsOpenPopUp(false)}
-                    type={textType}
-                />
+                <PopUp handleCancel={() => setIsOpenPopUp(false)} type={type} />
             )}
             {isBottomPopUP && <BottomPopUp id={detail.id} type={'meetUp'} />}
         </Main>

@@ -20,7 +20,7 @@ function NewPostTemplate({ src, text, value, handleChange, submit }) {
                 value={value}
                 handleChange={handleChange}
             />
-            <FooterBtn text={'게시하기'} handleClick={submit} />
+            <FooterBtn handleClick={submit}>게시하기</FooterBtn>
         </Container>
     )
 }

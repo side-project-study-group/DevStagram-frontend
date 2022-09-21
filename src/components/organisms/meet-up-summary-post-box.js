@@ -8,11 +8,12 @@ import MemberTag from '../molecules/member-tag'
 import TextBox from '../atoms/texts/text-box'
 import ProfileTag from '../molecules/profile-tag'
 import MeetUpCategroyTag from '../atoms/tags/meet-up-category/meet-up-category'
+import { useNavigate } from 'react-router-dom'
 
-const Section = styled.div`
-    margin-bottom: 10px;
-    box-sizing: border-box;
+const Article = styled.article`
     width: 100%;
+    margin-bottom: 20px;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -54,8 +55,10 @@ const Footer = styled.footer`
 `
 
 function MeetUpSummaryPostBox({ summary }) {
+    const navigate = useNavigate()
+
     return (
-        <Section>
+        <Article onClick={() => navigate(`/meet-up-detail/${summary.id}`)}>
             <Wrapper>
                 <Header>
                     <Img src={summary?.isOpenYn ? Unlock : Lock} />
@@ -75,7 +78,7 @@ function MeetUpSummaryPostBox({ summary }) {
                     <ProfileTag size={'small'} id={summary?.leaderId} />
                 </Footer>
             </Wrapper>
-        </Section>
+        </Article>
     )
 }
 

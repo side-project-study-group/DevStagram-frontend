@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Title = styled.div`
@@ -28,12 +27,8 @@ const Title = styled.div`
 `
 
 function MeetUpTitle({ isRecruiting, title }) {
-    const navigate = useNavigate()
     return (
-        <Title
-            isRecruiting={isRecruiting}
-            onClick={() => navigate('/meet-up-detail')}
-        >
+        <Title isRecruiting={isRecruiting}>
             <div>{isRecruiting ? '모집중' : '마감'}</div>
             <span>{title}</span>
         </Title>
