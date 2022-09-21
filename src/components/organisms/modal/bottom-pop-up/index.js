@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Delete from '../../assets/icons/Delete.svg'
-import Edit from '../../assets/icons/Edit.svg'
+import useBottomPopUp from '../../../../hooks/useBottomPopUp'
+import { button_data } from './button-data'
 
 const Footer = styled.footer`
     position: absolute;
@@ -53,20 +52,25 @@ const Button = styled.button`
     }
 `
 
-function BottomPopUp({ handleModify, handleDelete }) {
+function BottomPopUp({ id = null, type }) {
+    const handleClick = useBottomPopUp(id)
+
     return (
         <Footer>
             <Container>
                 <BoxHead />
                 <Box>
-                    <Button onClick={handleDelete}>
-                        <img src={Delete} />
-                        &nbsp;&nbsp; 게시글 삭제하기
-                    </Button>
-                    <Button onClick={handleModify}>
-                        <img src={Edit} />
-                        &nbsp;&nbsp; 게시글 수정하기
-                    </Button>
+                    {button_data[type].map(({ icon, value, type }) => (
+                        <Button onClick={() => handleClick(type)}>
+                            {icon && (
+                                <>
+                                    <img src={icon} />
+                                    &nbsp;&nbsp;
+                                </>
+                            )}
+                            {value}
+                        </Button>
+                    ))}
                 </Box>
             </Container>
         </Footer>

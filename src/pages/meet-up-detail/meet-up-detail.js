@@ -1,12 +1,10 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import useSetting from '../../hooks/useSetting'
 import MeetUpDetailTemp from './meet-up-detail-templete'
 
 function MeetUpDetail() {
     const [detail, setDetail] = useState({})
     const [status, setStatus] = useState()
-    const { handleModify, handleDelete, updateData } = useSetting()
 
     let meetUpId = '62d82a9366a4b30f9d9f1167'
     let token =
@@ -53,15 +51,9 @@ function MeetUpDetail() {
         ).then((res) => setStatus(res.data.attribute.result))
     }, [])
 
-    useEffect(() => {
-        updateData && setDetail(updateData)
-    }, [updateData])
-
     const props = {
         detail,
         status,
-        handleModify,
-        handleDelete,
         handleJoin,
         handleWithdraw,
     }
@@ -69,10 +61,3 @@ function MeetUpDetail() {
     return <MeetUpDetailTemp {...props} />
 }
 export default MeetUpDetail
-
-/**
- * meet-up-post 내용 받아오기
- * 해당 meet-up에서의 내 상태
- * 밋업 수정, 삭제
- * 밋업 참여하기
- */
