@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import useNavigationBar from '../hooks/useNavigationBar'
 import MeetUpCategroyTag from './atoms/tags/meet-up-category/meet-up-category'
 
 const Container = styled.div`
@@ -11,23 +12,8 @@ const Container = styled.div`
     padding-bottom: 5px;
 `
 
-function NavigationBar() {
-    const [categories, setCategories] = useState([
-        { code: 'ALL', displayName: '전체' },
-    ])
-
-    useEffect(() => {
-        const uri = `http://default-gateway-service--87742-11669872-9594cfbe56b3.kr.lb.naverncp.com:9999`
-        axios(`${uri}/api/meetup/read/getCategories`)
-            .then((res) => {
-                if (res.status === 200) {
-                    setCategories([...categories, ...res.data.attribute.result])
-                }
-            })
-            .catch(function (error) {
-                console.log('Navigation bar error===>', error)
-            })
-    }, [])
+function NavigationBar({ handleFilter }) {
+    const [categories] = useNavigationBar()
 
     return (
         <Container>
@@ -36,6 +22,7 @@ function NavigationBar() {
                     key={category.code}
                     code={category.code}
                     text={category.displayName}
+                    handleClick={handleFilter}
                 />
             ))}
         </Container>
