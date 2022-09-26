@@ -29,7 +29,7 @@ function HeaderHome() {
     return (
         <Container>
             <Img src={Home} onClick={() => navigate('/')} />
-            <Img src={TimeLine} />
+            <Img src={TimeLine} onClick={() => navigate('/post-list')} />
             {token && (
                 <>
                     <Img

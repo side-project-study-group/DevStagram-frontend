@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-function useBoolean(init) {
-    const [value, setValue] = useState(init)
+function useBoolean() {
+    const [value, setValue] = useState(false)
 
     const handleTrue = () => {
         setValue(true)
@@ -9,8 +9,8 @@ function useBoolean(init) {
     const handleFalse = () => {
         setValue(false)
     }
-    const handleToggle = () => {
-        setValue(!value)
+    const handleToggle = (init) => {
+        setValue(!init)
     }
 
     return [value, { handleTrue, handleFalse, handleToggle }]
