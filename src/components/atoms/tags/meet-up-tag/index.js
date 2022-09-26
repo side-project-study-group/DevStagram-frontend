@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import useMeetUpTag from './useMeetUpTag'
 
 const Button = styled.button`
     height: 23px;
@@ -7,14 +8,7 @@ const Button = styled.button`
     font-family: 'NotoSansKR';
     width: 90px;
     margin-right: 5px;
-    background-color: ${(props) =>
-        props.name === 'ALL'
-            ? '#F05550'
-            : props.name === 'PROJECT'
-            ? '#FA9637'
-            : props.name === 'STUDY'
-            ? '#28AF73'
-            : '#A06EEB'};
+    background-color: ${(props) => props.bgColor};
     border: 2px solid #414042;
     border-radius: 15px;
     display: flex;
@@ -22,12 +16,14 @@ const Button = styled.button`
     align-items: center;
 `
 
-function MeetUpCategroyTag({ code, text, handleClick }) {
+function MeetUpTag({ code, displayName = '', handleClick }) {
+    const [bgColor, text] = useMeetUpTag(code, displayName)
+
     return (
-        <Button onClick={handleClick} name={code}>
+        <Button onClick={handleClick} bgColor={bgColor} name={code}>
             {text}
         </Button>
     )
 }
 
-export default MeetUpCategroyTag
+export default MeetUpTag
