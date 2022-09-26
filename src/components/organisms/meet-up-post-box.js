@@ -8,7 +8,7 @@ import Lock from '../../assets/icons/Lock.svg'
 import Unlock from '../../assets/icons/Unlock.svg'
 import TimeLine from '../atoms/texts/time-line'
 import MeetUpTag from '../atoms/tags/meet-up-tag'
-import ProfileImg from '../atoms/profile-images/meet-up/meet-up-profile-img'
+import ProfileImg from '../atoms/profile-tag/img'
 import SettingIcon from '../../assets/icons/SettingIcon.svg'
 
 const Article = styled.article`
