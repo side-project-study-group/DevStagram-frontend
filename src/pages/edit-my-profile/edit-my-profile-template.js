@@ -7,12 +7,19 @@ import TechTag from '../../components/atoms/tags/tech/tech'
 import checkImg from '../../assets/imgs/check.png'
 import styled from 'styled-components'
 
+const Wrapper = styled.section`
+    position: absolute;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+`
+
 const Container = styled.div`
     width: 100%;
     height: 100%;
     max-width: 480px;
     margin: 0 auto;
-    padding: 0 16px 34px 16px;
+    padding: 0 16px 50px 16px;
     box-sizing: border-box;
 `
 
@@ -29,7 +36,7 @@ const BlueHeader = styled.div`
 `
 const InputContainer = styled.div`
     width: 100%;
-    margin: 45px 0;
+    margin: 25px 0 40px 0;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -52,7 +59,7 @@ function EditMyProfileTemp() {
     }
 
     return (
-        <>
+        <Wrapper>
             <BlueHeader>
                 <img src={checkImg}></img>
             </BlueHeader>
@@ -96,10 +103,9 @@ function EditMyProfileTemp() {
                         placeholder={'blog 주소를 입력 하세요.'}
                     />
                 </InputContainer>
-
-                <FooterBtn text={'저장하기'} />
             </Container>
-        </>
+            <FooterBtn>저장하기</FooterBtn>
+        </Wrapper>
     )
 }
 

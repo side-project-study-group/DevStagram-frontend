@@ -1,5 +1,7 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import useNavigationBar from '../hooks/useNavigationBar'
 import MeetUpCategroyTag from './atoms/tags/meet-up-category/meet-up-category'
 
 const Container = styled.div`
@@ -10,13 +12,19 @@ const Container = styled.div`
     padding-bottom: 5px;
 `
 
-function NavigationBar() {
+function NavigationBar({ handleFilter }) {
+    const [categories] = useNavigationBar()
+
     return (
         <Container>
-            <MeetUpCategroyTag text={'전체'} />
-            <MeetUpCategroyTag text={'스터디'} />
-            <MeetUpCategroyTag text={'프로젝트'} />
-            <MeetUpCategroyTag text={'네트워킹'} />
+            {categories?.map((category) => (
+                <MeetUpCategroyTag
+                    key={category.code}
+                    code={category.code}
+                    text={category.displayName}
+                    handleClick={handleFilter}
+                />
+            ))}
         </Container>
     )
 }

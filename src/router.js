@@ -8,7 +8,7 @@ import MeetUpWrite from './pages/meet-up-write/meet-up-write'
 import MeetUpDetail from './pages/meet-up-detail/meet-up-detail'
 import PostDetail from './pages/post-detail/post-detail'
 import EditMyProfile from './pages/edit-my-profile/edit-my-profile'
-import MyProfileMeetUp from './pages/my-profile/my-profile'
+import MyProfileMeetUp from './pages/my-profile-meet-up/my-profile-meet-up'
 import MyProfilePost from './pages/my-profile-post/my-profile-post'
 import LogIn1 from './pages/log-in-1/log-in-1'
 import SignUp1 from './pages/sign-up-1/sign-up-1'
@@ -23,7 +23,7 @@ function Router() {
     return (
         <>
             {location.pathname === '/sign-up-finish' ||
-            location.pathname === '/log-in-1' ? null : location.pathname ===
+            location.pathname === '/log-in' ? null : location.pathname ===
               '/' ? (
                 <HeaderHome />
             ) : (
@@ -31,7 +31,7 @@ function Router() {
             )}
             <Routes>
                 <Route path="/" element={<MeetUpList />} />
-                <Route path="/meet-up-detail" element={<MeetUpDetail />} />
+                <Route path="/meet-up-detail/:id" element={<MeetUpDetail />} />
                 <Route path="/meet-up-chat-list" element={<MeetUpChatList />} />
                 <Route path="/meet-up-write" element={<MeetUpWrite />} />
 

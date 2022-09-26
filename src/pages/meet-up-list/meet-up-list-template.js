@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import MeetUpPostBox from '../../components/meet-up-post-box'
 import styled from 'styled-components'
 import SearchHeader from '../../components/search-header'
 import NavigationBar from '../../components/navigation-bar'
 import PlusButton from '../../components/atoms/buttons/plus-button'
 import CreatePopUp from '../create-pop-up/create-pop-up'
+import MeetUpSummaryPostBox from '../../components/organisms/meet-up-summary-post-box'
 
 const Section = styled.section`
     width: 100%;
@@ -16,27 +16,24 @@ const Section = styled.section`
     box-sizing: border-box;
 `
 
-const Container = styled.div`
-    width: 100%;
-    padding-bottom: 10px;
-`
-
-function MeetUpListTemp() {
+function MeetUpListTemp({ summaries, handleFilter }) {
     const [isOpenPopUp, setIsOpenPopUp] = useState(false)
+    const isLogged = sessionStorage.getItem('token')
+
     return (
         <>
             <Section>
                 <SearchHeader />
-                <NavigationBar />
-                <Container>
-                    <MeetUpPostBox size={'small'} />
-                    <MeetUpPostBox size={'small'} />
-                    <MeetUpPostBox size={'small'} />
-                </Container>
-                <PlusButton
-                    isOpenPopUp={isOpenPopUp}
-                    handleClick={() => setIsOpenPopUp(!isOpenPopUp)}
-                />
+                <NavigationBar handleFilter={handleFilter} />
+                {summaries.map((summary) => (
+                    <MeetUpSummaryPostBox key={summary.id} summary={summary} />
+                ))}
+                {isLogged && (
+                    <PlusButton
+                        isOpenPopUp={isOpenPopUp}
+                        handleClick={() => setIsOpenPopUp(!isOpenPopUp)}
+                    />
+                )}
             </Section>
             {isOpenPopUp && <CreatePopUp />}
         </>

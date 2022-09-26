@@ -18,11 +18,13 @@ const Img = styled.img`
     margin-right: 5px;
 `
 
-function MemberTag() {
+function MemberTag({ maxCount, joinCount }) {
     return (
         <MemberContainer>
             <Img src={Group} />
-            <span>3 /5명 참여</span>
+            <span>
+                {joinCount} / {maxCount}명 참여
+            </span>
         </MemberContainer>
     )
 }

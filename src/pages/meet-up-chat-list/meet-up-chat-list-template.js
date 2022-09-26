@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import FooterBtn from '../../components/atoms/buttons/footer-button'
 import MeetUpChatBox from '../../components/organisms/meet-up-chat-box'
-import PopUp from '../../components/organisms/pop-up'
+import PopUp from '../../components/organisms/modal/pop-up'
 
 const Section = styled.section`
     width: 100%;
@@ -37,19 +37,18 @@ function MeetUpChatListTemp() {
                 <MeetUpChatBox state={state} />
                 <MeetUpChatBox state={state} />
                 {state === 'popup' && (
-                    <PopUp handleCancel={() => setState('')}>
-                        <p>
-                            삭제하기를 누르면 복구할 수 없습니다. <br /> 정말로
-                            삭제하시겠습니까?
-                        </p>
-                    </PopUp>
+                    <PopUp
+                        handleCancel={() => setState('')}
+                        type={'delete_meetUp'}
+                    />
                 )}
                 <FooterBtn
                     handleClick={
                         state !== 'delete' ? handleModify : handleDelete
                     }
-                    text={state === '' ? '수정하기' : '삭제하기'}
-                />
+                >
+                    test
+                </FooterBtn>
             </Ul>
         </Section>
     )

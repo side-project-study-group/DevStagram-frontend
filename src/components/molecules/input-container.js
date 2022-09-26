@@ -11,12 +11,12 @@ const Container = styled.div`
     margin: 15px 0;
 `
 
-function InputContainer({ label, width, handleChange }) {
+function InputContainer({ name, label, width, handleChange }) {
     return (
         <Container width={width}>
             <Label label={label} />
             <Input
-                name={label}
+                name={name}
                 width={width}
                 type={label === '인원수' ? 'number' : 'text'}
                 handleChange={handleChange}

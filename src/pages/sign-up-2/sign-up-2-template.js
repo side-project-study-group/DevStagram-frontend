@@ -7,7 +7,7 @@ import image from '../../assets/imgs/background.png'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-    background: url(${image}) no-repeat center center fixed;
+    background: url(${image}) no-repeat center;
     background-size: cover;
     width: 100%;
     height: 100%;
@@ -22,7 +22,7 @@ const Container = styled.div`
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    padding: 110px 0 10px 0;
+    padding: 70px 0 10px 0;
     border-radius: 50px 50px 0px 0px;
     box-sizing: border-box;
 `
@@ -78,9 +78,7 @@ function SignUp2Temp({ value, handleChange, handleSubmit }) {
                         handleChange={handleChange}
                     />
                 </InpuContainer>
-                <ButtonContainer>
-                    <FooterBtn text={'Next'} handleClick={handleSubmit} />
-                </ButtonContainer>
+                <FooterBtn handleClick={handleSubmit}>Next</FooterBtn>
             </Container>
         </Wrapper>
     )

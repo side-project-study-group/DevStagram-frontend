@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import usePopUp from '../../../../hooks/usePopUp'
+import { textData } from './text-data'
 
 const Section = styled.section`
     position: fixed;
@@ -48,6 +50,7 @@ const Contents = styled.div`
     border-radius: 0 0 10px 10px;
     text-align: center;
     font-family: 'NotoSansKrBold';
+    white-space: pre;
 `
 
 const ButtonContainer = styled.div`
@@ -73,16 +76,18 @@ const ButtonContainer = styled.div`
     }
 `
 
-function PopUp({ children, handleCancel }) {
+function PopUp({ type, handleCancel }) {
+    const handleOk = usePopUp()
+
     return (
         <Section>
             <Wrapper>
                 <Container>
                     <Contents>
-                        {children}
+                        <p>{textData[type]}</p>
                         <ButtonContainer>
                             <button onClick={handleCancel}>Cancel</button>
-                            <button>OK</button>
+                            <button onClick={() => handleOk(type)}>OK</button>
                         </ButtonContainer>
                     </Contents>
                 </Container>

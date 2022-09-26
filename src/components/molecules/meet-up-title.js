@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Title = styled.div`
@@ -13,7 +12,8 @@ const Title = styled.div`
         font-size: 17px;
         width: fit-content;
         display: inline-block;
-        background-color: #4b7fff;
+        background-color: ${(props) =>
+            props.isRecruiting ? '#4b7fff' : '#D9D9D9'};
         color: white;
         font-family: 'NotoSansKRBold';
         border-radius: 5px;
@@ -26,12 +26,11 @@ const Title = styled.div`
     }
 `
 
-function MeetUpTitle() {
-    const navigate = useNavigate()
+function MeetUpTitle({ isRecruiting, title }) {
     return (
-        <Title onClick={() => navigate('/meet-up-detail')}>
-            <div>모집중</div>
-            <span>[서울] 반응형 웹 토이프로젝트 백엔드 2명 구합니다.</span>
+        <Title isRecruiting={isRecruiting}>
+            <div>{isRecruiting ? '모집중' : '마감'}</div>
+            <span>{title}</span>
         </Title>
     )
 }
