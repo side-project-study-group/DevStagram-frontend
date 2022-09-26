@@ -1,20 +1,27 @@
 import React from 'react'
-import VerticalProfile from '../../components/molecules/vertical-profile'
 import Text from '../../components/atoms/texts/text'
 import styled from 'styled-components'
 import ChatIconCount from '../../components/molecules/chat-icon-count'
 import LikeIconCount from '../../components/molecules/like-icon-count'
 import useBoolean from '../../hooks/useBoolean'
+import ProfileImg from '../atoms/profile-images/meet-up/meet-up-profile-img'
+import ProfileTag from '../molecules/profile-tag'
+import TimeLine from '../atoms/texts/time-line'
+import DateText from '../atoms/texts/date-text'
+import { useNavigate } from 'react-router-dom'
 
-const PostContainer = styled.div`
-    margin-right: 5px;
-    margin-left: 5px;
-    margin-top: 10px;
-    padding: 5px 5px;
-    border: solid 2px gray;
-    border-radius: 5px;
+const Article = styled.article`
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid rgba(65, 64, 66, 0.2);
+    border-radius: 10px;
+    background-color: #ffffff;
+    /* box-shadow: 1px 1px 3px rgba(65, 64, 66, 0.2);  */
 `
-
+const Header = styled.header`
+    display: flex;
+    gap: 8px;
+`
 const IconContainer = styled.div`
     display: flex;
     margin-right: 10px;
@@ -24,12 +31,19 @@ const IconContainer = styled.div`
 `
 
 function Post({ src, text, date, contents, replyCount, likeCount }) {
-    const [isFilled, fillActions] = useBoolean(false)
+    const [isFilled, fillActions] = useBoolean()
+    const navigate = useNavigate()
 
     return (
-        <PostContainer>
-            <VerticalProfile src={src} text={text} date={date} />
-            <Text value={contents} size={'small'} />
+        <Article onClick={() => navigate('/post-detail')}>
+            <Header>
+                <ProfileTag size={'small'} id={text} />
+                <DateText date={date} />
+            </Header>
+            <Text size={'small'}>
+                consectetur adipiscing elit duis tristique sollicitudin nibh sit
+                amet commodo nulla facilisi f
+            </Text>
             <IconContainer>
                 <ChatIconCount count={replyCount} />
                 <LikeIconCount
@@ -38,7 +52,7 @@ function Post({ src, text, date, contents, replyCount, likeCount }) {
                     count={likeCount}
                 />
             </IconContainer>
-        </PostContainer>
+        </Article>
     )
 }
 

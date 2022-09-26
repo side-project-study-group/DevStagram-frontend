@@ -1,25 +1,28 @@
 import React from 'react'
 import styled from 'styled-components'
 import TextAreaWithoutBorder from '../atoms/inputs/text-area-without-border'
-import VerticalProfile from '../molecules/vertical-profile'
 // apache 2.0
 import { GrGallery } from 'react-icons/gr'
+import ProfileTag from '../molecules/profile-tag'
+import { ReactComponent as AddPhoto } from '../../assets/icons/AddPhoto.svg'
 
 const Section = styled.div`
-    box-sizing: border-box;
-    border: 2px solid #24231f;
-    border-radius: 10px;
-    max-width: 480px;
-    padding: 10px;
     margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid rgba(65, 64, 66, 0.2);
+    border-radius: 10px;
+    background-color: #ffffff;
+`
+const Icon = styled(AddPhoto)`
+    width: 37px;
 `
 
 function PostForm({ src, text, value, handleChange }) {
     return (
         <Section>
-            <VerticalProfile src={src} text={text} />
+            <ProfileTag size={'big'} id={text} />
             <TextAreaWithoutBorder value={value} handleChange={handleChange} />
-            <GrGallery size={'36px'} />
+            <Icon />
         </Section>
     )
 }

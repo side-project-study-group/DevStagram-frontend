@@ -43,8 +43,8 @@ function Router() {
                 <Route path="/meet-up-chat-list" element={<MeetUpChatList />} />
                 <Route path="/meet-up-write" element={<MeetUpWrite />} />
 
-                <Route path="/post-detail" element={<PostDetail />} />
                 <Route path="/post-list" element={<PostList />} />
+                <Route path="/post-detail" element={<PostDetail />} />
                 <Route path="/new-post" element={<NewPost />} />
 
                 <Route path="/edit-my-profile" element={<EditMyProfile />} />

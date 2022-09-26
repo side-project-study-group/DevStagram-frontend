@@ -11,7 +11,7 @@ const Main = styled.main`
     background-color: rgba(250, 250, 248, 1);
     max-width: 480px;
     margin: 0 auto;
-    padding: 10px 10px;
+    padding: 30px 15px 0 15px;
     box-sizing: border-box;
 `
 

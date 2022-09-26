@@ -6,9 +6,9 @@ const Section = styled.section`
     width: 100%;
     max-width: 480px;
     box-sizing: border-box;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    padding: 10px 0;
     display: flex;
+    background-color: #fafaf8;
 `
 
 const Img = styled.img`
@@ -22,7 +22,7 @@ const SearchContainer = styled.input`
     width: 100%;
     padding: 0;
     height: 30px;
-    background-color: #fafaf8;
+
     border-radius: 5px;
     border: 2px solid #24231f;
     padding-left: 35px;
