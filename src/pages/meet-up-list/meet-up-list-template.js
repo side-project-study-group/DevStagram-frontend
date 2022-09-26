@@ -16,7 +16,7 @@ const Section = styled.section`
     box-sizing: border-box;
 `
 
-function MeetUpListTemp({ summaries }) {
+function MeetUpListTemp({ summaries, handleFilter }) {
     const [isOpenPopUp, setIsOpenPopUp] = useState(false)
     const isLogged = sessionStorage.getItem('token')
 
@@ -24,7 +24,7 @@ function MeetUpListTemp({ summaries }) {
         <>
             <Section>
                 <SearchHeader />
-                <NavigationBar />
+                <NavigationBar handleFilter={handleFilter} />
                 {summaries.map((summary) => (
                     <MeetUpSummaryPostBox key={summary.id} summary={summary} />
                 ))}

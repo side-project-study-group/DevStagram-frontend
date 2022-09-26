@@ -8,11 +8,11 @@ const Button = styled.button`
     width: 90px;
     margin-right: 5px;
     background-color: ${(props) =>
-        props.code === 'ALL'
+        props.name === 'ALL'
             ? '#F05550'
-            : props.code === 'PROJECT'
+            : props.name === 'PROJECT'
             ? '#FA9637'
-            : props.code === 'STUDY'
+            : props.name === 'STUDY'
             ? '#28AF73'
             : '#A06EEB'};
     border: 2px solid #414042;
@@ -22,8 +22,12 @@ const Button = styled.button`
     align-items: center;
 `
 
-function MeetUpCategroyTag({ code, text }) {
-    return <Button code={code}>{text}</Button>
+function MeetUpCategroyTag({ code, text, handleClick }) {
+    return (
+        <Button onClick={handleClick} name={code}>
+            {text}
+        </Button>
+    )
 }
 
 export default MeetUpCategroyTag
