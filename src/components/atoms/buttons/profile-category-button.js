@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Button = styled.button`
+const StyledButton = styled.button`
     display: block;
-    background-color: rgba(250, 215, 120, 0.3);
-    color: #414141;
+    background-color: ${(props) =>
+        props.isSelected
+            ? 'rgba(250, 215, 120, 0.9);'
+            : 'rgba(250, 215, 120, 0.3);'}
     width: 190px;
-
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
@@ -18,9 +19,14 @@ const Button = styled.button`
     border-radius: 5px;
     border: 2px solid rgba(65, 65, 65, 1);
     box-sizing: border-box;
+    cursor: pointer;
 `
 
-function ProfileCategoryButton({ name }) {
-    return <Button>{name}</Button>
+function ProfileCategoryButton({ isSelected, name, onClick }) {
+    return (
+        <StyledButton isSelected={isSelected} onClick={onClick}>
+            {name}
+        </StyledButton>
+    )
 }
 export default ProfileCategoryButton

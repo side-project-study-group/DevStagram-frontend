@@ -17,7 +17,7 @@ const NciknameDes = styled.div`
     margin-left: 15px;
 `
 
-function ProfileImgNicknameDesContainer({ title }) {
+function ProfileImgNicknameDesContainer({ title, description, handleProfile }) {
     return (
         <Container>
             <ProfileImg size="medium" marginTop="-40px" />
@@ -27,9 +27,9 @@ function ProfileImgNicknameDesContainer({ title }) {
                     size="medium"
                     color="rgba(65, 65, 65, 0.8)"
                 />
-                <Description define={'룰루랄라 성장하는 개발자!'} />
+                <Description define={description} />
             </NciknameDes>
-            <ProfileMiniBtns name={'프로필 수정'} />
+            <ProfileMiniBtns onClick={handleProfile} name={'프로필 수정'} />
         </Container>
     )
 }

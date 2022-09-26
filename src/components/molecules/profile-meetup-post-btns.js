@@ -9,11 +9,19 @@ const Container = styled.div`
     margin: 10px 17px 13px 7px;
 `
 
-function ProfileMeetUpPostBtns() {
+function ProfileMeetUpPostBtns({ isMeetup, handleMeetup, handlePost }) {
     return (
         <Container>
-            <ProfileCategoryButton name={'Meetup'} />
-            <ProfileCategoryButton name={'Post'} />
+            <ProfileCategoryButton
+                name={'Meetup'}
+                isSelected={isMeetup ? true : false}
+                onClick={handleMeetup}
+            />
+            <ProfileCategoryButton
+                name={'Post'}
+                isSelected={isMeetup ? false : true}
+                onClick={handlePost}
+            />
         </Container>
     )
 }

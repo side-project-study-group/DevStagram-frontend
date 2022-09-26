@@ -10,9 +10,7 @@ import PostDetail from './pages/post-detail/post-detail'
 import EditMyProfile from './pages/edit-my-profile/edit-my-profile'
 import MyProfileMeetUp from './pages/my-profile-meet-up/my-profile-meet-up'
 import MyProfilePost from './pages/my-profile-post/my-profile-post'
-import YourProfileMeetUp from './pages/your-profile-meet-up/your-profile-meet-up'
-import YourProfilePost from './pages/your-profile-post/your-profile-post'
-import LogIn from './pages/log-in/log-in'
+import LogIn1 from './pages/log-in-1/log-in-1'
 import SignUp1 from './pages/sign-up-1/sign-up-1'
 import SignUp2 from './pages/sign-up-2/sign-up-2'
 import SignUp3 from './pages/sign-up-3/sign-up-3'
@@ -32,12 +30,6 @@ function Router() {
                 <HeaderBack />
             )}
             <Routes>
-                <Route path="/log-in" element={<LogIn />} />
-                <Route path="/sign-up-1" element={<SignUp1 />} />
-                <Route path="/sign-up-2" element={<SignUp2 />} />
-                <Route path="/sign-up-3" element={<SignUp3 />} />
-                <Route path="/sign-up-finish" element={<SignUpFinish />} />
-
                 <Route path="/" element={<MeetUpList />} />
                 <Route path="/meet-up-detail/:id" element={<MeetUpDetail />} />
                 <Route path="/meet-up-chat-list" element={<MeetUpChatList />} />
@@ -53,14 +45,12 @@ function Router() {
                     element={<MyProfileMeetUp />}
                 />
                 <Route path="/my-profile-post" element={<MyProfilePost />} />
-                <Route
-                    path="/your-profile-meet-up"
-                    element={<YourProfileMeetUp />}
-                />
-                <Route
-                    path="/your-profile-post"
-                    element={<YourProfilePost />}
-                />
+
+                <Route path="/log-in-1" element={<LogIn1 />} />
+                <Route path="/sign-up-1" element={<SignUp1 />} />
+                <Route path="/sign-up-2" element={<SignUp2 />} />
+                <Route path="/sign-up-3" element={<SignUp3 />} />
+                <Route path="/sign-up-finish" element={<SignUpFinish />} />
             </Routes>
         </>
     )

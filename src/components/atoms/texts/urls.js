@@ -40,13 +40,13 @@ const A = styled.a`
     text-decoration-line: underline;
 `
 
-function Urls() {
+function Urls({ github, blog }) {
     return (
         <Container>
             <P>Github</P>
-            <A href="#">github.com</A>
+            <A href="#">{github}</A>
             <P>Blog</P>
-            <A href="#">blog.com</A>
+            <A href="#">{blog}</A>
         </Container>
     )
 }
