@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import useNavigationBar from '../hooks/useNavigationBar'
-import MeetUpCategroyTag from './atoms/tags/meet-up-category/meet-up-category'
+import MeetUpTag from './atoms/tags/meet-up-tag'
 
 const Container = styled.div`
     width: 100%;
@@ -12,16 +12,16 @@ const Container = styled.div`
     padding-bottom: 5px;
 `
 
-function NavigationBar({ handleFilter }) {
+function FilterTagList({ handleFilter }) {
     const [categories] = useNavigationBar()
 
     return (
         <Container>
             {categories?.map((category) => (
-                <MeetUpCategroyTag
+                <MeetUpTag
                     key={category.code}
                     code={category.code}
-                    text={category.displayName}
+                    displayName={category.displayName}
                     handleClick={handleFilter}
                 />
             ))}
@@ -29,4 +29,4 @@ function NavigationBar({ handleFilter }) {
     )
 }
 
-export default NavigationBar
+export default FilterTagList
