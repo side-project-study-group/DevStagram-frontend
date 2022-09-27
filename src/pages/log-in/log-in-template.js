@@ -36,7 +36,7 @@ const InpuContainer = styled.div`
     box-sizing: border-box;
 `
 
-function LogInTemp1({ handleGoogleLogin, handleAppSignup }) {
+function LogInTemp({ handleGoogleLogin, handleAppSignup }) {
     return (
         <>
             <Wrapper>
@@ -56,4 +56,4 @@ function LogInTemp1({ handleGoogleLogin, handleAppSignup }) {
     )
 }
 
-export default LogInTemp1
+export default LogInTemp

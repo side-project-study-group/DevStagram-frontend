@@ -1,5 +1,5 @@
 import React from 'react'
-import LogInTemp1 from './log-in-template'
+import LogInTemp from './log-in-template'
 import { useNavigate } from 'react-router-dom'
 
 function LogIn() {
@@ -14,7 +14,7 @@ function LogIn() {
     }
 
     return (
-        <LogInTemp1
+        <LogInTemp
             handleAppSignup={handleAppSignup}
             handleGoogleLogin={handleGoogleLogin}
         />
