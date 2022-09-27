@@ -2,13 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import dateCalculater from '../../../utils/dateCalculater'
 
-const StyledP = styled.p`
-    font-size: 12px;
+const Span = styled.span`
+    font-size: 11px;
     color: #808080;
+    font-family: 'NotoSansKR';
+    color: #b9b9b9;
+    padding-top: 18px;
 `
 
 function DateText({ date }) {
-    return <StyledP>{dateCalculater(date)}</StyledP>
+    return <Span>{dateCalculater(date)}</Span>
 }
 
 export default DateText

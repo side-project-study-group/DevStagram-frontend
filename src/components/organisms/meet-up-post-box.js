@@ -7,8 +7,8 @@ import ProfileTag from '../molecules/profile-tag'
 import Lock from '../../assets/icons/Lock.svg'
 import Unlock from '../../assets/icons/Unlock.svg'
 import TimeLine from '../atoms/texts/time-line'
-import MeetUpCategoryTag from '../atoms/tags/meet-up-category/meet-up-category'
-import ProfileImg from '../atoms/profile-images/meet-up/meet-up-profile-img'
+import MeetUpTag from '../atoms/tags/meet-up-tag'
+import ProfileImg from '../atoms/profile-tag/img'
 import SettingIcon from '../../assets/icons/SettingIcon.svg'
 
 const Article = styled.article`
@@ -19,7 +19,7 @@ const Article = styled.article`
     justify-content: space-between;
     position: relative;
     background-color: rgba(255, 255, 255, 1);
-    border: 2px solid #24231f;
+    border: 1px solid rgba(65, 64, 66, 0.2);
     border-radius: 10px;
     max-width: 480px;
     padding: 10px;
@@ -27,6 +27,7 @@ const Article = styled.article`
 
 const Header = styled.header`
     display: flex;
+    justify-content: space-between;
     align-items: center;
 `
 
@@ -42,8 +43,7 @@ const Wrapper = styled.div`
 const EditBtn = styled.button`
     background-color: transparent;
     border: none;
-    position: absolute;
-    right: 0px;
+    padding: 0;
     img {
         width: 25px;
         height: 20px;
@@ -64,44 +64,24 @@ const Container = styled.div`
 `
 
 function MeetUpPostBox({ data, isOwned, handleBottomPopUp }) {
-    const [category, setCategory] = useState('')
-
-    useEffect(() => {
-        if (data) {
-            switch (data.category) {
-                case 'ALL':
-                    setCategory('전체')
-                case 'NETWORK':
-                    setCategory('네트워킹')
-                case 'PROJECT':
-                    setCategory('프로젝트')
-                case 'STUDY':
-                    setCategory('스터디')
-            }
-        }
-    }, [data])
-
     return (
         <Article>
             <Wrapper>
                 <Header>
-                    <Img src={data.isOpenYn ? Unlock : Lock} />
-                    <MeetUpCategoryTag code={data?.category} text={category} />
+                    <Container>
+                        <Img src={data.isOpenYn ? Unlock : Lock} />
+                        <MeetUpTag code={data?.category} />
+                        <MeetUpTag code={data?.isRecruiting} />
+                    </Container>
                     {isOwned && (
                         <EditBtn onClick={handleBottomPopUp}>
                             <Img src={SettingIcon} />
                         </EditBtn>
                     )}
                 </Header>
-                <Container>
-                    <ProfileTag id={data.leaderId} size={'big'} />
-                    <TimeLine />
-                </Container>
-                <MeetUpTitle
-                    isRecruiting={data.isRecruiting}
-                    title={data.title}
-                />
-                <TextBox text={data.contents} />
+                <MeetUpTitle title={data.title} />
+                <TimeLine />
+                <TextBox>{data.contents}</TextBox>
                 <Footer>
                     <MemberTag
                         maxCount={data.maxPeople}

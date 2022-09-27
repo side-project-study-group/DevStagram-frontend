@@ -9,17 +9,17 @@ const Wrapper = styled.div`
 const Container = styled.div`
     width: 100%;
     font-family: 'NotoSansKR';
-    padding: 0 5px;
     box-sizing: border-box;
     font-size: 15px;
     line-height: 23px;
     white-space: pre-wrap;
+    line-height: 150%;
 `
 
-function TextBox({ text }) {
+function TextBox({ children }) {
     return (
         <Wrapper>
-            <Container>{text}</Container>
+            <Container>{children}</Container>
         </Wrapper>
     )
 }

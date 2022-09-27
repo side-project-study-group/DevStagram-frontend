@@ -25,7 +25,9 @@ const Button = styled.div`
     text-align: center;
     border: 2px solid rgba(65, 64, 66, 1);
     color: #ffffff;
-    font-family: 'NotoSansKRBold';
+    font-family: 'NotoSansKR';
+    font-size: 16px;
+    font-weight: 700;
 `
 
 function FooterBtn({ children, handleClick }) {

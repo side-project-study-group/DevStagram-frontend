@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import styled from 'styled-components'
 import Lock from '../../assets/icons/Lock.svg'
 import Unlock from '../../assets/icons/Unlock.svg'
@@ -7,7 +7,7 @@ import MeetUpTitle from '../molecules/meet-up-title'
 import MemberTag from '../molecules/member-tag'
 import TextBox from '../atoms/texts/text-box'
 import ProfileTag from '../molecules/profile-tag'
-import MeetUpCategroyTag from '../atoms/tags/meet-up-category/meet-up-category'
+import MeetUpTag from '../atoms/tags/meet-up-tag'
 import { useNavigate } from 'react-router-dom'
 
 const Article = styled.article`
@@ -18,7 +18,7 @@ const Article = styled.article`
     justify-content: space-between;
     position: relative;
     background-color: rgba(255, 255, 255, 1);
-    border: 2px solid #24231f;
+    border: 1px solid rgba(65, 64, 66, 0.2);
     border-radius: 10px;
     max-width: 480px;
     padding: 10px;
@@ -55,21 +55,16 @@ const Footer = styled.footer`
 `
 
 function MeetUpSummaryPostBox({ summary }) {
-    const navigate = useNavigate()
-
     return (
         <Article onClick={() => navigate(`/meet-up-detail/${summary.id}`)}>
             <Wrapper>
                 <Header>
                     <Img src={summary?.isOpenYn ? Unlock : Lock} />
-                    <MeetUpCategroyTag text={summary?.category} />
+                    <MeetUpTag code={summary?.category} />
                 </Header>
-                {/* <EditBtn></EditBtn> */}
-                <MeetUpTitle
-                    isRecruiting={summary?.isRecruiting}
-                    title={summary?.title}
-                />
-                <TextBox text={summary?.contents} />
+                <MeetUpTag code={summary?.isRecruiting.toString()} />
+                <MeetUpTitle title={summary?.title} />
+                <TextBox>{summary?.contents}</TextBox>
                 <Footer>
                     <MemberTag
                         maxCount={summary?.maxPeople}

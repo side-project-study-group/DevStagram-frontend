@@ -7,7 +7,14 @@ const InputText = styled.textarea`
     width: 100%;
     resize: none;
     overflow: hidden;
-    min-height: 30px;
+    min-height: 130px;
+    margin: 10px 0;
+    font-family: 'NotoSansKR';
+    font-weight: 700;
+    font-size: 15px;
+    ::placeholder {
+        color: rgba(65, 64, 66, 0.3);
+    }
 `
 
 function TextAreaWithoutBorder({ value, handleChange }) {

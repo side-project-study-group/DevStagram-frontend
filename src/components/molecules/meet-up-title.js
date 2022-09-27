@@ -4,33 +4,19 @@ import styled from 'styled-components'
 const Title = styled.div`
     width: 100%;
     display: flexbox;
-    margin: 10px 0;
+    padding-top: 10px;
     font-weight: bold;
-    div {
-        padding: 0 10px;
-        margin-right: 5px;
-        font-size: 17px;
-        width: fit-content;
-        display: inline-block;
-        background-color: ${(props) =>
-            props.isRecruiting ? '#4b7fff' : '#D9D9D9'};
-        color: white;
-        font-family: 'NotoSansKRBold';
-        border-radius: 5px;
-        border: 1px solid #414042;
-    }
-    span {
+    h1 {
         font-family: 'NotoSansKR';
-        font-size: 16px;
-        cursor: pointer;
+        font-size: 18px;
+        margin: 0;
     }
 `
 
-function MeetUpTitle({ isRecruiting, title }) {
+function MeetUpTitle({ children }) {
     return (
-        <Title isRecruiting={isRecruiting}>
-            <div>{isRecruiting ? '모집중' : '마감'}</div>
-            <span>{title}</span>
+        <Title>
+            <h1>{children}</h1>
         </Title>
     )
 }

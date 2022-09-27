@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import testProfile from '../../../../assets/imgs/test.png'
 
 const ImgContainer = styled.div`
-    width: ${(props) => (props.size === 'big' ? '35px' : '22px')};
-    height: ${(props) => (props.size === 'big' ? '35px' : '22px')};
+    width: ${(props) => (props.size === 'big' ? '30px' : '26px')};
+    height: ${(props) => (props.size === 'big' ? '30px' : '26px')};
     margin-right: 5px;
     background-color: lightcoral;
     border-radius: 50%;
