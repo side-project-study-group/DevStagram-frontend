@@ -8,7 +8,6 @@ import MeetUpWrite from './pages/meet-up-write/meet-up-write'
 import MeetUpDetail from './pages/meet-up-detail/meet-up-detail'
 import PostDetail from './pages/post-detail/post-detail'
 import EditMyProfile from './pages/edit-my-profile/edit-my-profile'
-import MyProfileMeetUp from './pages/my-profile-meet-up/my-profile-meet-up'
 import MyProfilePost from './pages/my-profile-post/my-profile-post'
 import LogIn from './pages/log-in/log-in'
 import SignUp1 from './pages/sign-up-1/sign-up-1'
@@ -17,6 +16,7 @@ import SignUp3 from './pages/sign-up-3/sign-up-3'
 import SignUpFinish from './pages/sign-up-finish/sign-up-finish'
 import NewPost from './pages/new-post/new-post'
 import PostList from './pages/post-list/post-list'
+import MyProfileMeetUp from './pages/my-profile/my-profile'
 
 function Router() {
     const location = useLocation()

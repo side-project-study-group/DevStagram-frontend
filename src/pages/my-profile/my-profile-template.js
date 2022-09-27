@@ -1,10 +1,10 @@
 import React from 'react'
 import ProfileHeader from '../../components/organisms/profile-header'
 import ProfileMeetUpPostBtns from '../../components/molecules/profile-meetup-post-btns'
-import MeetUpPostBox from '../../components/meet-up-post-box'
 import checkImg from '../../assets/imgs/check.png'
 import styled from 'styled-components'
 import Post from '../../components/organisms/post'
+import MeetUpPostBox from '../../components/organisms/meet-up-post-box'
 
 const Container = styled.div`
     width: 100%;
