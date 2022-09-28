@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import TextAreaWithoutBorder from '../atoms/inputs/text-area-without-border'
 // apache 2.0
-import ProfileTag from '../molecules/profile-tag'
+import ProfileTag from '../molecules/user-profile'
 import { ReactComponent as AddPhoto } from '../../assets/icons/AddPhoto.svg'
 
 const Section = styled.div`

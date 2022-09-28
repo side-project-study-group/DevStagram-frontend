@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import ChatAccountName from '../atoms/texts/chat-account-name'
 import ChatContents from '../molecules/chat-contents'
-import ProfileImg from '../atoms/profile-tag/img'
 import ChatTime from '../atoms/texts/chat-time'
+import ProfileImg from '../atoms/profile-img'
 
 const Container = styled.div`
     width: 100%;
