@@ -46,7 +46,7 @@ function MeetUpDetailTemp({ detail, status }) {
             {isOpenPopUP && (
                 <PopUp handleCancel={() => setIsOpenPopUp(false)} type={type} />
             )}
-            {isBottomPopUP && <BottomPopUp id={detail.id} type={'meetUp'} />}
+            {isBottomPopUP && <BottomPopUp id={detail.id} type={'post'} />}
         </Main>
     )
 }

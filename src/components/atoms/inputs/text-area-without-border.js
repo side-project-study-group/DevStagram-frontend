@@ -17,7 +17,7 @@ const InputText = styled.textarea`
     }
 `
 
-function TextAreaWithoutBorder({ value, handleChange }) {
+function TextAreaWithoutBorder({ name, value, handleChange }) {
     const textRef = useRef()
 
     function onChangeHandler(e) {
@@ -29,6 +29,7 @@ function TextAreaWithoutBorder({ value, handleChange }) {
 
     return (
         <InputText
+            name={name}
             ref={textRef}
             placeholder={'오늘은 무슨 일이 있었나요?'}
             value={value}
