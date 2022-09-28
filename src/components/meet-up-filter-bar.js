@@ -12,7 +12,7 @@ const Container = styled.div`
     padding-bottom: 5px;
 `
 
-function FilterTagList({ handleFilter }) {
+function MeetUpFilterBar({ handleFilter }) {
     const [categories] = useNavigationBar()
 
     return (
@@ -29,4 +29,4 @@ function FilterTagList({ handleFilter }) {
     )
 }
 
-export default FilterTagList
+export default MeetUpFilterBar
