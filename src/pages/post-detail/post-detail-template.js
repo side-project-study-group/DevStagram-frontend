@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Post from '../../components/organisms/post'
 import styled from 'styled-components'
+import BottomPopUp from '../../components/organisms/modal/bottom-pop-up'
 
 const Main = styled.main`
     width: 100%;
@@ -21,6 +22,12 @@ function PostDetailTemp({
     isFilledInit,
     likeCount,
 }) {
+    const [isOpenBottomPopUp, setIsOpenBottomPopUp] = useState(false)
+    function handleBottomPopUp() {
+        !isOpenBottomPopUp && setIsOpenBottomPopUp(!isOpenBottomPopUp)
+        isOpenBottomPopUp && setTimeout(() => setIsOpenBottomPopUp(false))
+    }
+
     return (
         <Main>
             <Post
@@ -31,7 +38,9 @@ function PostDetailTemp({
                 replyCount={replyCount}
                 isFilledInit={isFilledInit}
                 likeCount={likeCount}
+                handleBottomPopUp={handleBottomPopUp}
             />
+            <BottomPopUp type={'post'} state={isOpenBottomPopUp} />
         </Main>
     )
 }

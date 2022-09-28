@@ -1,12 +1,30 @@
 import styled from 'styled-components'
 import useBottomPopUp from '../../../../hooks/useBottomPopUp'
 import { button_data } from './button-data'
+import { keyframes } from 'styled-components'
 
+const fadeIn = keyframes`
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
+`
+const fadeOut = keyframes`
+    from {
+      opacity: 100%;
+    }
+    to {
+        opacity: 0;
+    }
+`
 const Footer = styled.footer`
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
+    transition: ${fadeOut} 0.5s ease-in;
 `
 const Container = styled.div`
     max-width: 480px;
@@ -36,7 +54,7 @@ const Box = styled.div`
     padding: 15px 10px;
 `
 const Button = styled.button`
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     text-decoration: none;
     font-family: 'NotoSansKR';
@@ -52,16 +70,16 @@ const Button = styled.button`
     }
 `
 
-function BottomPopUp({ id = null, type }) {
+function BottomPopUp({ id = null, type, state }) {
     const handleClick = useBottomPopUp(id)
 
     return (
-        <Footer>
+        <Footer state={state}>
             <Container>
                 <BoxHead />
                 <Box>
                     {button_data[type].map(({ icon, value, type }) => (
-                        <Button onClick={() => handleClick(type)}>
+                        <Button key={value} onClick={() => handleClick(type)}>
                             {icon && (
                                 <>
                                     <img src={icon} />

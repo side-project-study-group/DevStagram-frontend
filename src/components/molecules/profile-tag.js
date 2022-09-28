@@ -4,7 +4,6 @@ import ProfileImg from '../atoms/profile-tag/img'
 
 const Profile = styled.div`
     display: flex;
-    margin-top: 5px;
     align-items: center;
     span {
         font-family: 'RobotoBold';
