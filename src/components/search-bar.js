@@ -29,7 +29,7 @@ const SearchContainer = styled.input`
     font-family: 'NotoSansKR';
 `
 
-function SearchHeader() {
+function SearchBar() {
     return (
         <Section>
             <Img src={Search} />
@@ -38,4 +38,4 @@ function SearchHeader() {
     )
 }
 
-export default SearchHeader
+export default SearchBar
