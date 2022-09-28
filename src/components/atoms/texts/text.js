@@ -8,8 +8,7 @@ const StyledP = styled.p`
             ? '18px'
             : props.size === 'medium'
             ? '16px'
-            : '14px'};
-    margin: 5px 0 10px 0;
+            : '12px'};
 `
 
 function Text({ children, size }) {

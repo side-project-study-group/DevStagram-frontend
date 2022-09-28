@@ -7,7 +7,7 @@ const Span = styled.span`
     color: #808080;
     font-family: 'NotoSansKR';
     color: #b9b9b9;
-    padding-top: 18px;
+    padding-bottom: 5px;
 `
 
 function DateText({ date }) {
