@@ -1,22 +1,14 @@
 import React from 'react'
-import Text from '../../components/atoms/texts/text'
+import Text from '../atoms/texts/text-box'
 import styled from 'styled-components'
-import ChatIconCount from '../../components/molecules/chat-icon-count'
-import LikeIconCount from '../../components/molecules/like-icon-count'
+import ChatIconCount from '../molecules/chat-icon-count'
+import LikeIconCount from '../molecules/like-icon-count'
 import useBoolean from '../../hooks/useBoolean'
-import ProfileTag from '../molecules/profile-tag'
+import ProfileTag from '../molecules/user-profile'
 import DateText from '../atoms/texts/date-text'
-import { useNavigate } from 'react-router-dom'
-import SettingIcon from '../../assets/icons/SettingIcon.svg'
+import { useLocation, useNavigate } from 'react-router-dom'
+import EditButton from '../atoms/buttons/edit-button'
 
-const Article = styled.article`
-    margin-bottom: 10px;
-    padding: 20px 15px 10px;
-    border: 1px solid rgba(65, 64, 66, 0.2);
-    border-radius: 10px;
-    background-color: #ffffff;
-    /* box-shadow: 1px 1px 3px rgba(65, 64, 66, 0.2);  */
-`
 const Container = styled.div`
     display: flex;
     align-items: center;
@@ -28,16 +20,6 @@ const Header = styled.header`
     justify-content: space-between;
     align-items: flex-start;
 `
-const EditBtn = styled.button`
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    img {
-        width: 25px;
-        height: 20px;
-        margin: 0;
-    }
-`
 const Footer = styled.footer`
     display: flex;
     justify-content: flex-end;
@@ -45,7 +27,7 @@ const Footer = styled.footer`
     gap: 10px;
 `
 
-function Post({
+function PostContents({
     src,
     text,
     date,
@@ -56,19 +38,18 @@ function Post({
 }) {
     const [isFilled, fillActions] = useBoolean()
     const navigate = useNavigate()
+    const { pathname } = useLocation()
 
     return (
-        <Article onClick={() => navigate('/post-detail')}>
+        <>
             <Header>
                 <Container>
                     <ProfileTag size={'big'} id={text} />
                     <DateText date={date} />
                 </Container>
-                <EditBtn>
-                    <img src={SettingIcon} onClick={handleBottomPopUp} />
-                </EditBtn>
+                <EditButton handleClick={handleBottomPopUp} />
             </Header>
-            <Text size={'medium'}>
+            <Text size={pathname === '/feed' ? 'small' : 'big'}>
                 consectetur adipiscing elit duis tristique sollicitudin nibh sit
                 amet commodo nulla facilisi f
             </Text>
@@ -80,8 +61,8 @@ function Post({
                     count={likeCount}
                 />
             </Footer>
-        </Article>
+        </>
     )
 }
 
-export default Post
+export default PostContents
