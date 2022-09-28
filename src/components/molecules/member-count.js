@@ -18,7 +18,7 @@ const Img = styled.img`
     margin-right: 5px;
 `
 
-function MemberTag({ maxCount, joinCount }) {
+function MemberCount({ maxCount, joinCount }) {
     return (
         <MemberContainer>
             <Img src={Group} />
@@ -29,4 +29,4 @@ function MemberTag({ maxCount, joinCount }) {
     )
 }
 
-export default MemberTag
+export default MemberCount
