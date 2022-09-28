@@ -1,34 +1,16 @@
 import styled from 'styled-components'
 import useBottomPopUp from '../../../../hooks/useBottomPopUp'
 import { button_data } from './button-data'
-import { keyframes } from 'styled-components'
+import { motion } from 'framer-motion'
 
-const fadeIn = keyframes`
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 100%;
-    }
-`
-const fadeOut = keyframes`
-    from {
-      opacity: 100%;
-    }
-    to {
-        opacity: 0;
-    }
-`
-const Footer = styled.footer`
+const Footer = styled(motion.footer)`
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    transition: ${fadeOut} 0.5s ease-in;
 `
 const Container = styled.div`
     max-width: 480px;
-    /* height: 150px; */
     margin: 0 auto;
     padding: 0 10px;
     box-sizing: border-box;
@@ -69,12 +51,20 @@ const Button = styled.button`
         margin-bottom: 5px;
     }
 `
+const variants = {
+    open: { y: 0 },
+    closed: { y: 170 },
+}
 
-function BottomPopUp({ id = null, type, state }) {
+function BottomPopUp({ id = null, type, isOpen }) {
     const handleClick = useBottomPopUp(id)
 
     return (
-        <Footer state={state}>
+        <Footer
+            animate={isOpen ? 'open' : 'closed'}
+            variants={variants}
+            transition={{ y: { duration: 0.3 } }}
+        >
             <Container>
                 <BoxHead />
                 <Box>
