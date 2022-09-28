@@ -1,8 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import PostListTemplate from './post-list-template'
+import PostListTemplate from './template'
 
-function PostList() {
+function FeedMain() {
     const [data, setData] = useState([])
 
     useEffect(() => {
@@ -16,10 +16,10 @@ function PostList() {
                 console.log('post-list======>', error)
             })
     }, [])
-    return <PostListTemplate posts={mock} />
+    return <PostListTemplate data={mock1} />
 }
 
-export default PostList
+export default FeedMain
 
 export const mock = [
     {
@@ -29,7 +29,7 @@ export const mock = [
         contents:
             'consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commode nulla facillsi',
         replyCount: 4,
-        likeCount: 12,
+        heartsCount: 12,
     },
     {
         src: 'https://fakeimg.pl/50x50/',
@@ -38,7 +38,7 @@ export const mock = [
         contents:
             'consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commode nulla facillsi',
         replyCount: 4,
-        likeCount: 12,
+        heartsCount: 12,
     },
     {
         src: 'https://fakeimg.pl/50x50/',
@@ -47,6 +47,45 @@ export const mock = [
         contents:
             'consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commode nulla facillsi',
         replyCount: 4,
-        likeCount: 12,
+        heartsCount: 12,
+    },
+]
+
+let mock1 = [
+    {
+        id: 0,
+        userId: 'dayeon',
+        contents:
+            'consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commode nulla facillsi',
+        pictureUrl: '',
+        createDt: '2022-07-17 21:30:00',
+        updateDt: '',
+    },
+    {
+        id: 1,
+        userId: 'yoon',
+        contents:
+            'consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commode nulla facillsi',
+        pictureUrl: '',
+        createDt: '2022-07-17 21:30:00',
+        updateDt: '2022-09-27 14:30:00',
+    },
+    {
+        id: 2,
+        userId: 'mini',
+        contents:
+            'consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commode nulla facillsi',
+        pictureUrl: '',
+        createDt: '',
+        updateDt: '',
+    },
+    {
+        id: 3,
+        userId: 'emily',
+        contents:
+            'consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commode nulla facillsi',
+        pictureUrl: '',
+        createDt: '',
+        updateDt: '',
     },
 ]
