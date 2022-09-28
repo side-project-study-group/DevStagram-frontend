@@ -39,7 +39,7 @@ function CreatePopUpTemp() {
                 <CreateButton
                     icon={MeetUp}
                     text={'New Meet Up'}
-                    path={'/meet-up-write'}
+                    path={'/meet-up-form'}
                 />
                 <CreateButton icon={AddPost} text={'New Post'} />
             </Wrapper>

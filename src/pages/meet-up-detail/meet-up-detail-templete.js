@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import styled from 'styled-components'
 import FooterBtn from '../../components/atoms/buttons/footer-button'
-import MeetUpPostBox from '../../components/organisms/meet-up-post-box'
+import MeetUpPost from '../../components/organisms/meet-up/meet-up-post'
 import BottomPopUp from '../../components/organisms/modal/bottom-pop-up'
 import PopUp from '../../components/organisms/modal/pop-up'
 
@@ -33,7 +33,7 @@ function MeetUpDetailTemp({ detail, status }) {
 
     return (
         <Main>
-            <MeetUpPostBox
+            <MeetUpPost
                 data={detail}
                 isOwned={status === 'OWNED'}
                 handleBottomPopUp={() => setIsBottomPopUp(!isBottomPopUP)}
