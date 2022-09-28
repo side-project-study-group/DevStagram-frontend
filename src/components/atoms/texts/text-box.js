@@ -1,26 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
-    width: 100%;
-    padding-right: 10px;
-    margin-bottom: 5px;
-`
-const Container = styled.div`
-    width: 100%;
-    font-family: 'NotoSansKR';
-    box-sizing: border-box;
-    font-size: 15px;
-    line-height: 23px;
-    white-space: pre-wrap;
-    line-height: 150%;
+const StyledP = styled.p`
+    font-family: 'Roboto';
+    font-size: ${(props) => (props.size === 'big' ? '16px' : '12px')};
+    margin: 5px 0;
 `
 
-function TextBox({ children }) {
+function TextBox({ children, size, handleClick }) {
     return (
-        <Wrapper>
-            <Container>{children}</Container>
-        </Wrapper>
+        <StyledP onClick={handleClick} size={size}>
+            {children}
+        </StyledP>
     )
 }
 
