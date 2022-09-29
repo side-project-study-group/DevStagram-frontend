@@ -11,13 +11,11 @@ const Section = styled.section`
 
 function FeedList({ data }) {
     return (
-        data && (
-            <Section>
-                {data.map((post) => {
-                    return <FeedPostOnly key={post.id} data={post} />
-                })}
-            </Section>
-        )
+        <Section>
+            {data.map((feed) => {
+                return <FeedPostOnly key={feed.id} {...feed} />
+            })}
+        </Section>
     )
 }
 export default FeedList

@@ -6,7 +6,7 @@ const Section = styled.section`
     display: flex;
     align-items: center;
     img {
-        width: 23px;
+        width: 20px;
     }
     span {
         font-family: 'RobotoBold';
@@ -15,13 +15,13 @@ const Section = styled.section`
     }
 `
 
-function ChatIconCount({ count }) {
+function CommentIconCount({ count }) {
     return (
         <Section>
             <img src={Vector} />
-            <span>{0}</span>
+            <span>{count}</span>
         </Section>
     )
 }
 
-export default ChatIconCount
+export default CommentIconCount
