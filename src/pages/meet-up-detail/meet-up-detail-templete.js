@@ -44,7 +44,9 @@ function MeetUpDetailTemp({ detail, status }) {
                 </FooterBtn>
             )}
             {isOpenPopUP && (
-                <PopUp handleCancel={() => setIsOpenPopUp(false)} type={type} />
+                <PopUp handleCancel={() => setIsOpenPopUp(false)} type={type}>
+                    탈퇴하기
+                </PopUp>
             )}
             {isBottomPopUP && <BottomPopUp id={detail.id} type={'post'} />}
         </Main>

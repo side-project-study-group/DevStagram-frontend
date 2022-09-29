@@ -22,7 +22,11 @@ function FeedDetailTemp(mock) {
         <Main>
             <FeedPost {...mock} handleBottomPopUp={handleBottomPopUp} />
             <BottomPopUp type={'post'} isOpen={isOpenBottomPopUp} />
-            {/* <PopUp /> */}
+            <PopUp>
+                삭제하기를 누르면 복구할 수 없습니다.
+                <br />
+                정말로 삭제하시겠습니까?
+            </PopUp>
         </Main>
     )
 }
