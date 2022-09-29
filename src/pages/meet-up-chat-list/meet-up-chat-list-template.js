@@ -40,7 +40,11 @@ function MeetUpChatListTemp() {
                     <PopUp
                         handleCancel={() => setState('')}
                         type={'delete_meetUp'}
-                    />
+                    >
+                        삭제하기를 누르면 복구할 수 없습니다.
+                        <br />
+                        정말로 삭제하시겠습니까?
+                    </PopUp>
                 )}
                 <FooterBtn
                     handleClick={

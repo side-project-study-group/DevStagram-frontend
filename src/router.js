@@ -3,7 +3,7 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import HeaderBack from './components/organisms/header/header-back'
 import HeaderHome from './components/organisms/header/header-home'
 import MeetUpChatList from './pages/meet-up-chat-list/meet-up-chat-list'
-import MeetUpWrite from './pages/meet-up-write/meet-up-write'
+import MeetUpForm from './pages/meet-up-form'
 import MeetUpDetail from './pages/meet-up-detail/meet-up-detail'
 import FeedDetail from './pages/feed-detail'
 import EditMyProfile from './pages/edit-my-profile/edit-my-profile'
@@ -39,7 +39,7 @@ function Router() {
                 {/* meet-up */}
                 <Route path="/" element={<MeetUpMain />} />
                 <Route path="/meet-up/:id" element={<MeetUpDetail />} />
-                <Route path="/meet-up-form" element={<MeetUpWrite />} />
+                <Route path="/meet-up-form" element={<MeetUpForm />} />
 
                 {/* feed */}
                 <Route path="/feed" element={<FeedMain />} />
