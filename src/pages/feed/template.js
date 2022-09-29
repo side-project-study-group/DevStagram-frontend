@@ -1,6 +1,5 @@
 import React from 'react'
 import SearchBar from '../../components/search-bar'
-import Post from '../../components/organisms/post-contents'
 import styled from 'styled-components'
 import FeedList from '../../components/organisms/feed-list'
 
@@ -16,7 +15,7 @@ function FeedMainTemplate({ data }) {
     return (
         <Main>
             <SearchBar />
-            <FeedList data={data} />
+            {data && <FeedList data={data} />}
         </Main>
     )
 }

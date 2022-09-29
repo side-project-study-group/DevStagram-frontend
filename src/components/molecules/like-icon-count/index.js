@@ -1,5 +1,4 @@
 import React from 'react'
-import LikeIcon from '../../atoms/buttons/like-icon'
 import { ReactComponent as Heart } from '../../../assets/icons/Heart.svg'
 import styled from 'styled-components'
 
@@ -13,6 +12,7 @@ const Section = styled.section`
     }
 `
 const Icon = styled(Heart)`
+    width: 20px;
     fill: ${(props) => props.bg};
 `
 

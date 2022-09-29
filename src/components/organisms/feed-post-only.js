@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Text from '../atoms/texts/text-box'
 import styled from 'styled-components'
-import ChatIconCount from '../molecules/chat-icon-count'
 import LikeIconCount from '../molecules/like-icon-count'
 import useBoolean from '../../hooks/useBoolean'
 import DateText from '../atoms/texts/date-text'
 import { useNavigate } from 'react-router-dom'
 import UserProfile from '../molecules/user-profile'
 import axios from 'axios'
+import CommentIconCount from '../molecules/comment-icon-count'
 
 const Article = styled.article`
     margin-bottom: 10px;
@@ -37,8 +37,14 @@ const Footer = styled.footer`
     gap: 10px;
 `
 
-function FeedPostOnly({ data }) {
-    const { id, userId, contents, pictureUrl, createDt, updateDt } = data
+function FeedPostOnly({
+    id,
+    userId,
+    contents,
+    pictureUrl,
+    createDt,
+    updateDt,
+}) {
     const [isFilled, fillActions] = useBoolean()
     const navigate = useNavigate()
     const [{ commentCount, likeCount }, setCount] = useState({
@@ -72,11 +78,11 @@ function FeedPostOnly({ data }) {
                     <DateText date={updateDt ? updateDt : createDt} />
                 </Container>
             </Header>
-            <Text handleClick={handleNavigate} size={'big'}>
+            <Text handleClick={handleNavigate} size={'small'}>
                 {contents}
             </Text>
             <Footer>
-                <ChatIconCount count={commentCount} />
+                <CommentIconCount count={commentCount} />
                 <LikeIconCount
                     isFilled={isFilled}
                     handleFill={fillActions.handleToggle}

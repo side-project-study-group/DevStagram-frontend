@@ -11,10 +11,10 @@ const Article = styled.article`
     background-color: #ffffff;
 `
 
-function FeedPost() {
+function FeedPost({ data }) {
     return (
         <Article>
-            <PostContents />
+            <PostContents {...data} />
             <PostReplies />
         </Article>
     )
