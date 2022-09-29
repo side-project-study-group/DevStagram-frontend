@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 
 function usePopUp(type) {
-    const actionType = type.includes('join') ? 'join' : type
+    const actionType = type?.includes('join') ? 'join' : type
     const navigate = useNavigate()
 
     function handleOk(body) {
