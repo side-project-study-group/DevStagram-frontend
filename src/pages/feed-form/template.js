@@ -13,18 +13,18 @@ const Main = styled.main`
     box-sizing: border-box;
 `
 
-function NewPostTemplate({ src, text, value, handleChange, submit }) {
+function FeedForm({ userId, userPicUrl, form, handleChange, handleSubmit }) {
     return (
         <Main>
             <PostForm
-                src={src}
-                text={text}
-                value={value}
+                userId={userId}
+                userPicUrl={userPicUrl}
+                form={form}
                 handleChange={handleChange}
             />
-            <FooterBtn handleClick={submit}>게시하기</FooterBtn>
+            <FooterBtn handleClick={handleSubmit}>게시하기</FooterBtn>
         </Main>
     )
 }
 
-export default NewPostTemplate
+export default FeedForm

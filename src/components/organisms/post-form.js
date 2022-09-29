@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import TextAreaWithoutBorder from '../atoms/inputs/text-area-without-border'
 // apache 2.0
-import ProfileTag from '../molecules/user-profile'
+import UserProfile from '../molecules/user-profile'
 import { ReactComponent as AddPhoto } from '../../assets/icons/AddPhoto.svg'
 
 const Section = styled.div`
@@ -16,13 +16,13 @@ const Icon = styled(AddPhoto)`
     width: 37px;
 `
 
-function PostForm({ src, text, value, handleChange }) {
+function PostForm({ userId, form, userPicUrl, handleChange }) {
     return (
         <Section>
-            <ProfileTag size={'big'} id={text} />
+            <UserProfile size={'big'} id={userId} />
             <TextAreaWithoutBorder
                 name={'contents'}
-                value={value}
+                value={form?.contents}
                 handleChange={handleChange}
             />
             <Icon />
