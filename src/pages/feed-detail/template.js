@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import Post from '../../components/organisms/post-contents'
 import styled from 'styled-components'
 import BottomPopUp from '../../components/organisms/modal/bottom-pop-up'
+import FeedPost from '../../components/organisms/feed-post'
+import PopUp from '../../components/organisms/modal/pop-up'
 
 const Main = styled.main`
     width: 100%;
@@ -13,33 +14,17 @@ const Main = styled.main`
     box-sizing: border-box;
 `
 
-function PostDetailTemp({
-    src,
-    text,
-    date,
-    contents,
-    replyCount,
-    isFilledInit,
-    likeCount,
-}) {
+function FeedDetailTemp(mock) {
     const [isOpenBottomPopUp, setIsOpenBottomPopUp] = useState(false)
     const handleBottomPopUp = () => setIsOpenBottomPopUp(!isOpenBottomPopUp)
 
     return (
         <Main>
-            <Post
-                src={src}
-                text={text}
-                date={date}
-                contents={contents}
-                replyCount={replyCount}
-                isFilledInit={isFilledInit}
-                likeCount={likeCount}
-                handleBottomPopUp={handleBottomPopUp}
-            />
+            <FeedPost {...mock} handleBottomPopUp={handleBottomPopUp} />
             <BottomPopUp type={'post'} isOpen={isOpenBottomPopUp} />
+            {/* <PopUp /> */}
         </Main>
     )
 }
 
-export default PostDetailTemp
+export default FeedDetailTemp

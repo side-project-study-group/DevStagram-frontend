@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import FeedPostOnly from './feed-post-only'
-import PostContents from './post-contents'
 
 const Section = styled.section`
     width: 100%;
