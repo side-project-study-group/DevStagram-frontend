@@ -31,7 +31,7 @@ const MeetUpContentContainer = styled.div`
     }
 `
 
-function MeetUpWriteTemp() {
+function MeetUpFormTemp() {
     const { form, handleChange, handleSubmit } = useForm()
     const [categories, setCategories] = useState([])
     const navigate = useNavigate()
@@ -103,7 +103,7 @@ function MeetUpWriteTemp() {
     )
 }
 
-export default MeetUpWriteTemp
+export default MeetUpFormTemp
 
 const dummyCategories = [
     // '밋업의 종류를 골라주세요.',
