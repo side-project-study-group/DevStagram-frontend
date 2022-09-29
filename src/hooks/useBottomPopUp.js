@@ -11,7 +11,7 @@ function useBottomPopUp(id) {
         const config = { headers: { Authorization: token } }
         switch (type) {
             case 'edit':
-                return navigate('/meet-up-write')
+                return navigate('/meet-up-form')
             case 'delete':
                 return async () => {
                     try {

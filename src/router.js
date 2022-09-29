@@ -3,7 +3,6 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import HeaderBack from './components/organisms/header/header-back'
 import HeaderHome from './components/organisms/header/header-home'
 import MeetUpChatList from './pages/meet-up-chat-list/meet-up-chat-list'
-import MeetUpList from './pages/meet-up-list/meet-up-list'
 import MeetUpWrite from './pages/meet-up-write/meet-up-write'
 import MeetUpDetail from './pages/meet-up-detail/meet-up-detail'
 import PostDetail from './pages/post-detail/post-detail'
@@ -15,7 +14,8 @@ import SignUp2 from './pages/sign-up-2/sign-up-2'
 import SignUp3 from './pages/sign-up-3/sign-up-3'
 import SignUpFinish from './pages/sign-up-finish/sign-up-finish'
 import NewPost from './pages/new-post/new-post'
-import PostList from './pages/post-list/post-list'
+import FeedMain from './pages/feed'
+import MeetUpMain from './pages/meet-up'
 import MyProfileMeetUp from './pages/my-profile/my-profile'
 
 function Router() {
@@ -30,13 +30,14 @@ function Router() {
                 <HeaderBack />
             )}
             <Routes>
-                <Route path="/" element={<MeetUpList />} />
-                <Route path="/meet-up-detail/:id" element={<MeetUpDetail />} />
-                <Route path="/meet-up-chat-list" element={<MeetUpChatList />} />
-                <Route path="/meet-up-write" element={<MeetUpWrite />} />
+                <Route path="/" element={<MeetUpMain />} />
+                <Route path="/meet-up/:id" element={<MeetUpDetail />} />
+                <Route path="/meet-up-form" element={<MeetUpWrite />} />
 
-                <Route path="/post-list" element={<PostList />} />
-                <Route path="/post-detail" element={<PostDetail />} />
+                <Route path="/meet-up-chat-list" element={<MeetUpChatList />} />
+
+                <Route path="/feed" element={<FeedMain />} />
+                <Route path="/feed-detail" element={<PostDetail />} />
                 <Route path="/new-post" element={<NewPost />} />
 
                 <Route path="/edit-my-profile" element={<EditMyProfile />} />

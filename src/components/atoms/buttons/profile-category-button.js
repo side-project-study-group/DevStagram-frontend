@@ -6,7 +6,7 @@ const StyledButton = styled.button`
     background-color: ${(props) =>
         props.isSelected
             ? 'rgba(250, 215, 120, 0.9);'
-            : 'rgba(250, 215, 120, 0.3);'}
+            : 'rgba(250, 215, 120, 0.3);'};
     width: 190px;
     font-family: 'Roboto';
     font-style: normal;
