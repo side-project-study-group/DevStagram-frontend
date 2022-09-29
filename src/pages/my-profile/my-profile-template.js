@@ -3,8 +3,8 @@ import ProfileHeader from '../../components/organisms/profile-header'
 import ProfileMeetUpPostBtns from '../../components/molecules/profile-meetup-post-btns'
 import checkImg from '../../assets/imgs/check.png'
 import styled from 'styled-components'
-import Post from '../../components/organisms/post'
-import MeetUpPostBox from '../../components/organisms/meet-up-post-box'
+import FeedList from '../../components/organisms/feed-list'
+import MeetUpSummaryList from '../../components/organisms/meet-up-summary-list'
 
 const Container = styled.div`
     width: 100%;
@@ -63,11 +63,11 @@ function MyProfileMeetUpTemp({
                 {isMeetup
                     ? meetups ??
                       meetups.map((ele, index) => {
-                          return <MeetUpPostBox key={index} />
+                          return <MeetUpSummaryList key={index} />
                       })
                     : posts ??
                       posts.map((ele, index) => {
-                          return <Post key={index} />
+                          return <FeedList key={index} />
                       })}
             </Container>
         </>
