@@ -1,7 +1,10 @@
 import styled from 'styled-components'
-import useBottomPopUp from '../../../../hooks/useBottomPopUp'
-import { button_data } from './button-data'
 import { motion } from 'framer-motion'
+import OnePerson from '../../../../assets/icons/OnePerson.svg'
+import Delete from '../../../../assets/icons/Delete.svg'
+import Edit from '../../../../assets/icons/Edit.svg'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Footer = styled(motion.footer)`
     position: absolute;
@@ -23,7 +26,7 @@ const BoxHead = styled.div`
     border: 1.5px solid #414042;
     border-radius: 10px 10px 0 0;
 `
-const Box = styled.div`
+const Box = styled.ul`
     width: 100%;
     box-sizing: border-box;
     background-color: #ffffff;
@@ -33,9 +36,13 @@ const Box = styled.div`
     flex-direction: column;
     justify-content: center;
     gap: 5px;
-    padding: 15px 10px;
+    padding: 5px 15px;
+    margin: 0;
 `
-const Button = styled.button`
+const Li = styled.li`
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     font-size: 16px;
     font-weight: bold;
     text-decoration: none;
@@ -43,22 +50,18 @@ const Button = styled.button`
     background-color: transparent;
     align-items: center;
     border: none;
-    display: flex;
-    justify-content: center;
-    :first-child {
-        border-bottom: 1px solid #414042;
-        padding-bottom: 10px;
-        margin-bottom: 5px;
+    border-bottom: 1px solid #414042;
+    padding: 15px 0;
+    :last-child {
+        border-bottom: none;
     }
 `
 const variants = {
     open: { y: 0 },
-    closed: { y: 170 },
+    closed: { y: 250 },
 }
 
-function BottomPopUp({ id = null, type, isOpen }) {
-    const handleClick = useBottomPopUp(id)
-
+function BottomPopUp({ id = null, type, isOpen, popUpFunctions }) {
     return (
         <Footer
             animate={isOpen ? 'open' : 'closed'}
@@ -68,17 +71,33 @@ function BottomPopUp({ id = null, type, isOpen }) {
             <Container>
                 <BoxHead />
                 <Box>
-                    {button_data[type].map(({ icon, value, type }) => (
-                        <Button key={value} onClick={() => handleClick(type)}>
-                            {icon && (
-                                <>
-                                    <img src={icon} />
-                                    &nbsp;&nbsp;
-                                </>
-                            )}
-                            {value}
-                        </Button>
-                    ))}
+                    {popUpFunctions?.handleMember ? (
+                        <>
+                            <Li onClick={popUpFunctions?.handleMember}>
+                                <img src={OnePerson} />
+                                멤버 관리하기
+                            </Li>
+                            <Li onClick={popUpFunctions?.handleDelete}>
+                                <img src={Delete} />
+                                밋업 삭제하기
+                            </Li>
+                            <Li onClick={popUpFunctions?.handleModify}>
+                                <img src={Edit} />
+                                밋업 수정하기
+                            </Li>
+                        </>
+                    ) : (
+                        <>
+                            <Li onClick={popUpFunctions?.handleDelete}>
+                                <img src={Delete} />
+                                게시글 삭제하기
+                            </Li>
+                            <Li onClick={popUpFunctions?.handleModify}>
+                                <img src={Edit} />
+                                게시글 수정하기
+                            </Li>
+                        </>
+                    )}
                 </Box>
             </Container>
         </Footer>
