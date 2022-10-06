@@ -6,7 +6,12 @@ function MeetUpMain() {
     const [summaries, filterCategory] = useMeetUpList()
 
     return (
-        <MeetUpMainTemp summaries={summaries} handleFilter={filterCategory} />
+        summaries && (
+            <MeetUpMainTemp
+                summaries={summaries}
+                handleFilter={filterCategory}
+            />
+        )
     )
 }
 

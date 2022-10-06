@@ -18,7 +18,7 @@ const Main = styled.main`
 
 function MeetUpMainTemp({ summaries, handleFilter }) {
     const [isOpenPopUp, setIsOpenPopUp] = useState(false)
-    const isLogged = sessionStorage.getItem('token')
+    // const isLogged = sessionStorage.getItem('token')
 
     return (
         <>
@@ -26,12 +26,10 @@ function MeetUpMainTemp({ summaries, handleFilter }) {
                 <SearchBar />
                 <MeetUpFilterBar handleFilter={handleFilter} />
                 <MeetUpSummaryList summaries={summaries} />
-                {isLogged && (
-                    <PlusButton
-                        isOpenPopUp={isOpenPopUp}
-                        handleClick={() => setIsOpenPopUp(!isOpenPopUp)}
-                    />
-                )}
+                <PlusButton
+                    isOpenPopUp={isOpenPopUp}
+                    handleClick={() => setIsOpenPopUp(!isOpenPopUp)}
+                />
             </Main>
             {isOpenPopUp && <CreatePopUp />}
         </>

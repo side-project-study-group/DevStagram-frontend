@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import MeetUpSummary from './meet-up-summary'
+import MeetUpSummaryBox from './summary-box/meet-up'
 
 const Section = styled.section`
     width: 100%;
@@ -12,7 +12,7 @@ function MeetUpSummaryList({ summaries }) {
     return (
         <Section>
             {summaries?.map((summary) => (
-                <MeetUpSummary key={summary.id} summary={summary} />
+                <MeetUpSummaryBox key={summary.id} summary={summary} />
             ))}
         </Section>
     )
