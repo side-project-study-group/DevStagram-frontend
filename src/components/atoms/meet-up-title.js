@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Title = styled.h1`
-    font-weight: bold;
+    font-weight: ${(props) => (props.size === 'big' ? '600' : '500')};
     font-family: 'NotoSansKR';
-    font-size: ${(props) => (props.size === 'big' ? '18px' : '16px')};
+    font-size: ${(props) => (props.size === 'big' ? '16px' : '14px')};
     margin: 0;
 `
 
