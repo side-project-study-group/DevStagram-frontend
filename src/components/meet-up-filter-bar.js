@@ -1,8 +1,7 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import useNavigationBar from '../hooks/useNavigationBar'
-import MeetUpTag from './atoms/tags/meet-up-tag'
+import MeetUpTag from './atoms/tags/meet-up-tag/tag'
 
 const Container = styled.div`
     width: 100%;
