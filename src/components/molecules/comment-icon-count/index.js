@@ -6,12 +6,12 @@ const Section = styled.section`
     display: flex;
     align-items: center;
     img {
-        width: 20px;
+        width: 18px;
     }
     span {
         font-family: 'RobotoBold';
         margin-left: 3px;
-        font-size: 15px;
+        font-size: 12px;
     }
 `
 

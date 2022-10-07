@@ -3,59 +3,82 @@ import React, { useEffect, useState } from 'react'
 import FeedMainTemplate from './template'
 
 function FeedMain() {
-    const [data, setData] = useState([])
+    const [data, setData] = useState(mock)
 
     useEffect(() => {
-        const uri = `http://default-gateway-service--87742-11669872-9594cfbe56b3.kr.lb.naverncp.com:9999`
-        let token =
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MzBmNTMwNGM2ODU3MTE5M2MxZDhiNzIiLCJleHAiOjE2NjM3NTYyMDEsImlhdCI6MTY2MzU4MzQwMSwiZW1haWwiOiJndWVzdDIyMkBnbWFpbC5jb20ifQ.2beQHnvB5iE7Cw4-fSruKX_8OLafB6a3VHAPTKXeNHwETohZHQzQFtMV-8HHRhrYTVpsM-dI5DDMVhBiKm576Q'
-        const config = { headers: { Authorization: token } }
-        axios(`${uri}/api/posts/timeline?page=0&size=4`, config)
-            .then((res) => console.log(res.data._embedded))
+        const uri = `http://175.45.195.94:9999/api`
+        const config = {
+            headers: {
+                Authorization:
+                    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MzBmNTMwNGM2ODU3MTE5M2MxZDhiNzIiLCJleHAiOjE2NjUxMDQ5NTAsImlhdCI6MTY2NDkzMjE1MCwiZW1haWwiOiJndWVzdDIyMkBnbWFpbC5jb20ifQ.5AggSnpnpTTPhgxBfJcPxI29JzAqQjBdTxGWKG4XBzhpwqzuRCOwU_bFhThbEnvBBN3VzQvy5Fz4_DZ6Ep_khg',
+            },
+        }
+        axios(`${uri}/posts/timeline?page=0&size=4`, config)
+            .then((res) => setData(res.data._embedded.postsList))
             .catch(function (error) {
                 console.log('post-list======>', error)
             })
     }, [])
-    return <FeedMainTemplate data={mock1} />
+    return <FeedMainTemplate data={data} />
 }
 
 export default FeedMain
 
-let mock1 = [
+let mock = [
     {
-        id: 0,
-        userId: 'dayeon',
-        contents:
-            'consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commode nulla facillsi',
-        pictureUrl: '',
-        createDt: '2022-07-17 21:30:00',
-        updateDt: '',
+        id: '53',
+        userId: '62c46903aede795d338318e1',
+        contents: 'test',
+        heartsCount: [],
+        pictureUrl: null,
+        createDt: '2022-09-11T18:18:44.151',
+        updateDt: '2022-09-11T18:18:44.151',
+        _links: {
+            detail: {
+                href: 'http://175.45.195.94:9999/api/posts/getOneFeed?id=53',
+            },
+        },
     },
     {
-        id: 1,
-        userId: 'yoon',
-        contents:
-            'consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commode nulla facillsi',
-        pictureUrl: '',
-        createDt: '2022-07-17 21:30:00',
-        updateDt: '2022-09-27 14:30:00',
+        id: '52',
+        userId: 'writer',
+        contents: 'OriginContents',
+        heartsCount: null,
+        pictureUrl: null,
+        createDt: '2022-08-19T17:14:48.97',
+        updateDt: null,
+        _links: {
+            detail: {
+                href: 'http://175.45.195.94:9999/api/posts/getOneFeed?id=52',
+            },
+        },
     },
     {
-        id: 2,
-        userId: 'mini',
-        contents:
-            'consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commode nulla facillsi',
-        pictureUrl: '',
-        createDt: '',
-        updateDt: '',
+        id: '51',
+        userId: 'writer',
+        contents: 'OriginContents',
+        heartsCount: null,
+        pictureUrl: null,
+        createDt: '2022-08-19T17:04:07.613',
+        updateDt: null,
+        _links: {
+            detail: {
+                href: 'http://175.45.195.94:9999/api/posts/getOneFeed?id=51',
+            },
+        },
     },
     {
-        id: 3,
-        userId: 'emily',
-        contents:
-            'consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commode nulla facillsi',
-        pictureUrl: '',
-        createDt: '',
-        updateDt: '',
+        id: '50',
+        userId: 'writer',
+        contents: 'OriginContents',
+        heartsCount: null,
+        pictureUrl: null,
+        createDt: '2022-08-19T17:03:36.222',
+        updateDt: null,
+        _links: {
+            detail: {
+                href: 'http://175.45.195.94:9999/api/posts/getOneFeed?id=50',
+            },
+        },
     },
 ]

@@ -8,11 +8,11 @@ const Section = styled.section`
     span {
         font-family: 'RobotoBold';
         margin-left: 3px;
-        font-size: 15px;
+        font-size: 12px;
     }
 `
 const Icon = styled(Heart)`
-    width: 20px;
+    width: 18px;
     fill: ${(props) => props.bg};
 `
 
