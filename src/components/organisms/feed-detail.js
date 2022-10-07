@@ -6,7 +6,7 @@ import TextBox from '../atoms/texts/text-box'
 import CommentIconCount from '../molecules/comment-icon-count'
 import LikeIconCount from '../molecules/like-icon-count'
 import UserProfile from '../molecules/user-profile'
-import PostReplies from './feed-post-replies'
+import PostReplies from './feed-replies'
 import useBoolean from '../../hooks/useBoolean'
 
 const Article = styled.article`
