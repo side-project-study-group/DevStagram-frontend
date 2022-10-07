@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import BottomPopUp from '../../components/organisms/modal/bottom-pop-up'
-import FeedPost from '../../components/organisms/feed-post'
+import FeedPost from '../../components/organisms/feed-detail'
 import PopUp from '../../components/organisms/modal/pop-up'
 
 const Main = styled.main`
@@ -17,16 +17,15 @@ const Main = styled.main`
 function FeedDetailTemp(mock) {
     const [isOpenBottomPopUp, setIsOpenBottomPopUp] = useState(false)
     const handleBottomPopUp = () => setIsOpenBottomPopUp(!isOpenBottomPopUp)
-
     return (
         <Main>
             <FeedPost {...mock} handleBottomPopUp={handleBottomPopUp} />
             <BottomPopUp type={'post'} isOpen={isOpenBottomPopUp} />
-            <PopUp>
+            {/* <PopUp>
                 삭제하기를 누르면 복구할 수 없습니다.
                 <br />
                 정말로 삭제하시겠습니까?
-            </PopUp>
+            </PopUp> */}
         </Main>
     )
 }

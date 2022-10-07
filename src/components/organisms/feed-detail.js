@@ -7,7 +7,7 @@ import CommentIconCount from '../molecules/comment-icon-count'
 import LikeIconCount from '../molecules/like-icon-count'
 import UserProfile from '../molecules/user-profile'
 import PostReplies from './feed-post-replies'
-import useBoolean from './../../hooks/useBoolean'
+import useBoolean from '../../hooks/useBoolean'
 
 const Article = styled.article`
     margin-bottom: 10px;
@@ -26,12 +26,14 @@ const Header = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-bottom: 15px;
 `
 const Footer = styled.footer`
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 10px;
+    margin-top: 15px;
 `
 
 function FeedPost({

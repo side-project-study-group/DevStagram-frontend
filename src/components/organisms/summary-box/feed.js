@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import Text from '../atoms/texts/text-box'
+import TextBox from '../../atoms/texts/text-box'
 import styled from 'styled-components'
-import LikeIconCount from '../molecules/like-icon-count'
-import useBoolean from '../../hooks/useBoolean'
-import DateText from '../atoms/texts/date-text'
+import LikeIconCount from '../../molecules/like-icon-count'
+import useBoolean from '../../../hooks/useBoolean'
+import DateText from '../../atoms/texts/date-text'
 import { useNavigate } from 'react-router-dom'
-import UserProfile from '../molecules/user-profile'
+import UserProfile from '../../molecules/user-profile'
 import axios from 'axios'
-import CommentIconCount from '../molecules/comment-icon-count'
+import CommentIconCount from '../../molecules/comment-icon-count'
 
 const Article = styled.article`
     margin-bottom: 10px;
@@ -28,6 +28,7 @@ const Header = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-bottom: 10px;
 `
 
 const Footer = styled.footer`
@@ -35,9 +36,10 @@ const Footer = styled.footer`
     justify-content: flex-end;
     align-items: center;
     gap: 10px;
+    margin-top: 10px;
 `
 
-function FeedPostOnly({
+function FeedSummaryBox({
     id,
     userId,
     contents,
@@ -57,14 +59,21 @@ function FeedPostOnly({
     }
 
     useEffect(() => {
-        const uri = `http://default-gateway-service--87742-11669872-9594cfbe56b3.kr.lb.naverncp.com:9999`
-        let token =
-            'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MzBmNTMwNGM2ODU3MTE5M2MxZDhiNzIiLCJleHAiOjE2NjM3NTYyMDEsImlhdCI6MTY2MzU4MzQwMSwiZW1haWwiOiJndWVzdDIyMkBnbWFpbC5jb20ifQ.2beQHnvB5iE7Cw4-fSruKX_8OLafB6a3VHAPTKXeNHwETohZHQzQFtMV-8HHRhrYTVpsM-dI5DDMVhBiKm576Q'
+        const uri = `http://175.45.195.94:9999/api`
         const config = {
-            headers: { Authorization: token },
+            headers: {
+                Authorization:
+                    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MzBmNTMwNGM2ODU3MTE5M2MxZDhiNzIiLCJleHAiOjE2NjUxMDQ5NTAsImlhdCI6MTY2NDkzMjE1MCwiZW1haWwiOiJndWVzdDIyMkBnbWFpbC5jb20ifQ.5AggSnpnpTTPhgxBfJcPxI29JzAqQjBdTxGWKG4XBzhpwqzuRCOwU_bFhThbEnvBBN3VzQvy5Fz4_DZ6Ep_khg',
+            },
         }
-        axios(`${uri}/api/posts/comments/list/${id}`)
-            .then((res) => console.log(res))
+        axios(`${uri}/posts/comments/list/${id}`, config)
+            .then((res) => {
+                let { CommentsList, commentCount } = res.data.attribute
+                setCount({
+                    commentCount: CommentsList?.length,
+                    likeCount: commentCount,
+                })
+            })
             .catch(function (error) {
                 console.log('feed-post-only=====>', error)
             })
@@ -78,9 +87,9 @@ function FeedPostOnly({
                     <DateText date={updateDt ? updateDt : createDt} />
                 </Container>
             </Header>
-            <Text handleClick={handleNavigate} size={'small'}>
+            <TextBox handleClick={handleNavigate} size={'small'}>
                 {contents}
-            </Text>
+            </TextBox>
             <Footer>
                 <CommentIconCount count={commentCount} />
                 <LikeIconCount
@@ -93,4 +102,4 @@ function FeedPostOnly({
     )
 }
 
-export default FeedPostOnly
+export default FeedSummaryBox
