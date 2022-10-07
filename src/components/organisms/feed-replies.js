@@ -1,18 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-import FeedPostReply from './feed-post-reply'
+import FeedReply from './feed-reply'
 
 const Ul = styled.ul`
-    border-top: 1px solid rgba(65, 64, 66, 0.2);
-    margin: 20px 0 0 0;
-    padding: 10px 0 5px 0;
+    margin: 5px 0 0 0;
+    padding: 5px 0 5px 0;
     list-style: none;
 `
 
 function FeedPostReplies() {
     return (
         <Ul>
-            <FeedPostReply />
+            <FeedReply />
+            <FeedReply />
+            <FeedReply />
+            <FeedReply />
         </Ul>
     )
 }
