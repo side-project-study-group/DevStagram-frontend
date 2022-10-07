@@ -6,8 +6,8 @@ import TextBox from '../atoms/texts/text-box'
 import CommentIconCount from '../molecules/comment-icon-count'
 import LikeIconCount from '../molecules/like-icon-count'
 import UserProfile from '../molecules/user-profile'
-import PostReplies from './feed-post-replies'
 import useBoolean from '../../hooks/useBoolean'
+import FeedReplies from './feed-replies'
 
 const Article = styled.article`
     margin-bottom: 10px;
@@ -64,7 +64,7 @@ function FeedPost({
                     count={3}
                 />
             </Footer>
-            <PostReplies />
+            <FeedReplies />
         </Article>
     )
 }

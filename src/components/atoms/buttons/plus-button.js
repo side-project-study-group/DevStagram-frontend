@@ -12,7 +12,7 @@ const BtnContainer = styled.div`
     cursor: pointer;
     z-index: 99;
     position: fixed;
-    margin-left: 380px;
+    right: 35px;
     bottom: 50px;
     width: 50px;
     height: 50px;

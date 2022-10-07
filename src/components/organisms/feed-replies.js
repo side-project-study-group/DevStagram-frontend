@@ -8,7 +8,7 @@ const Ul = styled.ul`
     list-style: none;
 `
 
-function FeedPostReplies() {
+function FeedReplies() {
     return (
         <Ul>
             <FeedReply />
@@ -19,4 +19,4 @@ function FeedPostReplies() {
     )
 }
 
-export default FeedPostReplies
+export default FeedReplies
