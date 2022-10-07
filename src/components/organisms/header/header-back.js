@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Back from '../../../assets/icons/Back.svg'
 import Control from '../../../assets/icons/Control.svg'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const Container = styled.div`
     background-color: #fcfcfa;
@@ -39,11 +39,12 @@ const ImgBack = styled.img`
 
 function HeaderBack() {
     const navigate = useNavigate()
+    const { pathname } = useLocation()
 
     return (
         <Container>
             <ImgBack src={Back} onClick={() => navigate(-1)} />
-            <Img src={Control} />
+            {pathname === '/my-profile-post' && <Img src={Control} />}
         </Container>
     )
 }

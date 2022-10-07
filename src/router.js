@@ -17,13 +17,17 @@ import FeedForm from './pages/feed-form'
 import FeedMain from './pages/feed'
 import MeetUpMain from './pages/meet-up'
 import MyProfileMeetUp from './pages/my-profile/my-profile'
+import MemberManagement from './pages/member-management'
 
 function Router() {
     const { pathname } = useLocation()
     return (
         <>
-            {pathname === '/intro' ? null : pathname === '/sign-up-finish' ||
-              pathname === '/log-in' ? null : pathname === '/' ? (
+            {pathname === '/intro' ||
+            pathname.includes('/sign-up') ||
+            pathname === '/log-in' ? null : pathname === '/' ||
+              pathname === '/feed' ||
+              pathname === '/meet-up-chat-list' ? (
                 <HeaderHome />
             ) : (
                 <HeaderBack />
@@ -40,10 +44,14 @@ function Router() {
                 <Route path="/" element={<MeetUpMain />} />
                 <Route path="/meet-up/:id" element={<MeetUpDetail />} />
                 <Route path="/meet-up-form" element={<MeetUpForm />} />
+                <Route
+                    path="/member-management"
+                    element={<MemberManagement />}
+                />
 
                 {/* feed */}
                 <Route path="/feed" element={<FeedMain />} />
-                <Route path="/feed-detail" element={<FeedDetail />} />
+                <Route path="/feed/:id" element={<FeedDetail />} />
                 <Route path="/feed-form" element={<FeedForm />} />
 
                 {/* my-profile */}

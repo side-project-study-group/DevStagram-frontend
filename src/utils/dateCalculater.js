@@ -15,9 +15,9 @@ export default function dateCalculater(inputDate) {
         return minus + '일 전'
     } else if (now.getDate() == date.getDate()) {
         let nowTime = now.getTime()
-        let date = date.getTime()
-        if (nowTime > date) {
-            let sec = parseInt(nowTime - date) / 1000
+        let dateTime = date.getTime()
+        if (nowTime > dateTime) {
+            let sec = parseInt(nowTime - dateTime) / 1000
             let day = parseInt(sec / 60 / 60 / 24)
             sec = sec - day * 60 * 60 * 24
             let hour = parseInt(sec / 60 / 60)
