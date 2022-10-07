@@ -2,11 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import EditButton from '../../atoms/buttons/edit-button'
 import MeetUpTitle from '../../atoms/meet-up-title'
-import ProfileImg from '../../atoms/profile-img'
-import MeetUpTag from '../../atoms/tags/meet-up-tag'
+import MeetUpCategoryTag from '../../atoms/tags/meet-up-tag/tag'
 import TextBox from '../../atoms/texts/text-box'
 import MemberCount from '../../molecules/member-count'
 import TimeLine from './../../atoms/texts/time-line'
+import Unlock from '../../../assets/icons/Unlock.svg'
+import Lock from '../../../assets/icons/Lock.svg'
+import ProfileImgList from '../../molecules/profile-img-list'
+import { useNavigate } from 'react-router-dom'
 
 const Article = styled.article`
     margin-bottom: 10px;
@@ -30,7 +33,6 @@ const Header = styled.header`
 
 const Img = styled.img`
     width: 18px;
-    margin-right: 10px;
 `
 
 const Wrapper = styled.div`
@@ -40,16 +42,26 @@ const Wrapper = styled.div`
 const Footer = styled.footer`
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: column;
+    gap: 8px;
     margin-top: 10px;
+`
+const FooterSection = styled.section`
+    width: 100%;
+    display: flex;
+    align-items: center;
 `
 
 const Container = styled.div`
     display: flex;
     align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
 `
 
 function MeetUpPost({ data, isOwned, handleBottomPopUp }) {
+    const navigate = useNavigate()
+    console.log(data)
     return (
         data && (
             <Article>
@@ -57,24 +69,45 @@ function MeetUpPost({ data, isOwned, handleBottomPopUp }) {
                     <Header>
                         <Container>
                             <Img src={data.isOpenYn ? Unlock : Lock} />
-                            <MeetUpTag code={data?.category} />
-                            <MeetUpTag code={data?.isRecruiting} />
+                            <MeetUpCategoryTag code={data?.category} />
+                            <MeetUpCategoryTag code={data?.isRecruiting} />
                         </Container>
+                        <TimeLine date={data?.updatedDt || data?.createdDt} />
                         {isOwned && (
                             <EditButton handleClick={handleBottomPopUp} />
                         )}
                     </Header>
                     <MeetUpTitle size={'big'}>{data.title}</MeetUpTitle>
-                    <TimeLine />
                     <TextBox size={'big'}>{data.contents}</TextBox>
-                    <Footer>
+                    <Footer
+                        onClick={() =>
+                            navigate('/member-management', {
+                                state: {
+                                    memberId: data?.memberId,
+                                    pendingId: data?.pendingId,
+                                    leaderId: data?.leaderId,
+                                    isOpenYn: data?.isOpenYn,
+                                    status: isOwned,
+                                },
+                            })
+                        }
+                    >
+                        <FooterSection>
+                            <MemberCount
+                                type={'join'}
+                                maxCount={data.maxPeople}
+                                count={data.memberId.length}
+                            />
+                            <ProfileImgList
+                                leaderId={data.leaderId}
+                                imgs={data.memberId}
+                                size={data.maxPeople}
+                            />
+                        </FooterSection>
                         <MemberCount
-                            maxCount={data.maxPeople}
-                            joinCount={data?.memberId?.length}
+                            type={'pending'}
+                            count={data.pendingId.length}
                         />
-                        {data?.memberId?.map((id) => (
-                            <ProfileImg key={id} size="small" />
-                        ))}
                     </Footer>
                 </Wrapper>
             </Article>

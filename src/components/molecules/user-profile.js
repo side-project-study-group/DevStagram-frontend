@@ -7,7 +7,7 @@ const Profile = styled.div`
     align-items: center;
     span {
         font-family: 'RobotoBold';
-        font-size: ${(props) => (props.size === 'big' ? '18px' : '14px')};
+        font-size: ${(props) => (props.size === 'big' ? '18px' : '12px')};
         font-weight: 700;
         color: #414042;
     }
@@ -16,7 +16,7 @@ const Profile = styled.div`
 function UserProfile({ size, id }) {
     return (
         <Profile size={size}>
-            <ProfileImg size={size} />
+            <ProfileImg size={size} src={id} />
             <span>{id}</span>
         </Profile>
     )

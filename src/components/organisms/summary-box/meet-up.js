@@ -1,13 +1,14 @@
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
-import Lock from '../../assets/icons/Lock.svg'
-import Unlock from '../../assets/icons/Unlock.svg'
-import MemberCount from '../molecules/member-count'
-import TextBox from '../atoms/texts/text-box'
-import UserProfile from '../molecules/user-profile'
+import Lock from '../../../assets/icons/Lock.svg'
+import Unlock from '../../../assets/icons/Unlock.svg'
+import MemberCount from '../../molecules/member-count'
+import TextBox from '../../atoms/texts/text-box'
+import UserProfile from '../../molecules/user-profile'
 import { useNavigate } from 'react-router-dom'
-import MeetUpTag from '../atoms/tags/meet-up-tag'
-import MeetUpTitle from '../atoms/meet-up-title'
+import MeetUpCategoryTag from '../../atoms/tags/meet-up-tag/tag'
+import MeetUpTitle from '../../atoms/meet-up-title'
+import MeetUpRecruitTag from '../../atoms/tags/meet-up-tag/recruit'
 
 const Article = styled.article`
     width: 100%;
@@ -20,7 +21,7 @@ const Article = styled.article`
     border: 1px solid rgba(65, 64, 66, 0.2);
     border-radius: 10px;
     max-width: 480px;
-    padding: 10px;
+    padding: 10px 10px 5px 10px;
 `
 
 const Header = styled.header`
@@ -40,6 +41,7 @@ const Section = styled.section`
     display: flex;
     align-items: center;
     gap: 5px;
+    margin: 5px 0 10px 0;
 `
 
 const Footer = styled.footer`
@@ -49,18 +51,19 @@ const Footer = styled.footer`
     margin-top: 10px;
 `
 
-function MeetUpSummary({ summary }) {
+function MeetUpSummaryBox({ summary }) {
     const navigate = useNavigate()
+
     return (
         summary && (
             <Article onClick={() => navigate(`/meet-up/${summary.id}`)}>
                 <Wrapper>
                     <Header>
                         <Img src={summary.isOpenYn ? Unlock : Lock} />
-                        <MeetUpTag code={summary.category} />
+                        <MeetUpCategoryTag code={summary.category} />
                     </Header>
                     <Section>
-                        <MeetUpTag code={summary.isRecruiting.toString()} />
+                        <MeetUpRecruitTag status={summary.isRecruiting} />
                         <MeetUpTitle size={'small'}>
                             {summary.title}
                         </MeetUpTitle>
@@ -68,8 +71,9 @@ function MeetUpSummary({ summary }) {
                     <TextBox size={'small'}>{summary.contents}</TextBox>
                     <Footer>
                         <MemberCount
+                            type={'join'}
                             maxCount={summary.maxPeople}
-                            joinCount={summary.memberCount}
+                            count={summary.memberCount}
                         />
                         <UserProfile size={'small'} id={summary.leaderId} />
                     </Footer>
@@ -79,4 +83,4 @@ function MeetUpSummary({ summary }) {
     )
 }
 
-export default MeetUpSummary
+export default MeetUpSummaryBox
