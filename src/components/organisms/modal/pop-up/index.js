@@ -75,9 +75,7 @@ const ButtonContainer = styled.div`
     }
 `
 
-function PopUp({ type, handleCancel, children }) {
-    const handleOk = usePopUp()
-
+function PopUp({ handleCancel, children, handleOk }) {
     return (
         <Section>
             <Wrapper>
@@ -86,7 +84,7 @@ function PopUp({ type, handleCancel, children }) {
                         <p>{children}</p>
                         <ButtonContainer>
                             <button onClick={handleCancel}>Cancel</button>
-                            <button onClick={() => handleOk(type)}>OK</button>
+                            <button onClick={handleOk}>OK</button>
                         </ButtonContainer>
                     </Contents>
                 </Container>
