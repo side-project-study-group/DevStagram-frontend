@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import MeetUpCategoryTag from '../../atoms/tags/meet-up-tag/tag'
 import MeetUpTitle from '../../atoms/meet-up-title'
 import MeetUpRecruitTag from '../../atoms/tags/meet-up-tag/recruit'
+import Carousel from '../../molecules/Carousel'
 
 const Article = styled.article`
     width: 100%;
@@ -56,7 +57,12 @@ function MeetUpSummaryBox({ summary }) {
 
     return (
         summary && (
-            <Article onClick={() => navigate(`/meet-up/${summary.id}`)}>
+            <Article
+                onClick={() => {
+                    console.log('')
+                    // navigate(`/meet-up/${summary.id}`)
+                }}
+            >
                 <Wrapper>
                     <Header>
                         <Img src={summary.isOpenYn ? Unlock : Lock} />
@@ -69,6 +75,7 @@ function MeetUpSummaryBox({ summary }) {
                         </MeetUpTitle>
                     </Section>
                     <TextBox size={'small'}>{summary.contents}</TextBox>
+                    <Carousel />
                     <Footer>
                         <MemberCount
                             type={'join'}
