@@ -1,9 +1,14 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import useSearch from './useSearch'
 
 function useMeetUpList() {
+    const [initSummaries, setInitSummaries] = useState(mock)
     const [summaries, setSummaries] = useState(mock)
     const [category, setCategory] = useState('all')
+    const [cur, setCur] = useState('')
+    const [prev, setPrev] = useState('')
+    const { createFuzzyMatcher, getFinalConstantVowel } = useSearch()
     const uri = `http://175.45.195.94:9999/api/`
 
     function filterCategory(e) {
@@ -11,10 +16,34 @@ function useMeetUpList() {
         setCategory(name)
     }
 
+    const handleSearch = (e) => {
+        setPrev(cur)
+        const { value } = e.target
+        setCur(value)
+        let searchedValue = initSummaries?.filter(
+            ({ title, contents }) =>
+                createFuzzyMatcher(value).test(title) ||
+                createFuzzyMatcher(value).test(contents)
+        )
+        let searchedValue2 = initSummaries?.filter(
+            ({ title, contents }) =>
+                createFuzzyMatcher(
+                    `${prev}${getFinalConstantVowel(value)}`
+                ).test(title) ||
+                createFuzzyMatcher(
+                    `${prev}${getFinalConstantVowel(value)}`
+                ).test(contents)
+        )
+
+        setSummaries(searchedValue.length > 0 ? searchedValue : searchedValue2)
+    }
+
     useEffect(() => {
         axios(`${uri}meetup/read/getMeetUpSummaries/${category}?page=0&size=4`)
             .then((res) => {
-                if (res.status === 200) {
+                if (category === 'all') {
+                    setInitSummaries(res.data._embedded.meetUpSummaryDtoList)
+                } else {
                     setSummaries(res.data._embedded.meetUpSummaryDtoList)
                 }
             })
@@ -23,7 +52,7 @@ function useMeetUpList() {
             })
     }, [category])
 
-    return [summaries, filterCategory]
+    return { summaries, filterCategory, handleSearch }
 }
 
 export default useMeetUpList
