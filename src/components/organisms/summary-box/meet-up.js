@@ -59,8 +59,7 @@ function MeetUpSummaryBox({ summary }) {
         summary && (
             <Article
                 onClick={() => {
-                    console.log('')
-                    // navigate(`/meet-up/${summary.id}`)
+                    navigate(`/meet-up/${summary.id}`)
                 }}
             >
                 <Wrapper>

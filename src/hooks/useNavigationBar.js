@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 function useNavigationBar() {
     const [categories, setCategories] = useState([
         { code: 'ALL', displayName: '전체' },
-        ...mock,
+        // ...mock,
     ])
 
     useEffect(() => {
