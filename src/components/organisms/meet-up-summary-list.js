@@ -4,7 +4,7 @@ import MeetUpSummaryBox from './summary-box/meet-up'
 
 const Section = styled.section`
     width: 100%;
-    padding: 0 10px;
+    padding: 0 10px 20px 10px;
     box-sizing: border-box;
 `
 

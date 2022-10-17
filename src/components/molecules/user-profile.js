@@ -7,7 +7,12 @@ const Profile = styled.div`
     align-items: center;
     span {
         font-family: 'RobotoBold';
-        font-size: ${(props) => (props.size === 'big' ? '18px' : '12px')};
+        font-size: ${(props) =>
+            props.size === 'big'
+                ? '18px'
+                : props.size === 'medium'
+                ? '15px'
+                : '12px'};
         font-weight: 700;
         color: #414042;
     }

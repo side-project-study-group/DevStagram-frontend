@@ -8,7 +8,7 @@ import PlusButton from '../../components/atoms/buttons/plus-button'
 const Main = styled.main`
     max-width: 480px;
     margin: 0 auto;
-    padding: 0 5px;
+    padding: 0 5px 20px 5px;
     box-sizing: border-box;
     background-color: #fafaf8;
     height: 100%;
