@@ -44,15 +44,14 @@ function FeedSummaryBox({
     userId,
     contents,
     pictureUrl,
+    heartsCount,
     createDt,
     updateDt,
 }) {
     const [isFilled, fillActions] = useBoolean()
     const navigate = useNavigate()
-    const [{ commentCount, likeCount }, setCount] = useState({
-        commentCount: 0,
-        likeCount: 0,
-    })
+    const [commentCount, setCommentCount] = useState(0)
+    const [likeCount, setLikeCount] = useState(heartsCount?.length)
 
     function handleNavigate() {
         navigate(`/feed/${id}`)
@@ -63,21 +62,26 @@ function FeedSummaryBox({
         const config = {
             headers: {
                 Authorization:
-                    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MzBmNTMwNGM2ODU3MTE5M2MxZDhiNzIiLCJleHAiOjE2NjUxMDQ5NTAsImlhdCI6MTY2NDkzMjE1MCwiZW1haWwiOiJndWVzdDIyMkBnbWFpbC5jb20ifQ.5AggSnpnpTTPhgxBfJcPxI29JzAqQjBdTxGWKG4XBzhpwqzuRCOwU_bFhThbEnvBBN3VzQvy5Fz4_DZ6Ep_khg',
+                    'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MzBmNTMwNGM2ODU3MTE5M2MxZDhiNzIiLCJleHAiOjE2NjU3MjUxODAsImlhdCI6MTY2NTU1MjM4MCwiZW1haWwiOiJndWVzdDIyMkBnbWFpbC5jb20ifQ.H_9x_tPnWAuANhdlHnrjT2cZnb77OFwckRH4M4cCokfad6evjkiY2btBaWgIqPprZ_U-9e2ZI4NP8pRuN6iOsw',
             },
         }
         axios(`${uri}/posts/comments/list/${id}`, config)
             .then((res) => {
                 let { CommentsList, commentCount } = res.data.attribute
-                setCount({
-                    commentCount: CommentsList?.length,
-                    likeCount: commentCount,
-                })
+                setCommentCount(commentCount)
             })
             .catch(function (error) {
                 console.log('feed-post-only=====>', error)
             })
     }, [])
+
+    useEffect(() => {
+        isFilled
+            ? setLikeCount(likeCount + 1)
+            : likeCount > 0
+            ? setLikeCount(likeCount - 1)
+            : null
+    }, [isFilled])
 
     return (
         <Article>
