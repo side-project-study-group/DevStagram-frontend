@@ -16,14 +16,14 @@ const Main = styled.main`
     box-sizing: border-box;
 `
 
-function MeetUpMainTemp({ summaries, handleFilter }) {
+function MeetUpMainTemp({ summaries, handleFilter, handleSearch }) {
     const [isOpenPopUp, setIsOpenPopUp] = useState(false)
     // const isLogged = sessionStorage.getItem('token')
 
     return (
         <>
             <Main>
-                <SearchBar />
+                <SearchBar handleSearch={handleSearch} />
                 <MeetUpFilterBar handleFilter={handleFilter} />
                 <MeetUpSummaryList summaries={summaries} />
                 <PlusButton
