@@ -3,16 +3,9 @@ import useMeetUpList from '../../hooks/useMeetUpList'
 import MeetUpMainTemp from './template'
 
 function MeetUpMain() {
-    const [summaries, filterCategory] = useMeetUpList()
+    const props = useMeetUpList()
 
-    return (
-        summaries && (
-            <MeetUpMainTemp
-                summaries={summaries}
-                handleFilter={filterCategory}
-            />
-        )
-    )
+    return <MeetUpMainTemp {...props} />
 }
 
 export default MeetUpMain
