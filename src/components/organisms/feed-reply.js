@@ -33,7 +33,7 @@ function FeedReply() {
         <Li>
             <div>
                 <Header>
-                    <UserProfile size={'big'} id={'Savannah Nguyen'} />
+                    <UserProfile size={'medium'} id={'Savannah Nguyen'} />
                     <DateText date={'2022-10-06 11:55:00'} />
                 </Header>
                 <Comment size={'big'}>Cute cat:)</Comment>
