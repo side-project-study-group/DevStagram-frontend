@@ -71,7 +71,7 @@ function BottomPopUp({ id = null, type, isOpen, popUpFunctions }) {
             <Container>
                 <BoxHead />
                 <Box>
-                    {popUpFunctions?.handleMember ? (
+                    {type === 'meetUp' ? (
                         <>
                             <Li onClick={popUpFunctions?.handleMember}>
                                 <img src={OnePerson} />

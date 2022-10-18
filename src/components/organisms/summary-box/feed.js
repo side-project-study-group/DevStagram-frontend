@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import UserProfile from '../../molecules/user-profile'
 import axios from 'axios'
 import CommentIconCount from '../../molecules/comment-icon-count'
+import useToggleLike from '../../../hooks/useToggleLike'
 
 const Article = styled.article`
     margin-bottom: 10px;
@@ -49,9 +50,10 @@ function FeedSummaryBox({
     updateDt,
 }) {
     const [isFilled, fillActions] = useBoolean()
+    const [likeCount, setLikeCount] = useState(heartsCount?.length)
+    const handleLike = useToggleLike(fillActions.handleToggle, setLikeCount)
     const navigate = useNavigate()
     const [commentCount, setCommentCount] = useState(0)
-    const [likeCount, setLikeCount] = useState(heartsCount?.length)
 
     function handleNavigate() {
         navigate(`/feed/${id}`)
@@ -75,14 +77,6 @@ function FeedSummaryBox({
             })
     }, [])
 
-    useEffect(() => {
-        isFilled
-            ? setLikeCount(likeCount + 1)
-            : likeCount > 0
-            ? setLikeCount(likeCount - 1)
-            : null
-    }, [isFilled])
-
     return (
         <Article>
             <Header onClick={handleNavigate}>
@@ -98,7 +92,7 @@ function FeedSummaryBox({
                 <CommentIconCount count={commentCount} />
                 <LikeIconCount
                     isFilled={isFilled}
-                    handleFill={fillActions.handleToggle}
+                    handleFill={handleLike}
                     count={likeCount}
                 />
             </Footer>

@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-function useMeetUpBottom(type, data, setIsOpenPopUp, status) {
+function useMeetUpBottom(type, setIsOpenPopUp, status, data) {
     const navigate = useNavigate()
 
     const handleMember = () => {

@@ -22,9 +22,9 @@ function MeetUpDetailTemp({ id, detail, status }) {
     const [isBottomPopUP, setIsBottomPopUp] = useState(true)
     const popUpFunctions = useMeetUpBottom(
         'meetUp',
-        detail,
         setIsOpenPopUp,
-        status
+        status,
+        detail
     )
 
     const [{ footerText, popUpText, handleOk }, setInfo] = useState({
