@@ -29,11 +29,15 @@ const SearchContainer = styled.input`
     font-family: 'NotoSansKR';
 `
 
-function SearchBar({ handleSearch }) {
+function SearchBar({ handleKeyword, curKeyword }) {
     return (
         <Section>
             <Img src={Search} />
-            <SearchContainer placeholder="Search" onChange={handleSearch} />
+            <SearchContainer
+                placeholder="Search"
+                value={curKeyword}
+                onChange={handleKeyword}
+            />
         </Section>
     )
 }

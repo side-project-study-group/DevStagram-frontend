@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom'
 import MeetUpCategoryTag from '../../atoms/tags/meet-up-tag/tag'
 import MeetUpTitle from '../../atoms/meet-up-title'
 import MeetUpRecruitTag from '../../atoms/tags/meet-up-tag/recruit'
-import Carousel from '../../molecules/Carousel'
 
 const Article = styled.article`
     width: 100%;
@@ -69,12 +68,10 @@ function MeetUpSummaryBox({ summary }) {
                     </Header>
                     <Section>
                         <MeetUpRecruitTag status={summary.isRecruiting} />
-                        <MeetUpTitle size={'small'}>
-                            {summary.title}
-                        </MeetUpTitle>
+                        <MeetUpTitle size={'small'} text={summary.title} />
                     </Section>
-                    <TextBox size={'small'}>{summary.contents}</TextBox>
-                    <Carousel />
+                    <TextBox size={'small'} text={summary.contents} />
+
                     <Footer>
                         <MemberCount
                             type={'join'}
