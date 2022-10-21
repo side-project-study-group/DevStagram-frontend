@@ -51,7 +51,7 @@ const Footer = styled.footer`
     margin-top: 10px;
 `
 
-function MeetUpSummaryBox({ summary }) {
+function MeetUpSummaryBox({ summary, refState, setTarget }) {
     const navigate = useNavigate()
 
     return (
@@ -60,6 +60,7 @@ function MeetUpSummaryBox({ summary }) {
                 onClick={() => {
                     navigate(`/meet-up/${summary.id}`)
                 }}
+                ref={refState ? setTarget : null}
             >
                 <Wrapper>
                     <Header>
@@ -71,7 +72,6 @@ function MeetUpSummaryBox({ summary }) {
                         <MeetUpTitle size={'small'} text={summary.title} />
                     </Section>
                     <TextBox size={'small'} text={summary.contents} />
-
                     <Footer>
                         <MemberCount
                             type={'join'}

@@ -49,6 +49,8 @@ function FeedSummaryBox({
     heartsCount,
     createDt,
     updateDt,
+    refState,
+    setTarget,
 }) {
     const [isFilled, fillActions] = useBoolean()
     const [likeCount, setLikeCount] = useState(heartsCount?.length)
@@ -79,7 +81,7 @@ function FeedSummaryBox({
     }, [])
 
     return (
-        <Article>
+        <Article ref={refState ? setTarget : null}>
             <Header onClick={handleNavigate}>
                 <Container>
                     <UserProfile size={'big'} id={userId} />

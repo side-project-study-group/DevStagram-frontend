@@ -8,11 +8,16 @@ const Section = styled.section`
     box-sizing: border-box;
 `
 
-function MeetUpSummaryList({ summaries }) {
+function MeetUpSummaryList({ summaries, setTarget }) {
     return (
         <Section>
-            {summaries?.map((summary) => (
-                <MeetUpSummaryBox key={summary.id} summary={summary} />
+            {summaries?.map((summary, i) => (
+                <MeetUpSummaryBox
+                    key={summary.id}
+                    summary={summary}
+                    refState={summaries.length - 1 === i}
+                    setTarget={setTarget}
+                />
             ))}
         </Section>
     )

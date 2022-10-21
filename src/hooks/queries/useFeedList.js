@@ -1,11 +1,13 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import useInfiniteScroll from '../useInfiniteScroll'
 import useSearch from '../useSearch'
 
 function useFeedList() {
     const [data, setData] = useState(mock)
     const [feeds, setFeeds] = useState(data)
     const { handleKeyword, patterns, curKeyword, highlightValue } = useSearch()
+    const { page, setTarget } = useInfiniteScroll()
 
     const uri = `http://175.45.195.94:9999/api`
     const config = {
@@ -50,13 +52,13 @@ function useFeedList() {
     }, [patterns])
 
     useEffect(() => {
-        axios(`${uri}/posts/timeline?page=0&size=4`, config)
+        axios(`${uri}/posts/timeline?page=${page}&size=4`, config)
             .then((res) => setData(res.data._embedded.postsList))
             .catch(function (error) {
                 console.log('post-list======>', error)
             })
     }, [])
-    return { feeds, handleKeyword, curKeyword }
+    return { feeds, handleKeyword, curKeyword, setTarget }
 }
 
 export default useFeedList
