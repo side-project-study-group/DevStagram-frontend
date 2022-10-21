@@ -9,6 +9,7 @@ import UserProfile from '../../molecules/user-profile'
 import axios from 'axios'
 import CommentIconCount from '../../molecules/comment-icon-count'
 import useToggleLike from '../../../hooks/useToggleLike'
+import Carousel from '../../molecules/Carousel'
 
 const Article = styled.article`
     margin-bottom: 10px;
@@ -85,9 +86,12 @@ function FeedSummaryBox({
                     <DateText date={updateDt ? updateDt : createDt} />
                 </Container>
             </Header>
-            <TextBox handleClick={handleNavigate} size={'small'}>
-                {contents}
-            </TextBox>
+            <TextBox
+                handleClick={handleNavigate}
+                size={'small'}
+                text={contents}
+            />
+            <Carousel />
             <Footer>
                 <CommentIconCount count={commentCount} />
                 <LikeIconCount

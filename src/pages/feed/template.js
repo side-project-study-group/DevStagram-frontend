@@ -14,12 +14,12 @@ const Main = styled.main`
     height: 100%;
 `
 
-function FeedMainTemplate({ data }) {
+function FeedMainTemplate({ feeds, handleKeyword, curKeyword }) {
     const [isOpenPopUp, setIsOpenPopUp] = useState(false)
     return (
         <Main>
-            <SearchBar />
-            {data && <FeedList data={data} />}
+            <SearchBar handleKeyword={handleKeyword} curKeyword={curKeyword} />
+            {feeds && <FeedList data={feeds} />}
             {isOpenPopUp && <CreatePopUp />}
             <PlusButton
                 isOpenPopUp={isOpenPopUp}

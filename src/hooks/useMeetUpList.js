@@ -3,12 +3,10 @@ import { useEffect, useState } from 'react'
 import useSearch from './useSearch'
 
 function useMeetUpList() {
-    const [initSummaries, setInitSummaries] = useState(mock)
+    const [data, setData] = useState(mock)
     const [summaries, setSummaries] = useState(mock)
     const [category, setCategory] = useState('all')
-    const [cur, setCur] = useState('')
-    const [prev, setPrev] = useState('')
-    const { createFuzzyMatcher, getFinalConstantVowel } = useSearch()
+    const { handleKeyword, patterns, curKeyword, highlightValue } = useSearch()
     const uri = `http://175.45.195.94:9999/api/`
 
     function filterCategory(e) {
@@ -16,43 +14,61 @@ function useMeetUpList() {
         setCategory(name)
     }
 
-    const handleSearch = (e) => {
-        setPrev(cur)
-        const { value } = e.target
-        setCur(value)
-        let searchedValue = initSummaries?.filter(
+    useEffect(() => {
+        const { curPattern, prevPattern } = patterns
+        let idArr = []
+        let curData = data
+            .filter(
+                ({ title, contents }) =>
+                    curPattern?.test(title) || curPattern?.test(contents)
+            )
+            .map((el) => {
+                idArr.push(el.id)
+                let { title, contents } = el
+                el.distance = 0
+                el.title = highlightValue(title, curPattern, el)
+                el.contents = highlightValue(contents, curPattern, el)
+                return el
+            })
+        let prevData = data.filter(
             ({ title, contents }) =>
-                createFuzzyMatcher(value).test(title) ||
-                createFuzzyMatcher(value).test(contents)
+                prevPattern.test(title) || prevPattern.test(contents)
         )
-        let searchedValue2 = initSummaries?.filter(
-            ({ title, contents }) =>
-                createFuzzyMatcher(
-                    `${prev}${getFinalConstantVowel(value)}`
-                ).test(title) ||
-                createFuzzyMatcher(
-                    `${prev}${getFinalConstantVowel(value)}`
-                ).test(contents)
-        )
+        prevData =
+            prevData.length < data.length
+                ? prevData
+                      .filter(({ id }) => !idArr.includes(id))
+                      .map((el) => {
+                          let { title, contents } = el
+                          el.distance = 0
+                          el.title = highlightValue(title, prevPattern, el)
+                          el.contents = highlightValue(
+                              contents,
+                              prevPattern,
+                              el
+                          )
+                          return el
+                      })
+                : []
 
-        setSummaries(searchedValue.length > 0 ? searchedValue : searchedValue2)
-    }
+        setTimeout(() => {
+            const allData = [...curData, ...prevData]
+            const sortData = allData.sort((a, b) => a.distance - b.distance)
+            setSummaries(sortData)
+        })
+    }, [patterns])
 
     useEffect(() => {
         axios(`${uri}meetup/read/getMeetUpSummaries/${category}?page=0&size=4`)
             .then((res) => {
-                if (category === 'all') {
-                    setInitSummaries(res.data._embedded.meetUpSummaryDtoList)
-                } else {
-                    setSummaries(res.data._embedded.meetUpSummaryDtoList)
-                }
+                setData(res.data._embedded.meetUpSummaryDtoList)
             })
             .catch(function (error) {
                 console.log('Meet Up List Error====>', error)
             })
     }, [category])
 
-    return { summaries, filterCategory, handleSearch }
+    return { summaries, filterCategory, handleKeyword, curKeyword }
 }
 
 export default useMeetUpList
