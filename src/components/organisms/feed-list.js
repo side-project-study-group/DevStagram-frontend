@@ -8,11 +8,18 @@ const Section = styled.section`
     box-sizing: border-box;
 `
 
-function FeedList({ data }) {
+function FeedList({ data, setTarget }) {
     return (
         <Section>
-            {data.map((feed) => {
-                return <FeedSummaryBox key={feed.id} {...feed} />
+            {data.map((feed, i) => {
+                return (
+                    <FeedSummaryBox
+                        key={feed.id}
+                        {...feed}
+                        refState={summaries.length - 1 === i}
+                        setTarget={setTarget}
+                    />
+                )
             })}
         </Section>
     )

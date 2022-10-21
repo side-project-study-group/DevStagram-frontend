@@ -1,15 +1,17 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import useInfiniteScroll from './useInfiniteScroll'
 import useSearch from './useSearch'
 
 function useMeetUpList() {
-    const [data, setData] = useState(mock)
-    const [summaries, setSummaries] = useState(mock)
+    const [data, setData] = useState([])
+    const [summaries, setSummaries] = useState([])
     const [category, setCategory] = useState('all')
     const { handleKeyword, patterns, curKeyword, highlightValue } = useSearch()
+    const { page, setTarget } = useInfiniteScroll(category)
     const uri = `http://175.45.195.94:9999/api/`
 
-    function filterCategory(e) {
+    function handleFilter(e) {
         const { name } = e.target
         setCategory(name)
     }
@@ -56,19 +58,21 @@ function useMeetUpList() {
             const sortData = allData.sort((a, b) => a.distance - b.distance)
             setSummaries(sortData)
         })
-    }, [patterns])
+    }, [patterns, data])
 
     useEffect(() => {
-        axios(`${uri}meetup/read/getMeetUpSummaries/${category}?page=0&size=4`)
+        axios(
+            `${uri}meetup/read/getMeetUpSummaries/${category}?page=${page}&size=6`
+        )
             .then((res) => {
-                setData(res.data._embedded.meetUpSummaryDtoList)
+                setData([...data, ...res.data._embedded.meetUpSummaryDtoList])
             })
             .catch(function (error) {
                 console.log('Meet Up List Error====>', error)
             })
-    }, [category])
+    }, [category, page])
 
-    return { summaries, filterCategory, handleKeyword, curKeyword }
+    return { summaries, handleFilter, handleKeyword, curKeyword, setTarget }
 }
 
 export default useMeetUpList

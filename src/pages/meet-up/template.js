@@ -21,6 +21,7 @@ function MeetUpMainTemp({
     handleFilter,
     handleKeyword,
     curKeyword,
+    setTarget,
 }) {
     const [isOpenPopUp, setIsOpenPopUp] = useState(false)
     // const isLogged = sessionStorage.getItem('token')
@@ -33,7 +34,10 @@ function MeetUpMainTemp({
                     curKeyword={curKeyword}
                 />
                 <MeetUpFilterBar handleFilter={handleFilter} />
-                <MeetUpSummaryList summaries={summaries} />
+                <MeetUpSummaryList
+                    summaries={summaries}
+                    setTarget={setTarget}
+                />
                 <PlusButton
                     isOpenPopUp={isOpenPopUp}
                     handleClick={() => setIsOpenPopUp(!isOpenPopUp)}
