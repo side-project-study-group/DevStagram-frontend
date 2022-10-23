@@ -10,9 +10,7 @@ function useInfiniteScroll(category) {
         }
     }, [])
 
-    useEffect(() => {
-        setPage(0)
-    }, [category])
+    const resetPage = () => setPage(0)
 
     useEffect(() => {
         const options = {
@@ -24,7 +22,7 @@ function useInfiniteScroll(category) {
         target && observer.observe(target)
     }, [handleIntersect, target])
 
-    return { page, setTarget }
+    return { page, setTarget, resetPage }
 }
 
 export default useInfiniteScroll

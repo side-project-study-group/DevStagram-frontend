@@ -16,7 +16,7 @@ function FeedList({ data, setTarget }) {
                     <FeedSummaryBox
                         key={feed.id}
                         {...feed}
-                        refState={summaries.length - 1 === i}
+                        refState={data.length - 1 === i}
                         setTarget={setTarget}
                     />
                 )
