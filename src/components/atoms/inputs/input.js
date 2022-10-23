@@ -9,18 +9,19 @@ const StyledInput = styled.input`
     color: rgba(65, 64, 66, 1);
     padding: 0 5px;
     box-sizing: border-box;
-    text-align: center;
+    text-align: ${(props) => props.textAlign};
     ::-webkit-inner-spin-button {
         opacity: 1;
     }
 `
 
-function Input({ name, type, width, handleChange, placeholder }) {
+function Input({ name, type, width, handleChange, placeholder, textAlign }) {
     return (
         <StyledInput
             name={name}
             type={type}
             width={width}
+            textAlign={textAlign}
             onChange={handleChange}
             placeholder={placeholder}
         />
