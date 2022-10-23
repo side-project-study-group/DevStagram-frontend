@@ -8,10 +8,11 @@ function useMeetUpList() {
     const [summaries, setSummaries] = useState([])
     const [category, setCategory] = useState('all')
     const { handleKeyword, patterns, curKeyword, highlightValue } = useSearch()
-    const { page, setTarget } = useInfiniteScroll(category)
+    const { page, setTarget, resetPage } = useInfiniteScroll(category)
     const uri = `http://175.45.195.94:9999/api/`
 
     function handleFilter(e) {
+        resetPage()
         const { name } = e.target
         setCategory(name)
     }
@@ -65,7 +66,12 @@ function useMeetUpList() {
             `${uri}meetup/read/getMeetUpSummaries/${category}?page=${page}&size=6`
         )
             .then((res) => {
-                setData([...data, ...res.data._embedded.meetUpSummaryDtoList])
+                page === 0
+                    ? setData(res.data._embedded.meetUpSummaryDtoList)
+                    : setData([
+                          ...data,
+                          ...res.data._embedded.meetUpSummaryDtoList,
+                      ])
             })
             .catch(function (error) {
                 console.log('Meet Up List Error====>', error)

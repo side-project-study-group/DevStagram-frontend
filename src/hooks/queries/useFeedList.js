@@ -4,7 +4,7 @@ import useInfiniteScroll from '../useInfiniteScroll'
 import useSearch from '../useSearch'
 
 function useFeedList() {
-    const [data, setData] = useState(mock)
+    const [data, setData] = useState([])
     const [feeds, setFeeds] = useState(data)
     const { handleKeyword, patterns, curKeyword, highlightValue } = useSearch()
     const { page, setTarget } = useInfiniteScroll()
@@ -13,7 +13,7 @@ function useFeedList() {
     const config = {
         headers: {
             Authorization:
-                'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MzBmNTMwNGM2ODU3MTE5M2MxZDhiNzIiLCJleHAiOjE2NjU3MjUxODAsImlhdCI6MTY2NTU1MjM4MCwiZW1haWwiOiJndWVzdDIyMkBnbWFpbC5jb20ifQ.H_9x_tPnWAuANhdlHnrjT2cZnb77OFwckRH4M4cCokfad6evjkiY2btBaWgIqPprZ_U-9e2ZI4NP8pRuN6iOsw',
+                'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MzBmNTMwNGM2ODU3MTE5M2MxZDhiNzIiLCJleHAiOjE2NjY2NjgxODIsImlhdCI6MTY2NjQ5NTM4MiwiZW1haWwiOiJndWVzdDIyMkBnbWFpbC5jb20ifQ.rPFFnjADE82a43GsYIpFE-lyaqI_UVAPA_CaJxRoYEUvlCk8iru1NWfog71AF2M7guGlO5fj9Lw58vskXy_0EQ',
         },
     }
 
@@ -49,7 +49,7 @@ function useFeedList() {
             const sortData = allData.sort((a, b) => a.distance - b.distance)
             setFeeds(sortData)
         })
-    }, [patterns])
+    }, [patterns, data])
 
     useEffect(() => {
         axios(`${uri}/posts/timeline?page=${page}&size=4`, config)

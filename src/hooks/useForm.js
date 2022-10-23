@@ -4,12 +4,8 @@ function useForm() {
     const [form, setForm] = useState({})
 
     const handleChange = (e) => {
-        const { name, value } = e.target
-        if (name === 'isOpenYn') {
-            setForm({ ...form, [name]: value === '오픈밋업' })
-        } else {
-            setForm({ ...form, [name]: value })
-        }
+        const { name, value: inputValue } = e.target
+        setForm({ ...form, [name]: inputValue.replace(/^\s/, '') })
     }
 
     const handleSubmit = (e) => e.preventDefault()
