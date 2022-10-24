@@ -61,7 +61,7 @@ const Container = styled.div`
 
 function MeetUpPost({ data, isOwned, handleBottomPopUp }) {
     const navigate = useNavigate()
-    console.log(data)
+
     return (
         data && (
             <Article>
@@ -77,8 +77,8 @@ function MeetUpPost({ data, isOwned, handleBottomPopUp }) {
                             <EditButton handleClick={handleBottomPopUp} />
                         )}
                     </Header>
-                    <MeetUpTitle size={'big'}>{data.title}</MeetUpTitle>
-                    <TextBox size={'big'}>{data.contents}</TextBox>
+                    <MeetUpTitle size={'big'} text={data.title} />
+                    <TextBox size={'big'} text={data.contents} />
                     <Footer
                         onClick={() =>
                             navigate('/member-management', {
