@@ -3,22 +3,9 @@ import { motion } from 'framer-motion'
 import OnePerson from '../../../../assets/icons/OnePerson.svg'
 import Delete from '../../../../assets/icons/Delete.svg'
 import Edit from '../../../../assets/icons/Edit.svg'
-import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import Sheet from 'react-modal-sheet'
 
-const Footer = styled(motion.footer)`
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-`
-const Container = styled.div`
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 0 10px;
-    box-sizing: border-box;
-`
-const BoxHead = styled.div`
+const SheetHead = styled(Sheet.Header)`
     width: 100%;
     height: 35px;
     background-color: #fad778;
@@ -26,7 +13,7 @@ const BoxHead = styled.div`
     border: 1.5px solid #414042;
     border-radius: 10px 10px 0 0;
 `
-const Box = styled.ul`
+const UL = styled.ul`
     width: 100%;
     box-sizing: border-box;
     background-color: #ffffff;
@@ -61,46 +48,49 @@ const variants = {
     closed: { y: 250 },
 }
 
-function BottomPopUp({ id = null, type, isOpen, popUpFunctions }) {
+function BottomPopUp({ id = null, type, isOpen, onClose, popUpFunctions }) {
     return (
-        <Footer
-            animate={isOpen ? 'open' : 'closed'}
-            variants={variants}
-            transition={{ y: { duration: 0.3 } }}
+        <Sheet
+            isOpen={isOpen}
+            onClose={onClose}
+            detent="content-height"
+            snapPoints={[600, 400, 100, 0]}
         >
-            <Container>
-                <BoxHead />
-                <Box>
-                    {type === 'meetUp' ? (
-                        <>
-                            <Li onClick={popUpFunctions?.handleMember}>
-                                <img src={OnePerson} />
-                                멤버 관리하기
-                            </Li>
-                            <Li onClick={popUpFunctions?.handleDelete}>
-                                <img src={Delete} />
-                                밋업 삭제하기
-                            </Li>
-                            <Li onClick={popUpFunctions?.handleModify}>
-                                <img src={Edit} />
-                                밋업 수정하기
-                            </Li>
-                        </>
-                    ) : (
-                        <>
-                            <Li onClick={popUpFunctions?.handleDelete}>
-                                <img src={Delete} />
-                                게시글 삭제하기
-                            </Li>
-                            <Li onClick={popUpFunctions?.handleModify}>
-                                <img src={Edit} />
-                                게시글 수정하기
-                            </Li>
-                        </>
-                    )}
-                </Box>
-            </Container>
-        </Footer>
+            <Sheet.Container>
+                <SheetHead />
+                <Sheet.Content>
+                    <UL>
+                        {type === 'meetUp' ? (
+                            <>
+                                <Li onClick={popUpFunctions?.handleMember}>
+                                    <img src={OnePerson} />
+                                    멤버 관리하기
+                                </Li>
+                                <Li onClick={popUpFunctions?.handleDelete}>
+                                    <img src={Delete} />
+                                    밋업 삭제하기
+                                </Li>
+                                <Li onClick={popUpFunctions?.handleModify}>
+                                    <img src={Edit} />
+                                    밋업 수정하기
+                                </Li>
+                            </>
+                        ) : (
+                            <>
+                                <Li onClick={popUpFunctions?.handleDelete}>
+                                    <img src={Delete} />
+                                    게시글 삭제하기
+                                </Li>
+                                <Li onClick={popUpFunctions?.handleModify}>
+                                    <img src={Edit} />
+                                    게시글 수정하기
+                                </Li>
+                            </>
+                        )}
+                    </UL>
+                </Sheet.Content>
+            </Sheet.Container>
+        </Sheet>
     )
 }
 
