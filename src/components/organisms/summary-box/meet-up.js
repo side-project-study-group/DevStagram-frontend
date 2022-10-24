@@ -58,7 +58,12 @@ function MeetUpSummaryBox({ summary, refState, setTarget }) {
         summary && (
             <Article
                 onClick={() => {
-                    navigate(`/meet-up/${summary.id}`)
+                    navigate(`/meet-up-detail`, {
+                        state: {
+                            api: summary._links.detail.href,
+                            id: summary.id,
+                        },
+                    })
                 }}
                 ref={refState ? setTarget : null}
             >

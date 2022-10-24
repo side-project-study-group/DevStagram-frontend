@@ -42,7 +42,7 @@ function Router() {
 
                 {/* meet-up */}
                 <Route path="/" element={<MeetUpMain />} />
-                <Route path="/meet-up/:id" element={<MeetUpDetail />} />
+                <Route path="/meet-up-detail" element={<MeetUpDetail />} />
                 <Route path="/meet-up-form" element={<MeetUpForm />} />
                 <Route
                     path="/member-management"
