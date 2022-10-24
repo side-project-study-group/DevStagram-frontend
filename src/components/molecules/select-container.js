@@ -11,7 +11,7 @@ const Container = styled.div`
     margin: 15px 0;
 `
 
-function SelectContainer({ label, options, name, width, handleChange }) {
+function SelectContainer({ label, options, name, width, value, handleChange }) {
     return (
         <Container width={width}>
             <Label label={label} />
@@ -19,6 +19,7 @@ function SelectContainer({ label, options, name, width, handleChange }) {
                 options={options}
                 width={width}
                 name={name}
+                value={value}
                 handleChange={handleChange}
             />
         </Container>

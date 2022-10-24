@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-function useMeetUpForm() {
+function useMeetUpForm(state) {
     const navigate = useNavigate()
 
     const isValid = (form) => {
@@ -23,7 +23,7 @@ function useMeetUpForm() {
         if (isValid(form)) {
             const uri = `http://175.45.195.94:9999/api/`
             axios
-                .post(`${uri}meetup/service/create`, form, {
+                .post(`${uri}meetup/service/${state}`, form, {
                     headers: {
                         Authorization:
                             'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MzBmNTMwNGM2ODU3MTE5M2MxZDhiNzIiLCJleHAiOjE2NjY2NjgxODIsImlhdCI6MTY2NjQ5NTM4MiwiZW1haWwiOiJndWVzdDIyMkBnbWFpbC5jb20ifQ.rPFFnjADE82a43GsYIpFE-lyaqI_UVAPA_CaJxRoYEUvlCk8iru1NWfog71AF2M7guGlO5fj9Lw58vskXy_0EQ',

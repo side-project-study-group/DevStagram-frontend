@@ -15,13 +15,22 @@ const StyledInput = styled.input`
     }
 `
 
-function Input({ name, type, width, handleChange, placeholder, textAlign }) {
+function Input({
+    name,
+    type,
+    value,
+    width,
+    handleChange,
+    placeholder,
+    textAlign,
+}) {
     return (
         <StyledInput
             name={name}
             type={type}
             width={width}
             textAlign={textAlign}
+            value={value}
             onChange={handleChange}
             placeholder={placeholder}
         />

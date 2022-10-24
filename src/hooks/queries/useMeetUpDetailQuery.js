@@ -1,11 +1,13 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 
-function useMeetUpDetail(id) {
+function useMeetUpDetailQuery() {
     const [detail, setDetail] = useState([])
     const [status, setStatus] = useState(mockStatus)
+    const { state } = useLocation()
 
-    const uri = `http://175.45.195.94:9999/api/`
+    const uri = `http://175.45.195.94:9999/api`
     const config = {
         headers: {
             Authorization:
@@ -13,22 +15,25 @@ function useMeetUpDetail(id) {
         },
     }
     useEffect(() => {
-        axios(`${uri}meetup/service/getMeetUpStatus?meetUpId=${id}`, config)
+        axios(
+            `${uri}/meetup/service/getMeetUpStatus?meetUpId=${state.id}`,
+            config
+        )
             .then((res) => setStatus(res?.data?.attribute?.result))
             .catch(function (error) {
                 console.log('error====>', error)
             })
-        axios(`${uri}meetup/read/getOneMeetUp?meetUpId=${id}`)
+        axios(state.api)
             .then((res) => setDetail(res?.data?.attribute?.result))
             .catch(function (error) {
                 console.log('meet-up-detail====>', error)
             })
     }, [])
 
-    return { id, detail, status }
+    return { detail, status }
 }
 
-export default useMeetUpDetail
+export default useMeetUpDetailQuery
 
 let mockStatus = 'UNRELATED'
 let mockDetail = {

@@ -17,6 +17,7 @@ function InputContainer({
     width,
     type = 'text',
     handleChange,
+    value,
     textAlign,
 }) {
     return (
@@ -27,6 +28,7 @@ function InputContainer({
                 width={width}
                 type={type}
                 textAlign={textAlign}
+                value={value}
                 handleChange={handleChange}
             />
         </Container>

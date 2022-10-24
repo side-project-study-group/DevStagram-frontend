@@ -18,7 +18,7 @@ function useMeetUpBottom(type, setIsOpenPopUp, status, data) {
     const handleDelete = () => setIsOpenPopUp(true)
     const handleModify = () =>
         (type === 'feed' && navigate('/feed-form')) ||
-        (type === 'meetUp' && navigate('/meet-up-form'))
+        (type === 'meetUp' && navigate('/meet-up-form', { state: { data } }))
     return { handleMember, handleDelete, handleModify }
 }
 
