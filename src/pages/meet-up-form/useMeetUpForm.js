@@ -19,7 +19,6 @@ function useMeetUpForm(state) {
 
     const handleForm = (form) => {
         if (form.isOpenYn === undefined) form.isOpenYn = true
-        console.log(isValid(form))
         if (isValid(form)) {
             const uri = `http://175.45.195.94:9999/api/`
             axios
