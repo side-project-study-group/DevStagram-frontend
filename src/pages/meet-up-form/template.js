@@ -52,7 +52,11 @@ function MeetUpFormTemp() {
                 />
                 <MeetUpContentContainer>
                     <Label label={'내용'} />
-                    <TextArea name={'contents'} handleChange={handleChange} />
+                    <TextArea
+                        name={'contents'}
+                        handleChange={handleChange}
+                        value={form.contents}
+                    />
                 </MeetUpContentContainer>
                 <SelectContainer
                     width={'20%'}

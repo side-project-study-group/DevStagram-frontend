@@ -4,31 +4,32 @@ import { useLocation } from 'react-router-dom'
 
 function useMeetUpDetailQuery() {
     const [detail, setDetail] = useState([])
-    const [status, setStatus] = useState(mockStatus)
+    const [status, setStatus] = useState('')
     const { state } = useLocation()
-
     const uri = `http://175.45.195.94:9999/api`
     const config = {
         headers: {
             Authorization:
-                'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MzBmNTMwNGM2ODU3MTE5M2MxZDhiNzIiLCJleHAiOjE2NjY2NjgxODIsImlhdCI6MTY2NjQ5NTM4MiwiZW1haWwiOiJndWVzdDIyMkBnbWFpbC5jb20ifQ.rPFFnjADE82a43GsYIpFE-lyaqI_UVAPA_CaJxRoYEUvlCk8iru1NWfog71AF2M7guGlO5fj9Lw58vskXy_0EQ',
+                'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MzBmNTMwNGM2ODU3MTE5M2MxZDhiNzIiLCJleHAiOjE2NjY3ODU0ODksImlhdCI6MTY2NjYxMjY4OSwiZW1haWwiOiJndWVzdDIyMkBnbWFpbC5jb20ifQ.NX8y0YuCOq21N9qjjLz1AtwVZXDkqEWgnoDupFuf6Z36kQ1tgv6Agf7qwNZYkxl_Sp4y0K9yhSi182qRyexcVg',
         },
     }
     useEffect(() => {
-        axios(
-            `${uri}/meetup/service/getMeetUpStatus?meetUpId=${state.id}`,
-            config
-        )
-            .then((res) => setStatus(res?.data?.attribute?.result))
-            .catch(function (error) {
-                console.log('error====>', error)
-            })
-        axios(state.api)
-            .then((res) => setDetail(res?.data?.attribute?.result))
-            .catch(function (error) {
-                console.log('meet-up-detail====>', error)
-            })
-    }, [])
+        if (state) {
+            axios(
+                `${uri}/meetup/service/getMeetUpStatus?meetUpId=${state.id}`,
+                config
+            )
+                .then((res) => setStatus(res.data.attribute.result))
+                .catch(function (error) {
+                    console.log('error====>', error)
+                })
+            axios(state.api)
+                .then((res) => setDetail(res?.data?.attribute?.result))
+                .catch(function (error) {
+                    console.log('meet-up-detail====>', error)
+                })
+        }
+    }, [state])
 
     return { detail, status }
 }
