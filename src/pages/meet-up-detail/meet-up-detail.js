@@ -5,6 +5,6 @@ import MeetUpDetailTemp from './meet-up-detail-templete'
 function MeetUpDetail() {
     const props = useMeetUpDetailQuery()
 
-    return props && <MeetUpDetailTemp {...props} />
+    return <MeetUpDetailTemp {...props} />
 }
 export default MeetUpDetail

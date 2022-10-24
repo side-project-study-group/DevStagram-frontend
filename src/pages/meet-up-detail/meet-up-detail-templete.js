@@ -19,7 +19,7 @@ const Main = styled.main`
 
 function MeetUpDetailTemp({ detail, status }) {
     const [isOpenPopUP, setIsOpenPopUp] = useState(false)
-    const [isBottomPopUP, setIsBottomPopUp] = useState(true)
+    const [isBottomPopUP, setIsBottomPopUp] = useState(false)
     const popUpFunctions = useMeetUpBottom(
         'meetUp',
         setIsOpenPopUp,
@@ -31,6 +31,7 @@ function MeetUpDetailTemp({ detail, status }) {
         status,
         setIsOpenPopUp
     )
+    const closeOpenPopUp = () => setIsBottomPopUp(false)
 
     return (
         <Main>
@@ -52,13 +53,13 @@ function MeetUpDetailTemp({ detail, status }) {
                     {popUpText}
                 </PopUp>
             )}
-            {isBottomPopUP && (
-                <BottomPopUp
-                    id={detail.id}
-                    type={'meetUp'}
-                    popUpFunctions={popUpFunctions}
-                />
-            )}
+            <BottomPopUp
+                id={detail.id}
+                type={'meetUp'}
+                isOpen={isBottomPopUP}
+                onClose={closeOpenPopUp}
+                popUpFunctions={popUpFunctions}
+            />
         </Main>
     )
 }

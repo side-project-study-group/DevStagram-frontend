@@ -16,13 +16,12 @@ function useForm() {
         const { name, value: inputValue } = e.target
         setForm({ ...form, [name]: inputValue.replace(/^\s/, '') })
     }
-
     const handleSubmit = (e) => e.preventDefault()
 
     useEffect(() => {
         if (location.state) {
             setState('update')
-            const data = location.state
+            const { data } = location.state
             setForm({
                 category: data.category,
                 title: data.title,

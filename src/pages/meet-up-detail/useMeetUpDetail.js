@@ -14,7 +14,7 @@ function useMeetUpDetail(detail, status, setIsOpenPopUp) {
                 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiI2MzBmNTMwNGM2ODU3MTE5M2MxZDhiNzIiLCJleHAiOjE2NjUxMDQ5NTAsImlhdCI6MTY2NDkzMjE1MCwiZW1haWwiOiJndWVzdDIyMkBnbWFpbC5jb20ifQ.5AggSnpnpTTPhgxBfJcPxI29JzAqQjBdTxGWKG4XBzhpwqzuRCOwU_bFhThbEnvBBN3VzQvy5Fz4_DZ6Ep_khg',
         },
     }
-    const initBody = { meetUpId: id }
+    const initBody = { meetUpId: detail.id }
     let closeBody = {
         id: detail.id,
         category: detail.category,
