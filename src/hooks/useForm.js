@@ -28,6 +28,8 @@ function useForm() {
                 contents: data.contents,
                 maxPeople: data.maxPeople,
                 isOpenYn: data.isOpenYn,
+                id: data.id,
+                isRecruiting: true,
             })
         }
     }, [])
