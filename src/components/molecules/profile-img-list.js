@@ -16,8 +16,10 @@ function ProfileImgList({ leaderId, imgs, size }) {
     const [emptyList, setEmptyList] = useState()
 
     useEffect(() => {
-        let arr = new Array(size - imgs?.length - 1).fill('')
-        setEmptyList(arr)
+        if (imgs) {
+            let arr = new Array(size - imgs?.length - 1).fill('')
+            setEmptyList(arr)
+        }
     }, [imgs])
 
     return (

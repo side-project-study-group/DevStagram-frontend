@@ -95,8 +95,8 @@ function MeetUpPost({ data, isOwned, handleBottomPopUp }) {
                         <FooterSection>
                             <MemberCount
                                 type={'join'}
-                                maxCount={data.maxPeople}
-                                count={data.memberId.length}
+                                maxCount={data?.maxPeople}
+                                count={data?.memberId?.length}
                             />
                             <ProfileImgList
                                 leaderId={data.leaderId}
@@ -106,7 +106,7 @@ function MeetUpPost({ data, isOwned, handleBottomPopUp }) {
                         </FooterSection>
                         <MemberCount
                             type={'pending'}
-                            count={data.pendingId.length}
+                            count={data?.pendingId?.length}
                         />
                     </Footer>
                 </Wrapper>
